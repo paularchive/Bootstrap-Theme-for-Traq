@@ -1,0 +1,52 @@
+<div class="usercp content">
+	<h2 id="page_title"><?php echo l('usercp'); ?></h2>
+</div>
+<?php echo View::render('usercp/_nav'); ?>
+<div class="usercp content">
+	<?php echo show_errors($user->errors); ?>
+	<form action="<?php echo Request::requestUri(); ?>" method="post">
+		<fieldset id="info" class="box">
+			<legend><?php echo l('information'); ?></legend>
+
+			<div class="tabular">
+				<div class="group">
+					<?php echo Form::label(l('name'), 'name'); ?>
+					<?php echo Form::text('name', array('value' => $user->name)); ?>
+				</div>
+				<div class="group">
+					<?php echo Form::label(l('email'), 'email'); ?>
+					<?php echo Form::text('email', array('value' => $user->email)); ?>
+				</div>
+				<div class="group">
+					<?php echo Form::label(l('api_key'), 'api_key'); ?>
+					<?php if ($user->api_key != null) { ?>
+						<?php echo Form::text('user_api_key', array('value' => $user->api_key, 'readonly' => true)); ?>
+					<?php } ?>
+					<?php echo HTML::link(l($user->api_key != null ? 'renew' : 'create'), 'usercp/create_api_key'); ?>
+				</div>
+				<?php FishHook::run('template:users/usercp/info'); ?>
+			</div>
+		</fieldset>
+
+		<fieldset id="options" class="box">
+			<legend><?php echo l('options'); ?></legend>
+			<div class="tabular">
+				<div class="group">
+					<?php echo Form::label(l('watch_my_new_tickets'), 'watch_my_new_tickets'); ?>
+					<?php echo Form::checkbox('watch_created_tickets', 1, array('checked' => $user->option('watch_created_tickets') ? true : false)); ?>
+				</div>
+				<div class="group">
+					<label><?php echo l('language'); ?></label>
+					<?php echo Form::select('locale', locale_select_options(), array('value' => ($user->locale != '') ? $user->locale : settings('locale'))); ?>
+				</div>
+			</div>
+		</fieldset>
+
+		<?php FishHook::run('template:users/usercp'); ?>
+
+		<div class="clearfix"></div>
+		<div class="actions">
+			<?php echo Form::submit(l('save')); ?>
+		</div>
+	</form>
+</div>
