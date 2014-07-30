@@ -11,34 +11,43 @@
 	
 	<div class="row">
 	
-		<div class="col-md-7">
+		<div class="col-md-5">
 			
-			<h3><?php echo l('tickets'); ?></h3>
 			<div class="panel panel-default">
-					
-				<div class="panel-body">	
-					<button class="btn btn-primary" href="#"><?php echo l('open'); ?> <span class="badge"><?php echo $tickets['open']; ?></span></button>
-					
-					<button class="btn btn-primary" href="#"><?php echo l('closed'); ?> <span class="badge"><?php echo $tickets['closed']; ?></span></button>
-
-					<button class="btn btn-primary" href="#"><?php echo l('total'); ?> <span class="badge"><?php echo $tickets['open'] + $tickets['closed']; ?></span></button>
+				
+				<div class="panel-heading">
+					<strong class="panel-title"><?php echo l('tickets'); ?></strong>
 				</div>
+				
+				<ul class="list-group">
+					<li class="list-group-item"><span class="badge"><?php echo $tickets['open']; ?></span><?php echo l('open'); ?></li>
+					<li class="list-group-item"><span class="badge"><?php echo $tickets['closed']; ?></span><?php echo l('closed'); ?></li>
+					<li class="list-group-item"><span class="badge"><?php echo $tickets['open'] + $tickets['closed']; ?></span><?php echo l('total'); ?></li>
+				</ul>
 					
 			</div>
 		
 		</div> <!-- END Collum md 6 -->
 
+		<div class="col-md-2"></div> <!-- Fixing Position -->
+		
 		<div class="col-md-5">
 			
-			<h3><?php echo l('users'); ?></h3>
-			<div class="box">
-				<dl>
-					<dt><?php echo l('total'); ?></dt>
-					<dd><?php echo $users; ?></dd>
-
-					<dt><?php echo l('newest'); ?></dt>
-					<dd><?php echo HTML::link($latest_user->username, $latest_user->href()); ?></dd>
-				</dl>
+			<div class="panel panel-default">
+				
+				<div class="panel-heading">
+					<strong class="panel-title"><?php echo l('users'); ?></strong>
+				</div>
+			
+				<ul class="list-group">
+					<li class="list-group-item"><span class="badge"><?php echo $users; ?></span><?php echo l('total'); ?></li>
+				</ul>
+				
+				<div class="panel-body">
+					<?php echo l('newest').":"; ?>
+					<?php echo HTML::link($latest_user->username, $latest_user->href()); ?>
+				</div>
+			
 			</div>
 		
 		</div> <!-- END Collum md 6 -->
