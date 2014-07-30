@@ -19,8 +19,8 @@
 		</ul>
 	</li>
 	<!--ul>
-		<?php //if (settings('site_name') !== '') { ?>
-		<li><a href="<?php //echo settings('site_url'); ?>"><?php //echo settings('site_name'); ?></a></li>
-		<?php //} ?>
-		<?php //if (Request::seg(0)) { ?><li><?php //echo HTML::link(settings('title'), '/'); ?></li><?php //} ?>
+		<?php if (settings('site_name') !== '') { ?>
+		<li><a href="<?php echo settings('site_url'); ?>"><?php echo settings('site_name'); ?></a></li>
+		<?php } ?>
+		<?php if (Request::seg(0)) { ?><li><?php echo HTML::link(settings('title'), '/'); ?></li><?php } ?>
 	</ul-->
