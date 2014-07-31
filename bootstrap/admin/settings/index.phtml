@@ -1,115 +1,168 @@
 <h2><?php echo l('settings'); ?></h2>
 <form class="form-horizontal" action="<?php echo Request::requestUri(); ?>" method="post" role="form">
 	<?php if (isset($errors)) { show_errors($errors); } ?>
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<strong><?php echo l('traq'); ?></strong>
+	<div class="panel-group" id="accordion">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<strong class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><?php echo l('traq'); ?></a></strong>
+			</div>
+			<div id="collapse1" class="panel-collapse collapse in">
+				<div class="panel-body">	
+					<div class="form-group">
+						<label for="settings_title" class="col-sm-2 control-label"><?php echo l('traq_title'); ?></label>
+						<div class="col-sm-10">
+							<?php echo Form::text('settings[title]', array('value' => settings('title'), 'class' => "form-control", 'id' => "settings_title")); ?>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="settings_locale" class="col-sm-2 control-label"><?php echo l('default_language'); ?></label>
+						<div class="col-sm-10">
+							<?php echo Form::select('settings[locale]', locale_select_options(), array('value' => settings('locale'), 'class' => "form-control", 'id' => "settings_locale")); ?>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="settings_theme" class="col-sm-2 control-label"><?php echo l('theme'); ?></label>
+						<div class="col-sm-10">
+							<?php echo Form::select('settings[theme]', theme_select_options(), array('value' => settings('theme'), 'class' => "form-control", 'id' => "settings_theme")); ?>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="panel-body">	
-			<div class="form-group">
-				<label for="settings_title" class="col-sm-2 control-label"><?php echo l('traq_title'); ?></label>
-				<div class="col-sm-10">
-					<?php echo Form::text('settings[title]', array('value' => settings('title'), 'class' => "form-control", 'id' => "settings_title")); ?>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<strong class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><?php echo l('settings.site.legend'); ?></a></strong>
+			</div>
+			<div id="collapse2" class="panel-collapse collapse">
+				<div class="panel-body">	
+					<div class="form-group">
+						<label for="settings_sitename" class="col-sm-2 control-label"><?php echo l('settings.site.name'); ?></label>
+						<div class="col-sm-10">	
+							<?php echo Form::text('settings[site_name]', array('value' => settings('site_name'), 'class' => "form-control", 'id' => "settings_sitename")); ?>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="settings_sitename" class="col-sm-2 control-label"><?php echo l('settings.site.url'); ?></label>
+						<div class="col-sm-10">	
+							<?php echo Form::text('settings[site_url]', array('value' => settings('site_url'), 'class' => "form-control", 'id' => "settings_siteurl")); ?>
+						</div>
+					</div>
 				</div>
 			</div>
-			
-			<div class="form-group">
-				<label for="settings_locale" class="col-sm-2 control-label"><?php echo l('default_language'); ?></label>
-				<div class="col-sm-10">
-					<?php echo Form::select('settings[locale]', locale_select_options(), array('value' => settings('locale'), 'class' => "form-control", 'id' => "settings_locale")); ?>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<strong class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><?php echo l('users'); ?></a></strong>
+			</div>
+			<div id="collapse3" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="form-group">
+						<label for="settings_allowreg" class="col-sm-2 control-label"><?php echo l('allow_registration'); ?></label>
+						<div class="col-sm-10">
+							<?php echo Form::select('settings[allow_registration]',
+								array(array('label' => l('yes'), 'value' => 1), array('label' => l('no'), 'value' => 0)),
+								array('value' => settings('allow_registration'), 'class' => "form-control", 'id' => "settings_allowreg")
+								);
+							?>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="settings_emailval" class="col-sm-2 control-label"><?php echo l('email_validation'); ?></label>
+						<div class="col-sm-10">
+							<?php echo Form::select('settings[email_validation]',
+								array(array('label' => l('yes'), 'value' => 1), array('label' => l('no'), 'value' => 0)),
+								array('value' => settings('email_validation'), 'class' => "form-control", 'id' => "settings_emailval")
+								);
+							?>
+						</div>
+					</div>
 				</div>
 			</div>
-			
-			<div class="form-group">
-				<label for="settings_theme" class="col-sm-2 control-label"><?php echo l('theme'); ?></label>
-				<div class="col-sm-10">
-					<?php echo Form::select('settings[theme]', theme_select_options(), array('value' => settings('theme'), 'class' => "form-control", 'id' => "settings_theme")); ?>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<strong class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse4"><?php echo l('date_and_time'); ?></a></strong>
+			</div>
+			<div id="collapse4" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="form-group">
+						<label for="settings_datetime" class="col-sm-2 control-label"><?php echo l('date_time_format'); ?></label>
+						<div class="col-sm-10">
+							<?php echo Form::text('settings[date_time_format]', array('value' => settings('date_time_format'), 'class' => "form-control", 'id' => "settings_datetime")); ?>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="settings_dateformat" class="col-sm-2 control-label"><?php echo l('date_format'); ?></label>
+						<div class="col-sm-10">
+							<?php echo Form::text('settings[date_format]', array('value' => settings('date_format'), 'class' => "form-control", 'id' => "settings_dateformat")); ?>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="settings_timelineday" class="col-sm-2 control-label"><?php echo l('timeline_day_format'); ?></label>
+						<div class="col-sm-10">
+							<?php echo Form::text('settings[timeline_day_format]', array('value' => settings('timeline_day_format'), 'class' => "form-control", 'id' => "settings_timelineday")); ?>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="settings_timelinetime" class="col-sm-2 control-label"><?php echo l('timeline_time_format'); ?></label>
+						<div class="col-sm-10">
+							<?php echo Form::text('settings[timeline_time_format]', array('value' => settings('timeline_time_format'), 'class' => "form-control", 'id' => "settings_timelinetime")); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<strong class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse5"><?php echo l('notifications'); ?></a></strong>
+			</div>
+			<div id="collapse5" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="form-group">
+						<label for="settings_notification" class="col-sm-2 control-label"><?php echo l('notifications_from_email'); ?></label>
+						<div class="col-sm-10">
+							<?php echo Form::text('settings[notification_from_email]', array('value' => settings('notification_from_email'), 'class' => "form-control", 'id' => "settings_notification")); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<strong class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse6"><?php echo l('tickets'); ?></a></strong>
+			</div>
+			<div id="collapse6" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="form-group">
+						<label for="settings_tickethistory" class="col-sm-2 control-label"><?php echo l('ticket_history_sorting'); ?></label>
+						<div class="col-sm-10">	
+							<?php echo Form::select('settings[ticket_history_sorting]', ticket_history_sorting_options(), array('value' => settings('ticket_history_sorting'), 'class' => "form-control", 'id' => "settings_tickethistory")); ?>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="settings_tickedcreate" class="col-sm-2 control-label"><?php echo l('ticket_creation_delay'); ?></label>
+						<div class="col-sm-10">	
+							<?php echo Form::text('settings[ticket_creation_delay]', array('value' => settings('ticket_creation_delay'), 'class' => "form-control", 'id' => "settings_tickedcreate")); ?>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<strong><?php echo l('settings.site.legend'); ?></strong>
-		</div>
-		<div class="panel-body">	
-			<div class="form-group">
-				<label for="settings_sitename" class="col-sm-2 control-label"><?php echo l('settings.site.name'); ?></label>
-				<div class="col-sm-10">	
-					<?php echo Form::text('settings[site_name]', array('value' => settings('site_name'), 'class' => "form-control", 'id' => "settings_sitename")); ?>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="settings_sitename" class="col-sm-2 control-label"><?php echo l('settings.site.url'); ?></label>
-				<div class="col-sm-10">	
-					<?php echo Form::text('settings[site_url]', array('value' => settings('site_url'), 'class' => "form-control", 'id' => "settings_siteurl")); ?>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<fieldset class="tabular section box">
-		<legend><?php echo l('users'); ?></legend>
-		<div class="group">
-			<label><?php echo l('allow_registration'); ?></label>
-			<?php echo Form::select('settings[allow_registration]',
-				array(array('label' => l('yes'), 'value' => 1), array('label' => l('no'), 'value' => 0)),
-				array('value' => settings('allow_registration'))
-				);
-			?>
-		</div>
-		<div class="group">
-			<label><?php echo l('email_validation'); ?></label>
-			<?php echo Form::select('settings[email_validation]',
-				array(array('label' => l('yes'), 'value' => 1), array('label' => l('no'), 'value' => 0)),
-				array('value' => settings('email_validation'))
-				);
-			?>
-		</div>
-	</fieldset>
-
-	<fieldset class="tabular section box">
-		<legend><?php echo l('date_and_time'); ?></legend>
-		<div class="group">
-			<label><?php echo l('date_time_format'); ?></label>
-			<?php echo Form::text('settings[date_time_format]', array('value' => settings('date_time_format'))); ?>
-		</div>
-		<div class="group">
-			<label><?php echo l('date_format'); ?></label>
-			<?php echo Form::text('settings[date_format]', array('value' => settings('date_format'))); ?>
-		</div>
-		<div class="group">
-			<label><?php echo l('timeline_day_format'); ?></label>
-			<?php echo Form::text('settings[timeline_day_format]', array('value' => settings('timeline_day_format'))); ?>
-		</div>
-		<div class="group">
-			<label><?php echo l('timeline_time_format'); ?></label>
-			<?php echo Form::text('settings[timeline_time_format]', array('value' => settings('timeline_time_format'))); ?>
-		</div>
-	</fieldset>
-
-	<fieldset class="tabular section box">
-		<legend><?php echo l('notifications'); ?></legend>
-		<div class="group">
-			<label><?php echo l('notifications_from_email'); ?></label>
-			<?php echo Form::text('settings[notification_from_email]', array('value' => settings('notification_from_email'))); ?>
-		</div>
-	</fieldset>
-
-	<fieldset class="tabular section box">
-		<legend><?php echo l('tickets'); ?></legend>
-		<div class="group">
-			<label><?php echo l('ticket_history_sorting'); ?></label>
-			<?php echo Form::select('settings[ticket_history_sorting]', ticket_history_sorting_options(), array('value' => settings('ticket_history_sorting'))); ?>
-		</div>
-		<div class="group">
-			<label><?php echo l('ticket_creation_delay'); ?></label>
-			<?php echo Form::text('settings[ticket_creation_delay]', array('value' => settings('ticket_creation_delay'))); ?> <abbr title="<?php echo l('help.ticket_creation_delay'); ?>">?</abbr>
-		</div>
-	</fieldset>
-
-	<div class="actions">
-		<input type="submit" value="<?php echo l('save'); ?>" />
-	</div>
+	<center>
+		<input type="submit" style="width:150px;" class="btn btn-primary btn-lg btn-block" value="<?php echo l('save'); ?>" />
+	</center>
 </form>
