@@ -1,3 +1,6 @@
+<div class="row">
+<div class="col-md-1"></div>
+<div class="col-md-10">
 <div class="panel panel-default">
 	<div class="panel-heading">
 		<strong><?php echo l('register'); ?></strong>
@@ -31,12 +34,16 @@
 				</div>	
 			</div>
 			<?php FishHook::run('template:users/register'); ?>
-			<center>
+			<center><div class="btn-group">
 				<input type="submit" class="btn btn-primary" value="<?php echo l('register'); ?>" />
-			</center>
+				<?php echo HTML::link(l('cancel'), '/login', array('class' => 'btn btn-danger')); ?>
+			</div></center>
 		</form>
 <?php } else { ?>
 		<?php echo l('please_validate_your_account')?>
 <?php } ?>
 	</div>
+</div>
+</div>
+<div class="col-md-1"></div>
 </div>
