@@ -1,5 +1,5 @@
 	<li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-lg"></i> <span class="caret"></span></a>
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php if (LOGGEDIN) { echo ($user->name); } else { echo ('Not logged in'); } ?><i class="fa fa-user fa-lg"></i><span class="caret"></span></a>
 		<ul class="dropdown-menu" role="menu">
 			<?php FishHook::run('template:layouts/_meta_nav/user_nav'); ?>
 			<?php if (LOGGEDIN) { ?>
