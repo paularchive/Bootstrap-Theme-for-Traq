@@ -1,7 +1,9 @@
-<section id="login_form" class="tabular content">
-	<div class="push-6 span-11">
-		<h2 id="page_title"><?php echo l('login'); ?></h2>
-<?php if (!isset($validation_required)) { ?>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<strong><?php echo l('login'); ?></strong>
+	</div>
+	<div class="panel-body">
+	<?php if (!isset($validation_required)) { ?>
 		<?php if (isset($error) and $error) { ?>
 		<div class="error">
 			<?php echo l('errors.invalid_username_or_password'); ?>
@@ -12,28 +14,31 @@
 			<?php echo l('account_validated')?>
 		</div>
 		<?php } ?>
-		<form action="<?php echo Request::base('login'); ?>" method="post" class="box">
+		<form class="form-horizontal" role="form" action="<?php echo Request::base('login'); ?>" method="post" class="box">
 			<?php if (!empty($_SERVER['HTTP_REFERER']) or isset(Request::$post['redirect'])) { ?>
 			<input type="hidden" name="redirect" value="<?php echo (isset(Request::$post['redirect'])) ? Request::$post['redirect'] : $_SERVER['HTTP_REFERER']; ?>" />
 			<?php } ?>
-			<div class="group">
-				<label><?php echo l('username'); ?></label>
-				<?php echo Form::text('username'); ?>
+			<div class="form-group">
+				<label for="username" class="col-sm-2 control-label"><?php echo l('username'); ?></label>
+				<div class="col-sm-10">	
+					<?php echo Form::text('username', array('class' => "form-control", 'id' => "username")); ?>
+				</div>	
 			</div>
-			<div class="group">
-				<label><?php echo l('password'); ?></label>
-				<?php echo Form::password('password'); ?>
+			<div class="form-group">
+				<label for="password" class="col-sm-2 control-label"><?php echo l('password'); ?></label>
+				<div class="col-sm-10">	
+					<?php echo Form::password('password', array('class' => "form-control", 'id' => "password")); ?>
+				</div>	
 			</div>
-			<div class="group">
-				<input type="submit" value="<?php echo l('login'); ?>" />
-			</div>
+			<center><div class="btn-group">
+				<input type="submit" class="btn btn-primary" value="<?php echo l('login'); ?>" />
+				<?php echo HTML::link(l('forgot_password'), '/login/resetpassword', array('class' => 'btn btn-warning')); ?>
+			</div></center>
 		</form>
-		<?php echo HTML::link(l('forgot_password'), '/login/resetpassword'); ?>
 <?php } else { ?>
 		<div class="error">
 			<?php echo l('errors.email_validation_required')?>
 		</div>
 <?php } ?>
 	</div>
-	<div class="clearfix"></div>
-</section>
+</div>

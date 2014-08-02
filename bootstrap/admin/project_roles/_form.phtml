@@ -1,12 +1,20 @@
-<div class="group">
-	<label><?php echo l('name'); ?></label>
-	<?php echo Form::text('name', array('value' => $role->name)); ?>
+<div class="form-group">
+	<label for="name" class="col-sm-2 control-label"><?php echo l('name'); ?></label>
+	<div class="col-sm-10">	
+		<?php echo Form::text('name', array('value' => $role->name, 'class' => "form-control", 'id' => "name")); ?>
+	</div>	
 </div>
-<div class="group">
-	<?php echo Form::label(l('assignable'), 'assignable'); ?>
-	<?php echo Form::checkbox('assignable', 1, array('checked' => $role->assignable)); ?>
+<div class="form-group">
+	<label for="project" class="col-sm-2 control-label"> <?php echo l('project'); ?></label>
+	<div class="col-sm-10">	
+		<?php echo Form::select('project', array_merge(array(array('label' => l('all'), 'value' => 0)), traq\models\Project::select_options()), array('value' => $role->project_id, 'class' => "form-control", 'id' => "project")); ?>
+	</div>
 </div>
-<div class="group">
-	<?php echo Form::label(l('project'), 'project'); ?>
-	<?php echo Form::select('project', array_merge(array(array('label' => l('all'), 'value' => 0)), traq\models\Project::select_options()), array('value' => $role->project_id)); ?>
+<div class="form-group">
+	<label for="assignable" class="col-sm-2 control-label"><?php echo l('assignable'); ?></label>
+	<div class="col-sm-10">
+		<div class="checkbox">	
+			<?php echo Form::checkbox('assignable', 1, array('checked' => $role->assignable, 'style' => "margin-left:0px !important;")); ?>
+		</div>
+	</div>
 </div>
