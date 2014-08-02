@@ -14,7 +14,7 @@
 			<?php echo l('account_validated')?>
 		</div>
 		<?php } ?>
-		<form class="form-horizontal" role="form" action="<?php echo Request::base('login'); ?>" method="post" class="box">
+		<form class="form-horizontal" role="form" action="<?php echo Request::base('login'); ?>" method="post">
 			<?php if (!empty($_SERVER['HTTP_REFERER']) or isset(Request::$post['redirect'])) { ?>
 			<input type="hidden" name="redirect" value="<?php echo (isset(Request::$post['redirect'])) ? Request::$post['redirect'] : $_SERVER['HTTP_REFERER']; ?>" />
 			<?php } ?>

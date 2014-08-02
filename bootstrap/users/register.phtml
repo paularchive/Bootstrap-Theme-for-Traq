@@ -1,35 +1,42 @@
-<section id="register_form" class="tabular content">
-	<div class="push-6 span-11">
-		<h2 id="page_title"><?php echo l('register'); ?></h2>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<strong><?php echo l('register'); ?></strong>
+	</div>
+	<div class="panel-body">
 <?php if (!$validation_required) { ?>
 		<?php if (isset($user)) { echo show_errors($user->errors); } ?>
-		<form action="<?php echo Request::base('register'); ?>" method="post">
-			<div class="box">
-				<div class="group">
-					<label><?php echo l('username'); ?></label>
-					<?php echo Form::text('username', array('value' => $user->username)); ?>
-				</div>
-				<div class="group">
-					<label><?php echo l('name'); ?></label>
-					<?php echo Form::text('name', array('value' => $user->name)); ?>
-				</div>
-				<div class="group">
-					<label><?php echo l('password'); ?></label>
-					<?php echo Form::password('password'); ?>
-				</div>
-				<div class="group">
-					<label><?php echo l('email'); ?></label>
-					<?php echo Form::text('email', array('value' => $user->email)); ?>
-				</div>
+		<form class="form-horizontal" role="form" action="<?php echo Request::base('register'); ?>" method="post">
+			<div class="form-group">
+				<label for="username" class="col-sm-2 control-label"><?php echo l('username'); ?></label>
+				<div class="col-sm-10">	
+					<?php echo Form::text('username', array('class' => "form-control", 'id' => "username")); ?>
+				</div>	
+			</div>
+			<div class="form-group">
+				<label for="name" class="col-sm-2 control-label"><?php echo l('name'); ?></label>
+				<div class="col-sm-10">	
+					<?php echo Form::text('name', array('class' => "form-control", 'id' => "name")); ?>
+				</div>	
+			</div>
+			<div class="form-group">
+				<label for="password" class="col-sm-2 control-label"><?php echo l('password'); ?></label>
+				<div class="col-sm-10">	
+					<?php echo Form::password('password', array('class' => "form-control", 'id' => "password")); ?>
+				</div>	
+			</div>
+			<div class="form-group">
+				<label for="email" class="col-sm-2 control-label"><?php echo l('email'); ?></label>
+				<div class="col-sm-10">	
+					<?php echo Form::text('email', array('class' => "form-control", 'id' => "email")); ?>
+				</div>	
 			</div>
 			<?php FishHook::run('template:users/register'); ?>
-			<div class="actions">
-				<input type="submit" value="<?php echo l('register'); ?>" />
-			</div>
+			<center>
+				<input type="submit" class="btn btn-primary" value="<?php echo l('register'); ?>" />
+			</center>
 		</form>
 <?php } else { ?>
 		<?php echo l('please_validate_your_account')?>
 <?php } ?>
 	</div>
-	<div class="clearfix"></div>
-</section>
+</div>
