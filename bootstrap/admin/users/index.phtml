@@ -1,17 +1,17 @@
-<div class="well well-lg">
-	<?php echo HTML::link(l('new_user'), '/admin/users/new', array('class' => 'btn btn-primary')); ?>
+<div class="content">
+	<?php echo HTML::link(l('new_user'), '/admin/users/new', array('class' => 'btn btn-primary')) ; ?>
 	<table class="table table-hover">
 		<thead>
-			<tr>
-				<th><?php echo l('username'); ?></th>
-				<th><?php echo l('group'); ?></th>
-				<th><!--?php echo l('actions'); ?--></th>
-			</tr>
+			<th><?php echo l('username'); ?></th>
+			<th><?php echo l('name'); ?></th>			
+			<th><?php echo l('group'); ?></th>
+			<th><!--?php echo l('actions'); ?--></th>
 		</thead>
 		<tbody>
 		<?php foreach ($users as $user) { ?>
 			<tr>
 				<td><?php echo HTML::link($user->username, "/admin/users/{$user->id}/edit"); ?></td>
+				<td><?php echo $user->name; ?></td>
 				<td><?php echo $user->group->name; ?></td>
 				<td align="right">
 					<?php echo HTML::link(l('edit'), "/admin/users/{$user->id}/edit", array('class' => 'label label-warning')); ?>
