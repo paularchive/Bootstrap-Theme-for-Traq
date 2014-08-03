@@ -1,26 +1,26 @@
-<table class="admin projects list">
+<table class="table table-hover">
 	<thead>
 		<th class="fixed_name"><?php echo l('name'); ?></th>
-		<th class="fixed_author"><?php echo l('author'); ?></th>
-		<th class="fixed_version"><?php echo l('version'); ?></th>
-		<th class="actions"><?php echo l('actions'); ?></th>
+		<th><?php echo l('author'); ?></th>
+		<th><?php echo l('version'); ?></th>
+		<th><!--?php echo l('actions'); ?--></th>
 	</thead>
 	<tbody>
 	<?php foreach ($plugins as $plugin) { ?>
 		<tr>
 			<td><?php echo $plugin['name']; ?></td>
 			<td><?php echo $plugin['author'] ? $plugin['author'] : ''; ?></td>
-			<td><?php echo $plugin['version']; ?></td>
-			<td>
+			<td><span class="badge"><?php echo $plugin['version']; ?></td>
+			<td align="right">
 				<?php if ($plugin['installed'] and $plugin['enabled']) {
-					echo HTML::link(l('disable'), "/admin/plugins/disable/{$plugin['file']}", array('class' => 'btn_plugin_disable'));
+					echo HTML::link(l('disable'), "/admin/plugins/disable/{$plugin['file']}", array('class' => 'label label-warning'));
 				} elseif ($plugin['installed'] and !$plugin['enabled']) {
-					echo HTML::link(l('enable'), "/admin/plugins/enable/{$plugin['file']}", array('class' => 'btn_plugin_enable'));
+					echo HTML::link(l('enable'), "/admin/plugins/enable/{$plugin['file']}", array('class' => 'label label-success'));
 				} ?>
 				<?php if ($plugin['installed']) {
-					echo HTML::link(l('uninstall'), "/admin/plugins/uninstall/{$plugin['file']}", array('class' => 'btn_plugin_uninstall'));
+					echo HTML::link(l('uninstall'), "/admin/plugins/uninstall/{$plugin['file']}", array('class' => 'label label-danger'));
 				} else {
-					echo HTML::link(l('install'), "/admin/plugins/install/{$plugin['file']}", array('class' => 'btn_plugin_install'));
+					echo HTML::link(l('install'), "/admin/plugins/install/{$plugin['file']}", array('class' => 'label label-success'));
 				} ?>
 			</td>
 		</tr>
