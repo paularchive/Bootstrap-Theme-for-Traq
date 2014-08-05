@@ -10,4 +10,4 @@ This is a theme for the Traq bug tracker
 5. Push on save and there you go you completely installed the Bootstrap Theme
 
 #####Something you need to know:
-This project is currently in beta and alot of work has to be done!
+This project is currently in beta and a lot of work has to be done!
