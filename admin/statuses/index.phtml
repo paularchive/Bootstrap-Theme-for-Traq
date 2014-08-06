@@ -13,7 +13,7 @@
 		<?php foreach ($statuses as $status) { ?>
 			<tr>
 				<td><?php echo HTML::link($status->name, "/admin/tickets/statuses/{$status->id}/edit", array('data-overlay' => true)); ?></td>
-				<td><?php echo $status->status ?></td>	
+				<td><?php if($status->status == 1){ echo l('open'); }else{ echo l('closed'); } ?></td>	
 				<td><?php echo $status->changelog ? '&#10003;' : '&times;' ?></td>				
 				<td>
 					<?php echo HTML::link(l('edit'), "/admin/tickets/statuses/{$status->id}/edit", array('class' => 'label label-warning', 'data-overlay' => true)); ?>
