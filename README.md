@@ -2,6 +2,13 @@ Bootstrap Theme for Traq
 ===========
 This is a theme for the Traq bug tracker, remember before you can use this theme you need to install traq on your webserver
 
+>Requirements
+>------------
+>
+>- PHP 5.3+
+>- Database supported by PHP's PDO
+>- Apache mod_rewrite or properly configured NGiNX
+
 How to install it:
 ------------
 1. Download and install Traq on your webserver: http://traq.io
