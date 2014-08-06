@@ -5,7 +5,6 @@
 		<?php FishHook::run('template:layouts/admin/head'); ?>
 	</head>
 	<body>
-		<div id="overlay_blackout"></div>
 		<div id="overlay"></div>
 		<div id="popover" class="popover"></div>
 		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
@@ -23,7 +22,13 @@
 						
 					</button>
 					
-					<a class="navbar-brand" href="/admin">AdminCP</a>
+					<a href="#" class="navbar-brand dropdown-toggle" data-toggle="dropdown">AdminCP <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<?php if (settings('site_name') !== '') { ?>
+						<li><a href="<?php echo settings('site_url'); ?>"><?php echo settings('site_name'); ?></a></li>
+						<?php } ?>
+						<?php if (Request::seg(0)) { ?><li><?php echo HTML::link(settings('title'), '/'); ?></li><?php } ?>
+					</ul>
 					<?php //echo View::render('layouts/_project_switcher'); ?>
 					
 				</div>
