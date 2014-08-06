@@ -1,5 +1,0 @@
-language: php
-php:
-  - 5.3
-  
-script: phpunit --coverage-html /bootstrap
