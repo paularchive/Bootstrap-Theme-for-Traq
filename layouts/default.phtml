@@ -5,7 +5,6 @@
 		<?php FishHook::run('template:layouts/default/head'); ?>
 	</head>
 	<body>
-		<div id="overlay_blackout"></div>
 		<div id="overlay"></div>
 		<div id="popover" class="popover"></div>
 		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
@@ -23,7 +22,12 @@
 						
 					</button>
 					
-					<a class="navbar-brand" href="<?php if(isset($project)) { echo $project->slug; } else { echo '/'; }?>"><?php if(isset($project)) { echo $project->name; } else { echo settings('title'); } ?></a>
+					<a href="#" class="navbar-brand dropdown-toggle" data-toggle="dropdown"><?php if(isset($project)) { echo $project->name; } else { echo settings('title'); } ?> <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+					<?php foreach ($projects as $p) { ?>
+						<li><?php echo HTML::link($p->name, $p->href()); ?>
+					<?php } ?>
+					</ul>
 					<?php //echo View::render('layouts/_project_switcher'); ?>
 					
 				</div>
