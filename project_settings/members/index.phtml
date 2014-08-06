@@ -20,7 +20,7 @@
 </div>
 <div>
 	<form action="<?php echo Request::base($project->href("settings/members/save"));; ?>" method="post">
-		<table class="list">
+		<table class="table table-hover">
 			<thead>
 				<tr>
 					<th class="fixed_name"><?php echo l('username'); ?></th>
@@ -32,8 +32,8 @@
 			<?php foreach ($user_roles as $rel) { ?>
 				<tr>
 					<td><?php echo $rel->user->username; ?></td>
-					<td><?php echo Form::select("role[{$rel->id}]", traq\models\ProjectRole::select_options(), array('value' => $rel->project_role_id)); ?></td>
-					<td><?php echo HTML::link(l('delete'), $project->href("settings/members/{$rel->user_id}/delete"), array('class' => 'button_delete', 'data-confirm' => l('confirm.remove_x', $rel->user->username))); ?></td>
+					<td><?php echo Form::select("role[{$rel->id}]", traq\models\ProjectRole::select_options(), array('value' => $rel->project_role_id, 'class' => "form-control", 'id' => "group")); ?></td>
+					<td><?php echo HTML::link(l('delete'), $project->href("settings/members/{$rel->user_id}/delete"), array('class' => 'label label-danger', 'data-confirm' => l('confirm.remove_x', $rel->user->username))); ?></td>
 				</tr>
 			<?php } ?>
 			</tbody>

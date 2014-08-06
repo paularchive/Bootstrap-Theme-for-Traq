@@ -3,10 +3,10 @@
 </div>
 <?php echo View::render('project_settings/_nav'); ?>
 <div class="content">
-	<?php echo HTML::link(l('new_field'), "{$project->slug}/settings/custom_fields/new", array('class' => 'button_new', 'data-overlay' => true)); ?>
+	<?php echo HTML::link(l('new_field'), "{$project->slug}/settings/custom_fields/new", array('class' => 'btn btn-primary', 'data-overlay' => true)); ?>
 </div>
 <div>
-	<table class="list">
+	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th class="name"><?php echo l('name'); ?></th>
@@ -20,8 +20,8 @@
 				<td><?php echo HTML::link($field->name, "{$project->slug}/settings/custom_fields/{$field->id}/edit", array('data-overlay' => true)); ?></td>
 				<td><?php echo l($field->type); ?></td>
 				<td>
-					<?php echo HTML::link(l('edit'), "{$project->slug}/settings/custom_fields/{$field->id}/edit", array('class' => 'button_edit', 'data-overlay' => true)); ?>
-					<?php echo HTML::link(l('delete'), "{$project->slug}/settings/custom_fields/{$field->id}/delete", array('class' => 'button_delete', 'data-confirm' => l('confirm.delete_x', $field->name))); ?>
+					<?php echo HTML::link(l('edit'), "{$project->slug}/settings/custom_fields/{$field->id}/edit", array('class' => 'label label-warning', 'data-overlay' => true)); ?>
+					<?php echo HTML::link(l('delete'), "{$project->slug}/settings/custom_fields/{$field->id}/delete", array('class' => 'label label-danger', 'data-confirm' => l('confirm.delete_x', $field->name))); ?>
 				</td>
 			</tr>
 		<?php } ?>
