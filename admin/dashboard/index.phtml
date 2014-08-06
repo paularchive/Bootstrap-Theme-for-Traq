@@ -48,10 +48,22 @@
 					<?php echo HTML::link($latest_user->username, $latest_user->href()); ?>
 				</div>
 			
-			</div>
+			</div>	
+			
+		</div> <!-- END Collum md 6 -->	
 		
-		</div> <!-- END Collum md 6 -->
-	
 	</div>
-	
+	<div class="row">		
+		<div id="traq_news" class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<strong class="panel-title"><?php echo l('traq_news'); ?></strong>
+				</div>	
+				<ul></ul>
+				<div class="secure_alert">
+					<?php echo l('admin.news.secure_connection'); ?>
+				</div>
+			</div>	
+		</div>
+	</div>	
 </div>
