@@ -9,11 +9,11 @@
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<th class="fixed_name"><?php echo l('name'); ?></th>
-				<th class="codename"><?php echo l('codename'); ?></th>
-				<th class="due"><?php echo l('due'); ?></th>
-				<th class="status"><?php echo l('status'); ?></th>
-				<th class="actions"><?php echo l('actions'); ?></th>
+				<th><?php echo l('name'); ?></th>
+				<th><?php echo l('codename'); ?></th>
+				<th><?php echo l('due'); ?></th>
+				<th><?php echo l('status'); ?></th>
+				<th><!--?php echo l('actions'); ?--></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -27,7 +27,7 @@
 						echo l('completed');
 					} ?></td>
 				<td><?php echo $milestone->status == 0 ? l('cancelled') : ($milestone->status == 1 ? l('active') : l('completed')); ?></td>
-				<td>
+				<td align="right">
 					<?php echo HTML::link(l('edit'), "{$project->slug}/settings/milestones/{$milestone->id}/edit", array('class' => 'label label-warning', 'data-overlay' => true)); ?>
 					<?php echo HTML::link(l('delete'), "{$project->slug}/settings/milestones/{$milestone->id}/delete", array('class' => 'label label-danger', 'data-confirm' => l('confirm.delete_x', $milestone->name))); ?>
 				</td>
