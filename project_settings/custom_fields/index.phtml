@@ -11,7 +11,7 @@
 			<tr>
 				<th class="name"><?php echo l('name'); ?></th>
 				<th class="type"><?php echo l('type'); ?></th>
-				<th class="actions"><?php echo l('actions'); ?></th>
+				<!--<th class="actions"><?php //echo l('actions'); ?></th>-->
 			</tr>
 		</thead>
 		<tbody>
@@ -19,7 +19,7 @@
 			<tr>
 				<td><?php echo HTML::link($field->name, "{$project->slug}/settings/custom_fields/{$field->id}/edit", array('data-overlay' => true)); ?></td>
 				<td><?php echo l($field->type); ?></td>
-				<td>
+				<td align="right">
 					<?php echo HTML::link(l('edit'), "{$project->slug}/settings/custom_fields/{$field->id}/edit", array('class' => 'label label-warning', 'data-overlay' => true)); ?>
 					<?php echo HTML::link(l('delete'), "{$project->slug}/settings/custom_fields/{$field->id}/delete", array('class' => 'label label-danger', 'data-confirm' => l('confirm.delete_x', $field->name))); ?>
 				</td>
