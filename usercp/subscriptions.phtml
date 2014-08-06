@@ -19,7 +19,7 @@
 		<?php } elseif ($sub->type == 'ticket') { ?>
 			<td><?php echo HTML::link($sub->object()->summary, $sub->object()->href()); ?></td>
 		<?php } ?>
-			<td align="right"><?php echo HTML::link(l('unsubscribe'), $sub->object()->href('unsubscribe'),array('class' => 'label label-warning')); ?></td>
+			<td align="right"><?php echo HTML::link(l('unsubscribe'), $sub->object()->href('unsubscribe'),array('class' => 'label label-danger')); ?></td>
 		</tr>
 	<?php } ?>
 	</tbody>
