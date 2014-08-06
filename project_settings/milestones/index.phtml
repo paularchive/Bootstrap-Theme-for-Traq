@@ -3,10 +3,10 @@
 </div>
 <?php echo View::render('project_settings/_nav'); ?>
 <div class="content">
-	<?php echo HTML::link(l('new_milestone'), "{$project->slug}/settings/milestones/new", array('class' => 'button_new', 'data-overlay' => true)); ?>
+	<?php echo HTML::link(l('new_milestone'), "{$project->slug}/settings/milestones/new", array('class' => 'btn btn-primary', 'data-overlay' => true)); ?>
 </div>
 <div>
-	<table class="list">
+	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th class="fixed_name"><?php echo l('name'); ?></th>
@@ -28,8 +28,8 @@
 					} ?></td>
 				<td><?php echo $milestone->status == 0 ? l('cancelled') : ($milestone->status == 1 ? l('active') : l('completed')); ?></td>
 				<td>
-					<?php echo HTML::link(l('edit'), "{$project->slug}/settings/milestones/{$milestone->id}/edit", array('class' => 'button_edit', 'data-overlay' => true)); ?>
-					<?php echo HTML::link(l('delete'), "{$project->slug}/settings/milestones/{$milestone->id}/delete", array('class' => 'button_delete', 'data-confirm' => l('confirm.delete_x', $milestone->name))); ?>
+					<?php echo HTML::link(l('edit'), "{$project->slug}/settings/milestones/{$milestone->id}/edit", array('class' => 'label label-warning', 'data-overlay' => true)); ?>
+					<?php echo HTML::link(l('delete'), "{$project->slug}/settings/milestones/{$milestone->id}/delete", array('class' => 'label label-danger', 'data-confirm' => l('confirm.delete_x', $milestone->name))); ?>
 				</td>
 			</tr>
 		<?php } ?>
