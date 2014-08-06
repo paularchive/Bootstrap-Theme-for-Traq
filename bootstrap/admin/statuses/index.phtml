@@ -4,6 +4,7 @@
 		<thead>
 			<tr>
 				<th><?php echo l('name'); ?></th>
+				<th><?php echo l('status'); ?></th>
 				<th><!--?php echo l('actions'); ?--></th>
 			</tr>
 		</thead>
@@ -11,6 +12,7 @@
 		<?php foreach ($statuses as $status) { ?>
 			<tr>
 				<td><?php echo HTML::link($status->name, "/admin/tickets/statuses/{$status->id}/edit", array('data-overlay' => true)); ?></td>
+				<td><?php if($status->status == 1){ echo l('open'); }else{ echo l('closed'); } ?></td>
 				<td align="right">
 					<?php echo HTML::link(l('edit'), "/admin/tickets/statuses/{$status->id}/edit", array('class' => 'label label-warning', 'data-overlay' => true)); ?>
 					<?php echo HTML::link(l('delete'), "/admin/tickets/statuses/{$status->id}/delete", array('class' => 'label label-danger', 'data-confirm' => l('confirm.delete_x', $status->name))); ?>

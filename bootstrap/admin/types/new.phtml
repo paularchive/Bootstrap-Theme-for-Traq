@@ -1,12 +1,18 @@
-<div class="content">
-	<h3><?php echo l('new_type'); ?></h3>
-	<form action="<?php echo Request::requestUri(); ?>" method="post">
-		<?php echo show_errors($type->errors); ?>
-		<div class="tabular box">
-			<?php echo View::render('admin/types/_form'); ?>
-		</div>
-		<div class="actions">
-			<input type="submit" value="<?php echo l('create'); ?>" />
-		</div>
-	</form>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<strong><?php echo l('new_type'); ?></strong>
+	</div>
+	
+	<div class="panel-body">
+		<form class="form-horizontal" role="form" action="<?php echo Request::requestUri(); ?>" method="post">
+			<?php echo show_errors($type->errors); ?>
+			<div class="tabular box">
+				<?php echo View::render('admin/types/_form'); ?>
+			</div>
+			<center><div class="btn-group">
+				<input type="submit" class="btn btn-primary" value="<?php echo l('create'); ?>" />
+				<?php echo HTML::link(l('cancel'), '/admin/types', array('class' => 'btn btn-danger')); ?>
+			</div></center>
+		</form>
+	</div>
 </div>

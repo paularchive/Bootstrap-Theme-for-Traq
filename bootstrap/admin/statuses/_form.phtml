@@ -1,19 +1,25 @@
-<div class="group">
-	<label><?php echo l('name'); ?></label>
-	<?php echo Form::text('name', array('value' => $status->name)); ?>
+<div class="form-group">
+	<label for="name" class="col-sm-2 control-label"><?php echo l('name'); ?></label>
+	<div class="col-sm-10">
+		<?php echo Form::text('name', array('value' => $status->name, 'class' => 'form-control', 'id' => 'name')); ?>
+	</div>
 </div>
-<div class="group">
-	<label><?php echo l('status'); ?></label>
-	<?php echo Form::select(
-		'status',
-		array(
-			array('value' => 1, 'label' => l('open')),
-			array('value' => 0, 'label' => l('closed'))
-		),
-		array('value' => $status->status)
-	); ?>
+<div class="form-group">
+	<label for="status" class="col-sm-2 control-label"><?php echo l('status'); ?></label>
+	<div class="col-sm-10">
+		<?php echo Form::select(
+			'status',
+			array(
+				array('value' => 1, 'label' => l('open')),
+				array('value' => 0, 'label' => l('closed'))
+			),
+			array('value' => $status->status, 'class' => 'form-control', 'id' => 'status')
+		); ?>
+	</div>
 </div>
-<div class="group">
-	<label><?php echo l('show_on_changelog'); ?></label>
-	<?php echo Form::checkbox('changelog', 1, array('checked' => $status->changelog)); ?>
+<div class="form-group">
+	<label for="checked" class="col-sm-2 control-label"><?php echo l('show_on_changelog'); ?></label>
+	<div class="col-sm-10">
+		<?php echo Form::checkbox('changelog', 1, array('checked' => $status->changelog, 'class' => 'checkbox', 'id' => 'checked')); ?>
+	</div>
 </div>

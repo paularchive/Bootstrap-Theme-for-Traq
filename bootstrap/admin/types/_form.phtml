@@ -1,16 +1,24 @@
-<div class="group">
-	<label><?php echo l('name'); ?></label>
-	<?php echo Form::text('name', array('value' => $type->name)); ?>
+<div class="form-group">
+	<label for="name" class="col-sm-2 control-label"><?php echo l('name'); ?></label>
+	<div class="col-sm-10">
+		<?php echo Form::text('name', array('value' => $type->name, 'class' => 'form-control', 'id' => 'name')); ?>
+	</div>
 </div>
-<div class="group">
-	<label><?php echo l('bullet'); ?></label>
-	<?php echo Form::text('bullet', array('value' => $type->bullet)); ?> <abbr title="<?php echo l('help.ticket_type_bullet'); ?>">?</abbr>
+<div class="form-group">
+	<label for="bullet" class="col-sm-2 control-label"><?php echo l('bullet'); ?></label>
+	<div class="col-sm-10">
+		<?php echo Form::text('bullet', array('value' => $type->bullet, 'class' => 'form-control', 'id' => 'bullet')); ?> <!--abbr title="<?php echo l('help.ticket_type_bullet'); ?>">?</abbr-->
+	</div>
 </div>
-<div class="group">
-	<label><?php echo l('show_on_changelog'); ?></label>
-	<?php echo Form::checkbox('changelog', 1, array('checked' => $type->changelog)); ?>
+<div class="form-group">
+	<label for="changelog" class="col-sm-2 control-label"><?php echo l('show_on_changelog'); ?></label>
+	<div class="col-sm-10">
+		<?php echo Form::checkbox('changelog', 1, array('checked' => $type->changelog, 'class' => 'checkbox', 'id' => 'changelog')); ?>
+	</div>
 </div>
-<div class="group">
-	<label><?php echo l('template'); ?></label>
-	<?php echo Form::textarea('template', array('value' => $type->template, 'class' => 'editor')); ?>
+<div class="form-group">
+	<label for="template" class="col-sm-2 control-label"><?php echo l('template'); ?></label>
+	<div class="col-sm-10">
+		<?php echo Form::textarea('template', array('value' => $type->template, 'class' => 'form-control', 'style' => "resize: vertical;", 'id' => 'template')); ?>
+	</div>
 </div>

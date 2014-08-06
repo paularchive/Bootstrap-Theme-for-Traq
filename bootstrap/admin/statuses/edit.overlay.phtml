@@ -1,11 +1,27 @@
-<h3><?php echo l('edit_status'); ?></h3>
-<form action="<?php echo Request::requestUri(); ?>" method="post" class="overlay_thin">
-	<?php echo show_errors($status->errors); ?>
-	<div class="tabular box">
-		<?php echo View::render('admin/statuses/_form'); ?>
-	</div>
-	<div class="actions">
-		<input type="submit" value="<?php echo l('save'); ?>" />
-		<input type="button" value="<?php echo l('cancel'); ?>" onclick="close_overlay();" />
-	</div>
+<script>
+$(document).ready(function(){
+  $('#myModal').modal('show')
+});
+</script>
+<form class="form-horizontal" role="form" action="<?php echo Request::requestUri(); ?>" method="post">
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="edit_status" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="edit_status"><?php echo l('edit_status'); ?></h4>
+				</div>
+				<div class="modal-body">
+					<?php echo show_errors($status->errors); ?>
+					<div class="tabular box">
+					<?php echo View::render('admin/statuses/_form'); ?>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal"><?php echo l('close'); ?></button>
+					<input type="submit" class="btn btn-primary" value="<?php echo l('save'); ?>" />
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 </form>
