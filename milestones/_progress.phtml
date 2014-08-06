@@ -1,6 +1,6 @@
 <div class="progress">
 	<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="<?php echo $milestone->ticket_count('closed_percent')?>" aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $milestone->ticket_count('closed_percent')?>%">
-		<span><?php echo $milestone->ticket_count('open_percent').'%'; ?></span>
+		<span><?php echo $milestone->ticket_count('closed_percent').'%'; ?></span>
 	</div>
 </div>
 <div class="btn-group">
