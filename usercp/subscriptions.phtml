@@ -2,7 +2,7 @@
 	<h2 id="page_title"><?php echo l('usercp'); ?></h2>
 </div>
 <?php echo View::render('usercp/_nav'); ?>
-<table class="list">
+<table class="table table-hover">
 	<thead>
 		<tr>
 			<th><?php echo l('type'); ?></th>
@@ -19,7 +19,7 @@
 		<?php } elseif ($sub->type == 'ticket') { ?>
 			<td><?php echo HTML::link($sub->object()->summary, $sub->object()->href()); ?></td>
 		<?php } ?>
-			<td><?php echo HTML::link(l('unsubscribe'), $sub->object()->href('unsubscribe')); ?></td>
+			<td align="right"><?php echo HTML::link(l('unsubscribe'), $sub->object()->href('unsubscribe'),array('class' => 'label label-warning')); ?></td>
 		</tr>
 	<?php } ?>
 	</tbody>
