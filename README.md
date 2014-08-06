@@ -1,13 +1,18 @@
 Bootstrap Theme for Traq
 ===========
-This is a theme for the Traq bug tracker
+This is a theme for the Traq bug tracker, remember before you can use this theme you need to install traq on your webserver
 
-#####How to install it:
+How to install it:
+------------
 1. Download and install Traq on your webserver: http://traq.io
-2. On your webserver go to path-to-traq/vendor/traq/views and place the bootstrap folder in there
-3. To enable it you have to login with your admin account and go to AdminCP
-4. Go to settings, theme and select Bootstrap(v0.x by P. Hobbel)
-5. Press on save and there you go you completely installed the Bootstrap Theme
+2. Go to path-to-traq/vendor/traq/views and make a folder called bootstrap
+3. Extract the .zip file and place all the files in Bootstrap-Theme-for-Traq-master into the bootstrap folder on your webserver
+4. Now you have to login in the AdminCP
+5. Go to settings and change the theme to Bootstrap(v0.x by P. Hobbel)
+6. Now save the settings and there you have it you successfully installed the Bootstrap Theme
 
-#####Something you need to know:
+Something you need to know:
+------------
 This project is currently in beta and a lot of work has to be done!
+
+If you want to test it go to: http://bugs.thealphacrew.tk and login with demo:demo
