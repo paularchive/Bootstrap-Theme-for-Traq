@@ -22,13 +22,15 @@
 						
 					</button>
 					
-					<a href="#" class="navbar-brand dropdown-toggle" data-toggle="dropdown">AdminCP <span class="caret"></span></a>
-					<ul class="dropdown-menu" role="menu">
-						<?php if (settings('site_name') !== '') { ?>
-						<li><a href="<?php echo settings('site_url'); ?>"><?php echo settings('site_name'); ?></a></li>
-						<?php } ?>
-						<?php if (Request::seg(0)) { ?><li><?php echo HTML::link(settings('title'), '/'); ?></li><?php } ?>
-					</ul>
+					<li class="dropdown nav navbar-nav">
+						<a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown">AdminCP <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<?php if (settings('site_name') !== '') { ?>
+							<li><a href="<?php echo settings('site_url'); ?>"><?php echo settings('site_name'); ?></a></li>
+							<?php } ?>
+							<?php if (Request::seg(0)) { ?><li><?php echo HTML::link(settings('title'), '/'); ?></li><?php } ?>
+						</ul>
+					</li>
 					<?php //echo View::render('layouts/_project_switcher'); ?>
 					
 				</div>
@@ -84,6 +86,24 @@
 				</div>
 				
 		</footer>
+		<!-- Start all javascript for a faster page load -->
+		<?php echo HTML::js_inc('//code.jquery.com/jquery-1.11.0.min.js'); ?>
+		<?php echo HTML::js_inc('//code.jquery.com/ui/1.11.0/jquery-ui.js'); ?>
+		<?php echo HTML::js_inc('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js'); ?>
+		<?php echo HTML::js_inc(Request::base() . 'js.php?js=all'); ?>
+		<?php echo HTML::js_inc(Request::base('_js')); ?>
+		<script>
+			// ADD SLIDEDOWN ANIMATION TO DROPDOWN //
+			$('.dropdown').on('show.bs.dropdown', function(e){
+				$(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+			});
+
+			// ADD SLIDEUP ANIMATION TO DROPDOWN //
+			$('.dropdown').on('hide.bs.dropdown', function(e){
+				$(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+			});
+		</script>
+		<!-- End of javascript start -->
 		<!-- <?php echo round((microtime(true) - START_TIME), 2); ?>s, <?php echo round((memory_get_peak_usage() - START_MEM) / pow(1024, 2), 3); ?>mb -->
 	</body>
 
