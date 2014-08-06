@@ -1,6 +1,16 @@
+<script>
+var bar = $('.progress-bar');
+$(function(){
+  $(bar).each(function(){
+    bar_width = $(this).attr('aria-valuenow');
+    $(this).width(bar_width + '%');
+  });
+});
+</script>
 <div class="progress">
-	<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="<?php echo $milestone->ticket_count('closed_percent')?>" aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $milestone->ticket_count('closed_percent')?>%">
-		<span><?php echo $milestone->ticket_count('closed_percent').'%'; ?></span>
+	<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="<?php echo $milestone->ticket_count('closed_percent')?>">
+		<?php echo $milestone->ticket_count('closed_percent').'%'; ?>
+		<span class="sr-only">20% Complete (success)</span>
 	</div>
 </div>
 <div class="btn-group">
