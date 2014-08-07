@@ -12,8 +12,8 @@
 			<div class="container-fluid">
 		
 				<div class="navbar-header">
-
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					
+					<button type="button" style="z-index:1;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 						
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
@@ -22,14 +22,14 @@
 						
 					</button>
 					
-					<div class="nav dropdown">
-						<a class="navbar-brand" data-toggle="dropdown" href="#"><?php if(isset($project)) { echo $project->name; } else { echo settings('title'); } ?> <span class="caret"></span></a>
+					<ul class="nav dropdown">
+						<a class="navbar-brand" style="" data-toggle="dropdown" href="#"><?php if(isset($project)) { echo $project->name; } else { echo settings('title'); } ?> <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<?php foreach ($projects as $p) { ?>
 								<li><?php echo HTML::link($p->name, $p->href()); ?></li>
 							<?php } ?>
 						</ul>
-					</div>
+					</ul>
 					<?php //echo View::render('layouts/_project_switcher'); ?>
 					
 				</div>

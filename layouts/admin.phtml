@@ -13,7 +13,7 @@
 		
 				<div class="navbar-header">
 
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<button type="button" style="z-index:1;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 						
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
@@ -22,7 +22,7 @@
 						
 					</button>
 						
-					<div class="nav dropdown">
+					<ul class="nav dropdown">
 						<a class="navbar-brand" data-toggle="dropdown" href="#">AdminCP <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<?php if (settings('site_name') !== '') { ?>
@@ -32,7 +32,7 @@
 								<li><?php echo HTML::link(settings('title'), '/'); ?></li>
 							<?php } ?>
 						</ul>
-					</div>
+					</ul>
 					<?php //echo View::render('layouts/_project_switcher'); ?>
 					
 				</div>
