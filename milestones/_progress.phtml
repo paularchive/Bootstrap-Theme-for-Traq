@@ -1,8 +1,11 @@
-<div class="progress">
+<!--div class="progress">
 	<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="<?php echo $milestone->ticket_count('closed_percent')?>">
 		<?php echo $milestone->ticket_count('closed_percent').'%'; ?>
 		<span class="sr-only">20% Complete (success)</span>
 	</div>
+</div-->
+<div class="progress">
+    <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" data-transitiongoal="<?php echo $milestone->ticket_count('closed_percent')?>"></div>
 </div>
 <div class="btn-group">
 	<a class="btn btn-primary" href="<?php echo "tickets/?milestone={$milestone->slug}&status=allclosed"; ?>">

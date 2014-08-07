@@ -5,6 +5,7 @@
 		<?php echo HTML::css_link('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'); ?>
 		<?php echo HTML::css_link('//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css'); ?>
 		<?php echo HTML::css_link('//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'); ?>
+		<link rel="stylesheet" href="<?php echo Request::base('vendor/traq/views/' . settings('theme') . '/css/animated-progressbar.css'); ?>" media="screen">
 		<style>
 			html {
 				position: relative;
@@ -12,13 +13,6 @@
 			}
 			body {
 				margin-bottom: 90px;
-			}
-			.progress-bar {
-				-webkit-transition: width 2s ease-out;
-				-moz-transition: width 2s ease-out;
-				-ms-transition: width 2s ease-out;
-				-o-transition: width 2s ease-out;
-				transition: width 2s ease-out;
 			}
 			footer {
 				position: absolute;
