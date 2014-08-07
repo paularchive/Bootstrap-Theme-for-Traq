@@ -22,14 +22,14 @@
 						
 					</button>
 					
-					<li class="dropdown nav navbar-nav">
-						<a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown"><?php if(isset($project)) { echo $project->name; } else { echo settings('title'); } ?> <span class="caret"></span></a>
+					<div class="nav dropdown">
+						<a class="navbar-brand" data-toggle="dropdown" href="#"><?php if(isset($project)) { echo $project->name; } else { echo settings('title'); } ?> <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-						<?php foreach ($projects as $p) { ?>
-							<li><?php echo HTML::link($p->name, $p->href()); ?>
-						<?php } ?>
+							<?php foreach ($projects as $p) { ?>
+								<li><?php echo HTML::link($p->name, $p->href()); ?></li>
+							<?php } ?>
 						</ul>
-					</li>
+					</div>
 					<?php //echo View::render('layouts/_project_switcher'); ?>
 					
 				</div>

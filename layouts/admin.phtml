@@ -21,16 +21,18 @@
 						<span class="icon-bar"></span>
 						
 					</button>
-					
-					<li class="dropdown nav navbar-nav">
-						<a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown">AdminCP <span class="caret"></span></a>
+						
+					<div class="nav dropdown">
+						<a class="navbar-brand" data-toggle="dropdown" href="#">AdminCP <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<?php if (settings('site_name') !== '') { ?>
-							<li><a href="<?php echo settings('site_url'); ?>"><?php echo settings('site_name'); ?></a></li>
+								<li><a href="<?php echo settings('site_url'); ?>"><?php echo settings('site_name'); ?></a></li>
 							<?php } ?>
-							<?php if (Request::seg(0)) { ?><li><?php echo HTML::link(settings('title'), '/'); ?></li><?php } ?>
+							<?php if (Request::seg(0)) { ?>
+								<li><?php echo HTML::link(settings('title'), '/'); ?></li>
+							<?php } ?>
 						</ul>
-					</li>
+					</div>
 					<?php //echo View::render('layouts/_project_switcher'); ?>
 					
 				</div>
@@ -38,7 +40,7 @@
 				<div class="collapse navbar-collapse">
 				
 					<ul class="nav navbar-nav">
-						
+					
 						<li<?php echo iif(active_nav('/admin'), ' class="active"')?>><?php echo HTML::link(l('dashboard'), "/admin"); ?></li>
 						<li<?php echo iif(active_nav('/admin/settings(.*)'), ' class="active"')?>><?php echo HTML::link(l('settings'), "/admin/settings"); ?></li>
 						<li<?php echo iif(active_nav('/admin/projects(.*)'), ' class="active"')?>><?php echo HTML::link(l('projects'), "/admin/projects"); ?></li>
@@ -87,7 +89,6 @@
 				
 		</footer>
 		<!-- Start all javascript for a faster page load -->
-		<?php echo HTML::js_inc('//code.jquery.com/jquery-1.11.0.min.js'); ?>
 		<?php echo HTML::js_inc('//code.jquery.com/ui/1.11.0/jquery-ui.js'); ?>
 		<?php echo HTML::js_inc('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js'); ?>
 		<?php echo HTML::js_inc(Request::base() . 'js.php?js=all'); ?>
