@@ -2,7 +2,7 @@
 	<h2 id="page_title"><?php echo l('project_settings'); ?></h2>
 </div>
 <?php echo View::render('project_settings/_nav'); ?>
-<div class="content">
+<div class="toolbar">
 	<?php if (isset($errors)) { show_errors($errors); } ?>
 	<form action="<?php echo Request::base($project->href("settings/members/new")); ?>" method="post" class="horizontal">
 		<div class="group">

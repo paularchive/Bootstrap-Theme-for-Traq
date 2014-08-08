@@ -2,7 +2,7 @@
 	<h2 id="page_title"><?php echo l('project_settings'); ?></h2>
 </div>
 <?php echo View::render('project_settings/_nav'); ?>
-<div class="content">
+<div class="toolbar">
 	<form action="<?php echo Request::requestUri(); ?>" method="post">
 		<?php echo show_errors($proj->errors); ?>
 		<div class="tabular box">
