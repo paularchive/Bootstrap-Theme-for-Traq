@@ -12,7 +12,11 @@ body {
 .usercp {
 	margin-top: 15px;
 	margin-bottom: 15px;
-}				
+}		
+.wiki {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}			
 .fa-sort-asc {			
 	top:6px;
 	position :relative;				
