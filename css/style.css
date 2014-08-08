@@ -1,0 +1,44 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+body {
+	margin-bottom: 90px;
+}
+.toolbar {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}	
+.usercp {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}				
+.fa-sort-asc {			
+	top:6px;
+	position :relative;				
+}
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	color: #666;
+	background-color: #222;
+	padding: 17px 0 18px 0;
+	border-top: 1px solid #080808;
+}
+footer a {
+	color: #999;
+	text-decoration: none;
+}
+footer a:hover {
+	color: #efefef;
+	text-decoration: none;
+}
+footer a:active {
+	color: #efefef;
+	text-decoration: none;
+}
+.footer-right {
+	float: right!important;
+	/*margin-right: -15px;/*
+			}

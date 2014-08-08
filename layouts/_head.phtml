@@ -5,53 +5,9 @@
 		<?php echo HTML::css_link('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'); ?>
 		<?php echo HTML::css_link('//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css'); ?>
 		<?php echo HTML::css_link('//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'); ?>
+		<link rel="stylesheet" href="<?php echo Request::base('vendor/traq/views/' . settings('theme') . '/css/style.css'); ?>" media="screen">		
 		<link rel="stylesheet" href="<?php echo Request::base('vendor/traq/views/' . settings('theme') . '/css/animated-progressbar.css'); ?>" media="screen">
-		<style>
-			html {
-				position: relative;
-				min-height: 100%;
-			}
-			body {
-				margin-bottom: 90px;
-			}
-			.toolbar {
-				margin-top: 15px;
-				margin-bottom: 15px;
-			}	
-			.usercp {
-				margin-top: 15px;
-				margin-bottom: 15px;
-			}				
-			.fa-sort-asc {			
-				top:6px;
-				position :relative;				
-			}
-			footer {
-				position: absolute;
-				bottom: 0;
-				width: 100%;
-				color: #666;
-				background-color: #222;
-				padding: 17px 0 18px 0;
-				border-top: 1px solid #080808;
-			}
-			footer a {
-				color: #999;
-				text-decoration: none;
-			}
-			footer a:hover {
-				color: #efefef;
-				text-decoration: none;
-			}
-			footer a:active {
-				color: #efefef;
-				text-decoration: none;
-			}
-			.footer-right {
-				float: right!important;
-				/*margin-right: -15px;/*
-			}
-		</style>
+
 		<!--[if lt IE 8]>
 		<?php //echo HTML::css_link(Request::base() . 'css.php?css=ie'); ?>
 		<![endif]-->
