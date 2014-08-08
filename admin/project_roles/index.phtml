@@ -4,8 +4,8 @@
 		<thead>
 			<tr>
 				<th><?php echo l('name'); ?></th>
-				<th><?php echo l('assignable'); ?></th>
 				<th><?php echo l('project'); ?></th>
+				<th><?php echo l('assignable'); ?></th>				
 				<th><!--?php echo l('actions'); ?--></th>
 			</tr>
 		</thead>
@@ -13,8 +13,8 @@
 		<?php foreach ($roles as $role) { ?>
 			<tr>
 				<td><?php echo HTML::link($role->name, "/admin/roles/{$role->id}/edit", array('data-overlay' => true)); ?></td>
-				<td><?php echo $role->assignable ? '&#10003;' : '&times;' ?></td>
 				<td><?php echo $role->project_id > 0 ? $role->project->name : l('all'); ?></td>
+				<td><?php echo $role->assignable ? '&#10003;' : '&times;' ?></td>				
 				<td align="right">
 					<?php echo HTML::link(l('edit'), "/admin/roles/{$role->id}/edit", array('class' => 'label label-warning', 'data-overlay' => true)); ?>
 					<?php echo HTML::link(l('delete'), "/admin/roles/{$role->id}/delete", array('class' => 'label label-danger', 'data-confirm' => l('confirm.delete_x', $role->name))); ?>
