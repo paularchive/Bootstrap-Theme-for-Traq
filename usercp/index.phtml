@@ -22,7 +22,7 @@
 					<?php if ($user->api_key != null) { ?>
 						<?php echo Form::text('user_api_key', array('value' => $user->api_key, 'readonly' => true)); ?>
 					<?php } ?>
-					<?php echo HTML::link(l($user->api_key != null ? 'renew' : 'create'), 'usercp/create_api_key'); ?>
+					<?php echo HTML::link(l($user->api_key != null ? 'renew' : 'create'), 'usercp/create_api_key', array('class' => 'btn btn-warning')); ?>
 				</div>
 				<?php FishHook::run('template:users/usercp/info'); ?>
 			</div>
@@ -46,7 +46,7 @@
 
 		<div class="clearfix"></div>
 		<div class="actions">
-			<?php echo Form::submit(l('save')); ?>
+			<input type="submit" class="btn btn-primary" value="<?php echo l('save'); ?>" />
 		</div>
 	</form>
 </div>
