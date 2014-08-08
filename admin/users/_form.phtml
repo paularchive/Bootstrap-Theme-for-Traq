@@ -1,25 +1,25 @@
 <div class="form-group">
 	<label for="username" class="col-sm-2 control-label"><?php echo l('username'); ?></label>
 	<div class="col-sm-10">	
-		<?php echo Form::text('username', array('value' => $user->username, 'class' => "form-control", 'id' => "username")); ?>
+		<?php echo Form::text('username', array('value' => $user->username, 'class' => "form-control", 'id' => "username", 'required' => true)); ?>
 	</div>	
 </div>
 <div class="form-group">
 	<label for="name" class="col-sm-2 control-label"><?php echo l('name'); ?></label>
 	<div class="col-sm-10">	
-		<?php echo Form::text('name', array('value' => $user->name, 'class' => "form-control", 'id' => "name")); ?>
+		<?php echo Form::text('name', array('value' => $user->name, 'class' => "form-control", 'id' => "name", 'required' => true)); ?>
 	</div>	
 </div>
 <div class="form-group">
 	<label for="password" class="col-sm-2 control-label"><?php echo l('password'); ?></label>
 	<div class="col-sm-10">	
-		<?php echo Form::password('password', array('class' => "form-control", 'id' => "password")); ?>
+		<?php echo Form::password('password', array('class' => "form-control", 'id' => "password", 'required' => true)); ?>
 	</div>	
 </div>
 <div class="form-group">
 	<label for="email" class="col-sm-2 control-label"><?php echo l('email'); ?></label>
 	<div class="col-sm-10">	
-		<?php echo Form::text('email', array('value' => $user->email, 'class' => "form-control", 'id' => "email")); ?>
+		<?php echo Form::text('email', array('value' => $user->email, 'class' => "form-control", 'id' => "email", 'required' => true)); ?>
 	</div>	
 </div>
 <div class="form-group">

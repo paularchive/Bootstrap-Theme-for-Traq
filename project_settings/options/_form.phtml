@@ -1,33 +1,50 @@
-<div class="group">
-	<label><?php echo l('name'); ?></label>
-	<?php echo Form::text('name', array('value' => $proj->name)); ?>
+<div class="form-group">
+	<label for="name" class="col-sm-2 control-label"><?php echo l('name'); ?></label>
+	<div class="col-sm-10">
+		<?php echo Form::text('name', array('value' => $proj->name, 'class' => 'form-control', 'id' => 'name', 'required' => true)); ?>
+	</div>
 </div>
-<div class="group">
-	<label><?php echo l('slug'); ?></label>
-	<?php echo Form::text('slug', array('value' => $proj->slug)); ?> <abbr title="<?php echo l('help.slug'); ?>">?</abbr>
+<div class="form-group">
+	<label for="slug" class="col-sm-2 control-label"><?php echo l('slug'); ?></label>
+	<div class="col-sm-10">
+		<?php echo Form::text('slug', array('value' => $proj->slug, 'class' => 'form-control', 'id' => 'slug', 'required' => true)); ?><abbr title="<?php echo l('help.slug'); ?>">?</abbr>
+	</div>
 </div>
-<div class="group">
-	<label><?php echo l('codename'); ?></label>
-	<?php echo Form::text('codename', array('value' => $proj->codename)); ?>
+<div class="form-group">
+	<label for="codename" class="col-sm-2 control-label"><?php echo l('codename'); ?></label>
+	<div class="col-sm-10">
+		<?php echo Form::text('codename', array('value' => $proj->codename, 'class' => 'form-control', 'id' => 'codename')); ?>
+	</div>
 </div>
-<div class="group">
-	<label><?php echo l('description'); ?></label>
-	<?php echo Form::textarea('info', array('value' => $proj->info, 'class' => 'editor')); ?>
+<div class="form-group">
+	<label for="description" class="col-sm-2 control-label"><?php echo l('description'); ?></label>
+	<div class="col-sm-10">
+		<?php echo Form::textarea('info', array('value' => $proj->info, 'class' => 'form-control', 'id' => 'info')); ?>
+	</div>
 </div>
-<div class="group">
-	<label><?php echo l('enable_wiki'); ?></label>
-	<?php echo Form::checkbox('enable_wiki', 1, array('checked' => $proj->enable_wiki == 1 ? true : false)); ?> <?php echo Form::label(l('yes'), 'enable_wiki'); ?>
+<div class="form-group">
+	<label for="enable_wiki" class="col-sm-2 control-label"><?php echo l('enable_wiki'); ?></label>
+	<div class="checkbox">
+		<?php echo Form::checkbox('enable_wiki', 1, array('checked' => $proj->enable_wiki == 1 ? true : false, 'style' => "margin-left:0px !important;")); ?> <?php echo Form::label(l('yes'), 'enable_wiki'); ?>
+	</div>
 </div>
-<div class="group">
-	<label><?php echo l('display_order'); ?></label>
-	<?php echo Form::text('displayorder', array('value' => $proj->displayorder)); ?>
+<div class="form-group">
+	<label for="display_order" class="col-sm-2 control-label"><?php echo l('display_order'); ?></label>
+	<div class="col-sm-10">
+		<?php echo Form::text('display_order', array('value' => $proj->display_order, 'class' => 'form-control', 'id' => 'display_order')); ?>
+	</div>
 </div>
-<div class="group">
-	<label><?php echo l('default_ticket_type'); ?></label>
-	<?php echo Form::select('default_ticket_type_id', traq\models\Type::select_options(), array('value' => $proj->default_ticket_type_id)); ?>
+<div class="form-group">
+	<label for="default_ticket_type" class="col-sm-2 control-label"><?php echo l('default_ticket_type'); ?></label>
+	<div class="col-sm-10">
+		<?php echo Form::select('default_ticket_type_id', traq\models\Type::select_options(), array('value' => $proj->default_ticket_type_id, 'class' => 'form-control')); ?>
+	</div>
 </div>
-<div class="group">
-	<label><?php echo l('default_ticket_sorting'); ?></label>
-	<?php echo Form::select('default_ticket_sorting', ticket_sorting_select_options(), array('value' => $proj->default_ticket_sorting)); ?>
+<div class="form-group">
+	<label for="default_ticket_sorting" class="col-sm-2 control-label"><?php echo l('default_ticket_sorting'); ?></label>
+	<div class="col-sm-10">
+		<?php echo Form::select('default_ticket_sorting', ticket_sorting_select_options(), array('value' => $proj->default_ticket_sorting, 'class' => 'form-control')); ?>
+	</div>
 </div>
+
 <?php FishHook::run('template:projectsettings/options/_form', array($proj)); ?>
