@@ -8,7 +8,7 @@
 			echo HTML::link(l('move'), $ticket->href('move'), array('class' => 'button_move'));
 		} ?>
 	</div>
-	<h2 id="ticket_summary"><?php echo htmlspecialchars($ticket->summary); ?></h2>
+	<h2 id="page_title"><?php echo htmlspecialchars($ticket->summary); ?></h2>
 	<section class="properties">
 		<div class="property">
 			<?php echo Form::label(l('ticket_id')); ?>
@@ -90,7 +90,7 @@
 		<div class="clearfix"></div>
 	</section>
 	<section id="description">
-		<h3>
+		<h3 class="section_title">
 			<?php echo l('description'); ?>
 			<?php if ($current_user->permission($project->id, 'edit_ticket_description')) {
 				echo HTML::link('', $ticket->href() . '/edit', array('title' => l('edit_ticket'), 'data-overlay' => true, 'class' => 'button_edit'));
@@ -102,7 +102,7 @@
 	</section>
 	<?php if (is_array($ticket->tasks) and count($ticket->tasks)) { ?>
 	<section id="tasks">
-		<h3><?php echo l('tasks')?></h3>
+		<h3 class="section_title"><?php echo l('tasks')?></h3>
 		<ul>
 <?php foreach ($ticket->tasks as $id => $task) { ?>
 			<li class="task" id="task_<?php echo $id?>">
@@ -115,7 +115,7 @@
 	<?php } ?>
 	<?php if ($current_user->permission($ticket->project_id, 'view_attachments') and $attachments = $ticket->attachments->exec() and $attachments->row_count() > 0) { ?>
 	<section id="attachments">
-		<h3><?php echo l('attachments'); ?></h3>
+		<h3 class="section_title"><?php echo l('attachments'); ?></h3>
 		<ul>
 		<?php foreach ($attachments->fetch_all() as $attachment) { ?>
 			<li>
@@ -130,7 +130,7 @@
 	<?php } ?>
 </div>
 <div id="ticket_history">
-	<h3><?php echo l('ticket_history'); ?></h3>
+	<h3 class="section_title"><?php echo l('ticket_history'); ?></h3>
 <?php foreach ($ticket_history as $update) { ?>
 	<div class="update" id="ticket_update_<?php echo $update->id; ?>">
 		<h4>

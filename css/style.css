@@ -18,7 +18,7 @@ body {
 	position :relative;				
 }
 #page_title {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: bold;
 	color: #000000;
 	border-bottom: 1px solid #CCCCCC;
@@ -32,6 +32,14 @@ body {
 	border-bottom: 1px solid #CCCCCC;
 	margin-top: 0px;	
 	margin-bottom: 15px;		
+}
+.section_title {
+    font-size: 20px;
+    font-weight: bold;
+	color: #000000;
+	border-bottom: 1px solid #CCCCCC;
+	margin-top: 0px;	
+	margin-bottom: 15px;	
 }
 footer {
 	position: absolute;
