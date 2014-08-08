@@ -2,25 +2,27 @@
 	<h2 id="page_title"><?php echo l('usercp'); ?></h2>
 </div>
 <?php echo View::render('usercp/_nav'); ?>
-<table class="table table-hover">
-	<thead>
-		<tr>
-			<th><?php echo l('type'); ?></th>
-			<th><?php echo l('for'); ?></th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-	<?php foreach ($subscriptions as $sub) { ?>
-		<tr>
-			<td><?php echo l($sub->type); ?></td>
-		<?php if ($sub->type == 'project' or $sub->type == 'milestone') { ?>
-			<td><?php echo HTML::link($sub->object()->name, $sub->object()->href()); ?></td>
-		<?php } elseif ($sub->type == 'ticket') { ?>
-			<td><?php echo HTML::link($sub->object()->summary, $sub->object()->href()); ?></td>
+<div class="usercp subscription content">
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th><?php echo l('type'); ?></th>
+				<th><?php echo l('for'); ?></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php foreach ($subscriptions as $sub) { ?>
+			<tr>
+				<td><?php echo l($sub->type); ?></td>
+			<?php if ($sub->type == 'project' or $sub->type == 'milestone') { ?>
+				<td><?php echo HTML::link($sub->object()->name, $sub->object()->href()); ?></td>
+			<?php } elseif ($sub->type == 'ticket') { ?>
+				<td><?php echo HTML::link($sub->object()->summary, $sub->object()->href()); ?></td>
+			<?php } ?>
+				<td align="right"><?php echo HTML::link(l('unsubscribe'), $sub->object()->href('unsubscribe'),array('class' => 'label label-danger')); ?></td>
+			</tr>
 		<?php } ?>
-			<td align="right"><?php echo HTML::link(l('unsubscribe'), $sub->object()->href('unsubscribe'),array('class' => 'label label-danger')); ?></td>
-		</tr>
-	<?php } ?>
-	</tbody>
-</table>
+		</tbody>
+	</table>
+</div>
