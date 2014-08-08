@@ -1,4 +1,4 @@
-<h2><?php echo l('settings'); ?></h2>
+<h2 id="page_title"><?php echo l('settings'); ?></h2>
 <form class="form-horizontal" action="<?php echo Request::requestUri(); ?>" method="post" role="form">
 	<?php if (isset($errors)) { show_errors($errors); } ?>
 	<div class="panel-group" id="accordion">
