@@ -14,8 +14,9 @@
 			</fieldset>
 		</form>
 	</div>
-	<table class="table table-hover">
+
 		<?php foreach ($days as $day) { ?>
+			<table class="table table-hover">
 		<thead>
 			<tr>
 				<th colspan="4"><?php echo ldate(settings('timeline_day_format'), $day['created_at']); ?></th>
@@ -52,7 +53,7 @@
 									<?php echo l("timeline.{$row->action}", array('title' => HTML::link($row->wiki_page()->title, $row->wiki_page()->href()), 'slug' => $row->wiki_page()->slug))?>
 						<?php } ?>
 					</td>
-					<td class="timeline_event_<?php echo $row->id?>">
+					<td align="right" class="timeline_event_<?php echo $row->id?>">
 						<?php if (current_user()->permission($project->id, 'delete_timeline_events')) { ?>
 							<a class="button_delete icon_only" data-ajax-confirm="<?php echo l('confirm.delete')?>" href="<?php echo Request::base($project->href("timeline/{$row->id}/delete"))?>"><span class="label label-danger"><?php echo l('delete')?></span></a>
 						<?php } ?>
@@ -60,8 +61,9 @@
 			</tr>
 		<?php } ?>
 		</tbody>
+			</table>
 	<?php } ?>
-	</table>
+
 	<div class="clear"></div>
 </div>
 <?php echo View::render('layouts/_pagination'); ?>
