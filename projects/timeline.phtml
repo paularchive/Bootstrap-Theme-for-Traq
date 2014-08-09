@@ -57,7 +57,7 @@
 					</td>
 					<td class="timeline_event_<?php echo $row->id?>">
 						<?php if (current_user()->permission($project->id, 'delete_timeline_events')) { ?>
-							<a class="button_delete icon_only" data-ajax-confirm="<?php echo l('confirm.delete')?>" href="<?php echo Request::base($project->href("timeline/{$row->id}/delete"))?>"><span><?php echo l('delete')?></span></a>
+							<a class="button_delete icon_only" data-ajax-confirm="<?php echo l('confirm.delete')?>" href="<?php echo Request::base($project->href("timeline/{$row->id}/delete"))?>"><span class="label label-danger"><?php echo l('delete')?></span></a>
 						<?php } ?>
 					</td>					
 			</tr>
