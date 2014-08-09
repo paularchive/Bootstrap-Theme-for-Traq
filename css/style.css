@@ -68,5 +68,14 @@ footer a:active {
 }
 .footer-right {
 	float: right!important;
-	/*margin-right: -15px;/*
-			}
+	/*margin-right: -15px;*/
+}
+
+.permissions_header{
+    font-size: 18px;
+    font-weight: bold;
+	color: #cccccc;
+	background-color: #fefefe;
+	margin-top: 0px;	
+	margin-bottom: 15px;		
+}

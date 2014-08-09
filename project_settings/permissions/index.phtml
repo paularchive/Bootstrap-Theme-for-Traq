@@ -18,7 +18,7 @@
 		<?php foreach ($actions as $key => $action) { ?>
 			<?php if (is_array($action)) { ?>
 			<tr class="permission_section">
-				<td colspan="<?php echo count($groups) + 1; ?>"><strong><?php echo l($key); ?></strong></td>
+				<td class="permissions_header" colspan="<?php echo count($groups) + 1; ?>"><?php echo l($key); ?></td>
 			</tr>
 			<?php foreach ($action as $act) {
 				echo View::render('project_settings/permissions/_permission_row', array('key' => $key, 'action' => $act));
