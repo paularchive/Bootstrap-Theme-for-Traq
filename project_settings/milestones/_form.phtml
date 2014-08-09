@@ -1,28 +1,43 @@
-<div class="group">
-	<label><?php echo l('name'); ?></label>
-	<?php echo Form::text('name', array('value' => $milestone->name)); ?>
+<div class="form-group">
+	<label for="name" class="col-sm-2 control-label"><?php echo l('name'); ?></label>
+	<div class="col-sm-10">
+		<?php echo Form::text('name', array('value' => $milestone->name, 'class' => 'form-control', 'id' => 'name')); ?>
+	</div>
 </div>
-<div class="group">
-	<label><?php echo l('slug'); ?></label>
-	<?php echo Form::text('slug', array('value' => $milestone->slug)); ?> <abbr title="<?php echo l('help.slug'); ?>">?</abbr>
+<div class="form-group">
+	<label for="slug" class="col-sm-2 control-label"><?php echo l('slug'); ?></label>
+	<div class="col-sm-10">
+		<?php echo Form::text('slug', array('value' => $milestone->slug, 'class' => 'form-control', 'id' => 'slug')); ?>
+		<abbr title="<?php echo l('help.slug'); ?>">?</abbr>
+	</div>
 </div>
-<div class="group">
-	<label><?php echo l('codename'); ?></label>
-	<?php echo Form::text('codename', array('value' => $milestone->codename)); ?>
+<div class="form-group">
+	<label for="codename" class="col-sm-2 control-label"><?php echo l('codename'); ?></label>
+	<div class="col-sm-10">
+		<?php echo Form::text('codename', array('value' => $milestone->codename, 'class' => 'form-control', 'id' => 'codename')); ?>
+	</div>
 </div>
-<div class="group">
-	<label><?php echo l('due'); ?></label>
-	<?php echo Form::text('due', array('value' => $milestone->due > 0 ? $milestone->due : '', 'placeholder' => 'YYYY-MM-DD HH:MM:SS', 'class' => 'datepicker', 'data-date-format' => "yy-mm-dd")); ?>
+<div class="form-group">
+	<label for="due" class="col-sm-2 control-label"><?php echo l('due'); ?></label>
+	<div class="col-sm-10">
+		<?php echo Form::text('due', array('value' => $milestone->due > 0 ? $milestone->due : '', 'placeholder' => 'YYYY-MM-DD HH:MM:SS', 'class' => 'datepicker form-control', 'data-date-format' => "yy-mm-dd")); ?>
+	</div>
 </div>
-<div class="group">
-	<?php echo Form::label(l('status'), 'status'); ?>
-	<?php echo Form::select('status', traq\models\Milestone::status_select_options(), array('value' => $milestone->_is_new() ? 1 : $milestone->status)); ?>
+<div class="form-group">
+	<label for="status" class="col-sm-2 control-label"><?php echo l('status'); ?></label>
+	<div class="col-sm-10">
+		<?php echo Form::select('status', traq\models\Milestone::status_select_options(), array('value' => $milestone->_is_new() ? 1 : $milestone->status, 'class' => 'form-control', 'id' => 'due')); ?>
+	</div>
 </div>
-<div class="group">
-	<label><?php echo l('description'); ?></label>
-	<?php echo Form::textarea('info', array('value' => $milestone->info, 'class' => 'editor')); ?>
+<div class="form-group">
+	<label for="description" class="col-sm-2 control-label"><?php echo l('description'); ?></label>
+	<div class="col-sm-10">
+		<?php echo Form::textarea('info', array('value' => $milestone->info, 'class' => 'editor', 'class' => 'form-control', 'id' => 'info')); ?>
+	</div>
 </div>
-<div class="group">
-	<label><?php echo l('display_order'); ?></label>
-	<?php echo Form::text('displayorder', array('value' => $milestone->displayorder)); ?>
+<div class="form-group">
+	<label for="displayorder" class="col-sm-2 control-label"><?php echo l('display_order'); ?></label>
+	<div class="col-sm-10">
+		<?php echo Form::text('displayorder', array('value' => $milestone->displayorder, 'class' => 'form-control', 'id' => 'displayorder')); ?>
+	</div>
 </div>
