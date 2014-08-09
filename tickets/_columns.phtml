@@ -1,18 +1,25 @@
 <form action="<?php echo Request::requestUri(); ?>" method="post">
-	<fieldset id="ticket_columns">
-		<legend><a href="#" onclick="$('#ticket_columns_content').slideToggle(); return false;"><?php echo l('columns'); ?></a></legend>
-		<div id="ticket_columns_content">
-		<?php foreach (ticketlist_allowed_columns() as $column) { ?>
-			<?php echo Form::checkbox("columns[{$column}]", $column, array('checked' => in_array($column, $columns))); ?>
-			<?php echo Form::label(ticketlist_header($column), "columns[{$column}]"); ?>
-		<?php } ?>
-		<?php foreach($custom_fields as $column) { ?>
-			<?php echo Form::checkbox("columns[{$column->id}]", $column->id, array('checked' => in_array($column->name, $columns)))?>
-			<?php echo Form::label($column->name, "columns[{$column->id}]")?>
-		<?php } ?>
-		<div class="actions">
-			<?php echo Form::submit(l('update'), 'update_columns'); ?>
-		</div>
-		</div>
-	</fieldset>
+	<div class="panel-group" id="accordion">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<strong class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><?php echo l('columns'); ?></a></strong>
+			</div>
+			<div id="collapse1" class="panel-collapse collapse in">
+				<div class="panel-body">	
+					<?php foreach (ticketlist_allowed_columns() as $column) { ?>
+						<?php echo Form::checkbox("columns[{$column}]", $column, array('checked' => in_array($column, $columns))); ?>
+						<?php echo Form::label(ticketlist_header($column), "columns[{$column}]"); ?>
+					<?php } ?>
+					<?php foreach($custom_fields as $column) { ?>
+						<?php echo Form::checkbox("columns[{$column->id}]", $column->id, array('checked' => in_array($column->name, $columns)))?>
+						<?php echo Form::label($column->name, "columns[{$column->id}]")?>
+					<?php } ?>
+					<div class="actions">
+						<?php echo Form::submit(l('update'), 'update_columns'); ?>
+					</div>					
+					
+				</div>
+			</div>
+		</div>				
+	</div>	
 </form>
