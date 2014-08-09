@@ -18,10 +18,7 @@
 		<?php foreach ($days as $day) { ?>
 		<thead>
 			<tr>
-				<th><?php echo ldate(settings('timeline_day_format'), $day['created_at']); ?></th>
-				<th></th>
-				<th></th>
-				<th></th>
+				<th colspan="4"><?php echo ldate(settings('timeline_day_format'), $day['created_at']); ?></th>
 			</tr>
 		</thead>
 		<tbody>
