@@ -7,7 +7,7 @@
 				<div id="timeline_filters_events">
 					<?php foreach (timeline_filters() as $filter => $filter_events) { ?>
 						<?php echo Form::checkbox("filters[{$filter}]", 1, array('checked' => in_array($filter, $filters)))?>
-						<?php echo Form::label(l("timeline.filters.{$filter}"), "filters[{$filter}]")?><br />
+						<?php echo Form::label(l("timeline.filters.{$filter}"), "filters[{$filter}]")?>
 					<?php } ?>
 					<div class="actions">
 						<?php echo Form::submit(l('update'))?>
