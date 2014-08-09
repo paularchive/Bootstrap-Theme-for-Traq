@@ -50,20 +50,20 @@ footer {
 	bottom: 0;
 	width: 100%;
 	color: #666;
-	background-color: #222;
+	background-color: #efefef;
 	padding: 17px 0 18px 0;
-	border-top: 1px solid #080808;
+	border-top: 1px solid #cccccc;
 }
 footer a {
 	color: #999;
 	text-decoration: none;
 }
 footer a:hover {
-	color: #efefef;
+	color: #cccccc;
 	text-decoration: none;
 }
 footer a:active {
-	color: #efefef;
+	color: #cccccc;
 	text-decoration: none;
 }
 .footer-right {
