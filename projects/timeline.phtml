@@ -2,18 +2,26 @@
 	<h2 id="page_title"><?php echo l('timeline'); ?></h2>
 	<div class="timeline_filters">
 		<form action="<?php echo Request::base($project->href('timeline'))?>" method="post">
-			<fieldset>
-				<legend><a href="#" onclick="$('#timeline_filters_events').slideToggle(); return false;"><?php echo l('filter_events'); ?></a></legend>
-				<div id="timeline_filters_events">
-					<?php foreach (timeline_filters() as $filter => $filter_events) { ?>
-						<?php echo Form::checkbox("filters[{$filter}]", 1, array('checked' => in_array($filter, $filters)))?>
-						<?php echo Form::label(l("timeline.filters.{$filter}"), "filters[{$filter}]")?>
-					<?php } ?>
-					<div class="actions">
-						<?php echo Form::submit(l('update'))?>
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<strong class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><?php echo l('filter_events'); ?></a></strong>
 					</div>
-				</div>
-			</fieldset>
+					<div id="collapse1" class="panel-collapse collapse in">
+						<div class="panel-body">	
+
+							<?php foreach (timeline_filters() as $filter => $filter_events) { ?>
+								<?php echo Form::checkbox("filters[{$filter}]", 1, array('checked' => in_array($filter, $filters)))?>
+								<?php echo Form::label(l("timeline.filters.{$filter}"), "filters[{$filter}]")?>
+							<?php } ?>
+							<div class="actions">
+								<?php echo Form::submit(l('update'))?>
+							</div>						
+							
+						</div>
+					</div>
+				</div>				
+			</div>			
 		</form>
 	</div>
 
