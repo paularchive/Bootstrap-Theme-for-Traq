@@ -18,8 +18,12 @@ body {
 	margin-bottom: 15px;
 }			
 .fa-sort-asc {			
-	top:6px;
-	position :relative;				
+	top: 6px;
+	position: relative;				
+}
+.page-header {
+	margin-top: 0;
+	font-weight: bold;
 }
 /*#page_title {
     font-size: 26px;
@@ -36,7 +40,8 @@ body {
 	color: #000000;
 	border-bottom: 1px solid #CCCCCC;
 	margin-top: 0px;	
-	margin-bottom: 15px;		
+	margin-bottom: 15px;
+	padding-bottom:9px;
 }
 .section_title {
     font-size: 20px;
