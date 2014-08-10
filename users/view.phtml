@@ -9,9 +9,12 @@
 			</div>
 		
 			<ul class="list-group">
+				<li class="list-group-item"><?php echo l('member_since'); ?>
+				<span class="pull-right"><?php echo ($profile->created_at ? ldate(settings('date_format')) : l('unknown')); ?></li>
+				
 				<li class="list-group-item"><?php echo l('group'); ?>
 				<span class="pull-right"><?php echo $profile->group->name; ?></li>
-
+				
 				<li class="list-group-item"><?php echo l('assigned_tickets'); ?>
 				<span class="badge"><?php echo $profile->assigned_tickets->exec()->row_count(); ?></li>
 
@@ -21,8 +24,6 @@
 				<li class="list-group-item"><?php echo l('ticket_updates'); ?>
 				<span class="badge"><?php echo $profile->ticket_updates->exec()->row_count(); ?></li>
 
-				<li class="list-group-item"><?php echo l('member_since'); ?>
-				<span class="pull-right"><?php echo ($profile->created_at ? ldate(settings('date_format')) : l('unknown')); ?></li>
 				<?php FishHook::run('template:users/users/view', array($profile)); ?>
 			</ul>
 
