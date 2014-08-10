@@ -4,26 +4,35 @@
 <?php echo View::render('usercp/_nav'); ?>
 <div class="usercp content">
 	<?php echo show_errors($user->errors); ?>
-	<form action="<?php echo Request::requestUri(); ?>" method="post">
+	<form class="form-horizontal" role="form" action="<?php echo Request::requestUri(); ?>" method="post">
 		<fieldset id="info" class="box">
 			<legend><?php echo l('information'); ?></legend>
 
 			<div class="tabular">
-				<div class="group">
-					<?php echo Form::label(l('name'), 'name'); ?>
-					<?php echo Form::text('name', array('value' => $user->name)); ?>
-				</div>
-				<div class="group">
-					<?php echo Form::label(l('email'), 'email'); ?>
-					<?php echo Form::text('email', array('value' => $user->email)); ?>
-				</div>
-				<div class="group">
-					<?php echo Form::label(l('api_key'), 'api_key'); ?>
-					<?php if ($user->api_key != null) { ?>
-						<?php echo Form::text('user_api_key', array('value' => $user->api_key, 'readonly' => true)); ?>
-					<?php } ?>
-					<?php echo HTML::link(l($user->api_key != null ? 'renew' : 'create'), 'usercp/create_api_key', array('class' => 'btn btn-warning')); ?>
-				</div>
+				<div class="form-group">
+					<label for="name" class="col-sm-2 control-label"><?php echo l('name'); ?></label>
+					<div class="col-sm-10">
+						<?php echo Form::text('name', array('value' => $user->name, 'class' => 'form-control', 'id' => 'name', 'required' => true)); ?>
+					</div>
+				</div>	
+				<div class="form-group">
+					<label for="email" class="col-sm-2 control-label"><?php echo l('email'); ?></label>
+					<div class="col-sm-10">
+						<?php echo Form::text('email', array('value' => $user->email, 'class' => 'form-control', 'id' => 'email', 'required' => true)); ?>
+					</div>
+				</div>					
+				<div class="form-group">
+					<label for="api_key" class="col-sm-2 control-label"><?php echo l('api_key'); ?></label>
+					<div class="col-sm-10">
+						<?php echo Form::text('user_api_key', array('value' => $user->api_key, 'class' => 'form-control', 'id' => 'email', 'readonly' => true)); ?>
+					</div>
+				</div>	
+				<div class="form-group">
+					<label for="api_key" class="col-sm-2 control-label"></label>
+					<div class="col-sm-10">
+						<?php echo HTML::link(l($user->api_key != null ? 'renew' : 'create'), 'usercp/create_api_key', array('class' => 'btn btn-warning')); ?>
+					</div>
+	`			</div>					
 				<?php FishHook::run('template:users/usercp/info'); ?>
 			</div>
 		</fieldset>
@@ -31,12 +40,12 @@
 		<fieldset id="options" class="box">
 			<legend><?php echo l('options'); ?></legend>
 			<div class="tabular">
-				<div class="group">
-					<?php echo Form::label(l('watch_my_new_tickets'), 'watch_my_new_tickets'); ?>
+				<div class="form-group">
+					<label for="watch_my_new_tickets" class="col-sm-2 control-label"><?php echo l('watch_my_new_tickets'); ?></label>
 					<?php echo Form::checkbox('watch_created_tickets', 1, array('checked' => $user->option('watch_created_tickets') ? true : false)); ?>
 				</div>
-				<div class="group">
-					<label><?php echo l('language'); ?></label>
+				<div class="form-group">
+					<label for="language" class="col-sm-2 control-label"><?php echo l('language'); ?></label>		
 					<?php echo Form::select('locale', locale_select_options(), array('value' => ($user->locale != '') ? $user->locale : settings('locale'))); ?>
 				</div>
 			</div>
