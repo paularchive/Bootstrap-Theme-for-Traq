@@ -3,8 +3,8 @@ $(document).ready(function() {
     $('.progress .progress-bar').progressbar({display_text: 'center'});
 });
 </script>
-<div class="roadmap content">
-	<h2 id="page_title"><?php echo l('roadmap'); ?></h2>
+<div class="content">
+	<h2 class="page-header"><?php echo l('roadmap'); ?></h2>
 </div>
 	<ul class="nav nav-tabs" role="tablist">
 		<li<?php echo iif(active_nav('/:slug/roadmap'), ' class="active"')?>><?php echo HTML::link(l('active'), $project->href('roadmap')); ?></li>

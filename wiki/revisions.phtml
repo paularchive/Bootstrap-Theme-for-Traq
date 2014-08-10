@@ -1,7 +1,7 @@
 <?php echo View::render('wiki/_nav'); ?>
-<div class="wiki content">
+<div class="content">
 	<div id="head">
-		<h2 id="page_title"><?php echo $page->title; ?></h2>
+		<h2 class="page-header"><?php echo $page->title; ?></h2>
 		<ul id="wiki_actions">
 		<?php if (current_user()->permission($project->id, 'create_wiki_page')) { ?>
 			<li><?php echo HTML::link(l('new_page'), $project->href('wiki/_new'), array('class' => 'button_new')); ?></li>
