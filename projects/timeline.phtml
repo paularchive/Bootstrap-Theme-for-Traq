@@ -14,8 +14,10 @@
 								<?php echo Form::checkbox("filters[{$filter}]", 1, array('checked' => in_array($filter, $filters)))?>
 								<?php echo Form::label(l("timeline.filters.{$filter}"), "filters[{$filter}]")?>
 							<?php } ?>
+						</div>
+						<div class="panel-footer">
 							<div class="actions">
-								<?php echo Form::submit(l('update'))?>
+								<?php echo Form::submit(l('update'), 'update_filter', array('class' => 'btn btn-primary'))?>
 							</div>						
 							
 						</div>

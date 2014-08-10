@@ -3,7 +3,7 @@
 </div>
 <?php echo View::render('project_settings/_nav'); ?>
 <div class="toolbar">
-	<?php echo HTML::link(l('new_repository'), "{$project->slug}/settings/repositories/new", array('class' => 'button_new', 'data-overlay' => true)); ?>
+	<?php echo HTML::link(l('new_repository'), "{$project->slug}/settings/repositories/new", array('class' => 'btn btn-primary', 'data-overlay' => true)); ?>
 </div>
 <div>
 	<table class="table table-hover">
@@ -11,7 +11,7 @@
 			<tr>
 				<th class="fixed_repo_slug"><?php echo l('slug'); ?></th>
 				<th class="type"><?php echo l('type'); ?></th>
-				`<!--<th class="actions"><?php //echo l('actions'); ?></th>-->
+				<!--<th class="actions"><?php //echo l('actions'); ?></th>-->
 			</tr>
 		</thead>
 		<tbody>
