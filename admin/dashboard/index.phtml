@@ -41,11 +41,8 @@
 			
 				<ul class="list-group">
 					<li class="list-group-item"><span class="badge"><?php echo $users; ?></span><?php echo l('total'); ?></li>
-				</ul>
-				
-				<div class="panel-body">
-					<?php echo l('newest').":"; ?>
-					<?php echo HTML::link($latest_user->username, $latest_user->href()); ?>
+					<li class="list-group-item"><?php echo l('newest').":"; ?>
+					<span class="pull-right"><?php echo HTML::link($latest_user->username, $latest_user->href()); ?>
 				</div>
 			
 			</div>	
