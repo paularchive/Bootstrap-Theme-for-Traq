@@ -4,7 +4,7 @@
 			<div class="panel-heading">
 				<strong class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><?php echo l('columns'); ?></a></strong>
 			</div>
-			<div id="collapse2" class="panel-collapse collapse in">
+			<div id="collapse2" class="panel-collapse collapse">
 				<div class="panel-body">	
 					<?php foreach (ticketlist_allowed_columns() as $column) { ?>
 						<?php echo Form::checkbox("columns[{$column}]", $column, array('checked' => in_array($column, $columns))); ?>
