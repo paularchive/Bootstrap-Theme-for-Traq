@@ -1,7 +1,8 @@
 <div class="profile content">
 	<h2 id="page_title"><?php echo l('xs_profile', $profile->name); ?></h2>
 
-	<div>
+	<div class="row">
+	<div class="col-md-5">
 		<div class="panel panel-default">		
 			<div class="panel-heading">
 				<strong class="panel-title"><?php echo l('information'); ?></strong>
@@ -9,7 +10,7 @@
 		
 			<ul class="list-group">
 				<li class="list-group-item"><?php echo l('group'); ?>
-				<span class="badge"><?php echo $profile->group->name; ?></li>
+				<span class="pull-right"><?php echo $profile->group->name; ?></li>
 
 				<li class="list-group-item"><?php echo l('assigned_tickets'); ?>
 				<span class="badge"><?php echo $profile->assigned_tickets->exec()->row_count(); ?></li>
@@ -21,28 +22,34 @@
 				<span class="badge"><?php echo $profile->ticket_updates->exec()->row_count(); ?></li>
 
 				<li class="list-group-item"><?php echo l('member_since'); ?>
-				<span class="badge"><?php echo ($profile->created_at ? ldate(settings('date_format')) : l('unknown')); ?></li>
+				<span class="pull-right"><?php echo ($profile->created_at ? ldate(settings('date_format')) : l('unknown')); ?></li>
 				<?php FishHook::run('template:users/users/view', array($profile)); ?>
 			</ul>
 
 			<div class="clearfix"></div>
 		</div>
+		</div> <!-- END Collum md 6 -->
 
-		<?php if (count($profile->projects())) { ?>
-		<div class="panel panel-default">		
-			<div class="panel-heading">
-				<strong class="panel-title"><?php echo l('projects'); ?></strong>
+		<div class="col-md-2"></div> <!-- Fixing Position -->
+		
+		<div class="col-md-5">
+			<?php if (count($profile->projects())) { ?>
+			<div class="panel panel-default">		
+				<div class="panel-heading">
+					<strong class="panel-title"><?php echo l('projects'); ?></strong>
+				</div>
+				
+				<?php foreach ($profile->projects() as $project) {
+					if (!$current_user->permission($project[0]->id, 'view')) { continue; }
+					?>
+					<ul class="list-group">
+						<li class="list-group-item"><?php echo HTML::link($project[0]->name, $project[0]->href()); ?>
+						<span class="pull-right"><?php echo $project[1]->name; ?></li>
+					</ul>
+				<?php } ?>
 			</div>
-			
-			<?php foreach ($profile->projects() as $project) {
-				if (!$current_user->permission($project[0]->id, 'view')) { continue; }
-				?>
-				<ul class="list-group">
-					<li class="list-group-item"><?php echo HTML::link($project[0]->name, $project[0]->href()); ?>, <?php echo $project[1]->name; ?></li>
-				</ul>
 			<?php } ?>
 		</div>
-		<?php } ?>
 	</div>
 
 	<?php if (count($profile->projects())) { ?>
