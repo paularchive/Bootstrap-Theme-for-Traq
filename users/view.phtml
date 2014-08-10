@@ -1,45 +1,56 @@
 <div class="profile content">
-	<h2><?php echo l('xs_profile', $profile->name); ?></h2>
+	<h2 id="page_title"><?php echo l('xs_profile', $profile->name); ?></h2>
 
-	<div class="sidebar span-6">
-		<div class="information box">
-			<h3><?php echo l('information'); ?></h3>
-			<dl>
-				<dt><?php echo l('group'); ?></dt>
-				<dd><?php echo $profile->group->name; ?></dd>
+	<div>
+		<div class="panel panel-default">		
+			<div class="panel-heading">
+				<strong class="panel-title"><?php echo l('information'); ?></strong>
+			</div>
+		
+			<ul class="list-group">
+				<li class="list-group-item"><?php echo l('group'); ?>
+				<span class="badge"><?php echo $profile->group->name; ?></li>
 
-				<dt><?php echo l('assigned_tickets'); ?></dt>
-				<dd><?php echo $profile->assigned_tickets->exec()->row_count(); ?></dd>
+				<li class="list-group-item"><?php echo l('assigned_tickets'); ?>
+				<span class="badge"><?php echo $profile->assigned_tickets->exec()->row_count(); ?></li>
 
-				<dt><?php echo l('tickets_created'); ?></dt>
-				<dd><?php echo $profile->tickets->exec()->row_count(); ?></dd>
+				<li class="list-group-item"><?php echo l('tickets_created'); ?>
+				<span class="badge"><?php echo $profile->tickets->exec()->row_count(); ?></li>
 
-				<dt><?php echo l('ticket_updates'); ?></dt>
-				<dd><?php echo $profile->ticket_updates->exec()->row_count(); ?></dd>
+				<li class="list-group-item"><?php echo l('ticket_updates'); ?>
+				<span class="badge"><?php echo $profile->ticket_updates->exec()->row_count(); ?></li>
 
-				<dt><?php echo l('member_since'); ?></dt>
-				<dd><?php echo ($profile->created_at ? ldate(settings('date_format')) : l('unknown')); ?></dd>
+				<li class="list-group-item"><?php echo l('member_since'); ?>
+				<span class="badge"><?php echo ($profile->created_at ? ldate(settings('date_format')) : l('unknown')); ?></li>
 				<?php FishHook::run('template:users/users/view', array($profile)); ?>
-			</dl>
+			</ul>
 
 			<div class="clearfix"></div>
 		</div>
 
 		<?php if (count($profile->projects())) { ?>
-		<div class="box">
-			<h3><?php echo l('projects'); ?></h3>
+		<div class="panel panel-default">		
+			<div class="panel-heading">
+				<strong class="panel-title"><?php echo l('projects'); ?></strong>
+			</div>
+			
 			<?php foreach ($profile->projects() as $project) {
 				if (!$current_user->permission($project[0]->id, 'view')) { continue; }
 				?>
-				<li><?php echo HTML::link($project[0]->name, $project[0]->href()); ?>, <?php echo $project[1]->name; ?></li>
+				<ul class="list-group">
+					<li class="list-group-item"><?php echo HTML::link($project[0]->name, $project[0]->href()); ?>, <?php echo $project[1]->name; ?></li>
+				</ul>
 			<?php } ?>
 		</div>
 		<?php } ?>
 	</div>
 
 	<?php if (count($profile->projects())) { ?>
-	<div id="assigned_to" class="span-16 last">
-		<h3><?php echo l('assigned_tickets'); ?></h3>
+	<div class="panel panel-default">		
+		<div class="panel-heading">
+			<strong class="panel-title"><?php echo l('assigned_tickets'); ?></strong>
+		</div>
+
 
 		<table class="table table-hover">
 			<thead>
