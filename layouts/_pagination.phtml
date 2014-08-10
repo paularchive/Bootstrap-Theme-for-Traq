@@ -1,13 +1,13 @@
 <?php if ($pagination->paginate) { ?>
 <div class="content">
-	<div class="pagination">
+	<ul class="pagination">
 	<?php if ($pagination->prev_page_url) { ?>
-		<a href="<?php echo $pagination->prev_page_url; ?>" class="button_previous prev_link"><?php echo l('previous'); ?></a>
+		<li><a href="<?php echo $pagination->prev_page_url; ?>" class="button_previous prev_link"><?php echo l('previous'); ?></a></li>
 	<?php } ?>
 	<?php if ($pagination->next_page_url) { ?>
-		<a href="<?php echo $pagination->next_page_url; ?>" class="button_next next_link"><?php echo l('next'); ?></a>
+		<li><a href="<?php echo $pagination->next_page_url; ?>" class="button_next next_link"><?php echo l('next'); ?></a></li>
 	<?php } ?>
 		<div class="clearfix"></div>
-	</div>
+	</ul>
 </div>
 <?php } ?>
