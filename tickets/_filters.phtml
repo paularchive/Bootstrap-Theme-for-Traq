@@ -1,10 +1,10 @@
-<form action="<?php echo Request::base($project->href('tickets/update_filters')); ?>" method="post">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<strong class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><?php echo l('filters'); ?></a></strong>
-		</div>
-		<div id="collapse1" class="panel-collapse collapse in">
-			<div class="panel-body">	
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<strong class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><?php echo l('filters'); ?></a></strong>
+	</div>
+	<div id="collapse1" class="panel-collapse collapse in">
+		<form action="<?php echo Request::base($project->href('tickets/update_filters')); ?>" method="post">
+			<div class="panel-body">
 				<table>
 					<tbody>
 					<?php foreach ($filters as $filter => $info) { ?>
@@ -88,9 +88,6 @@
 						<?php } ?>
 					<?php } ?>
 						<tr>
-							<td>
-								<input type="submit" value="<?php echo l('update'); ?>" name="update">
-							</td>
 							<td colspan="3" id="ticket_filter_actions">
 								<?php echo Form::select('new_filter', ticket_filters_select_options($project)); ?>
 								<button type="submit" class="button_new" name="add_filter">+</button>
@@ -98,7 +95,10 @@
 						</tr>
 					</tbody>
 				</table>
-			</div>	
-		</div>
+			</div>
+			<div class="panel-footer">
+				<?php echo Form::submit(l('update'), 'update', array('class' => 'btn btn-primary')); ?>						
+			</div>
+		</form>
 	</div>
-</form>
+</div>

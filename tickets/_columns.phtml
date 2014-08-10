@@ -1,9 +1,9 @@
-<form action="<?php echo Request::requestUri(); ?>" method="post">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<strong class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><?php echo l('columns'); ?></a></strong>
-		</div>
-		<div id="collapse2" class="panel-collapse collapse">
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<strong class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><?php echo l('columns'); ?></a></strong>
+	</div>
+	<div id="collapse2" class="panel-collapse collapse">
+		<form action="<?php echo Request::requestUri(); ?>" method="post">
 			<div class="panel-body">	
 				<?php foreach (ticketlist_allowed_columns() as $column) { ?>
 					<?php echo Form::checkbox("columns[{$column}]", $column, array('checked' => in_array($column, $columns))); ?>
@@ -15,11 +15,8 @@
 				<?php } ?>
 			</div>
 			<div class="panel-footer">
-				<div class="actions">
-					<?php echo Form::submit(l('update'), 'update_columns', array('class' => 'btn btn-primary')); ?>
-				</div>												
-			</div>			
-				
-		</div>
+				<?php echo Form::submit(l('update'), 'update_collums', array('class' => 'btn btn-primary')); ?>										
+			</div>
+		</form>
 	</div>
-</form>
+</div>
