@@ -16,40 +16,60 @@
 		<?php echo Form::select('type', traq\models\CustomField::types_select_options(), array('value' => $field->type, 'id' => 'field_type', 'class' => 'form-control')); ?>
 	</div>
 </div>
-<div class="group">
+<div class="form-group">
 	<label for="required" class="col-sm-2 control-label"><?php echo l('required'); ?></label>	
-	<?php echo Form::checkbox('is_required', 1, array('checked' => $field->is_required)); ?>
+	<div class="col-sm-10">
+		<?php echo Form::checkbox('is_required', 1, array('checked' => $field->is_required)); ?>
+	</div>
 </div>
 
 <div id="fields">
-	<div class="group text_field_property integer_field_property">
-		<?php echo Form::label(l('min_length'), 'min_length'); ?>
-		<?php echo Form::text('min_length', array('value' => $field->min_length)); ?> <abbr title="<?php echo l('help.custom_fields.min_length'); ?>">?</abbr>
+	<div class="form-group text_field_property integer_field_property">
+		<label for="min_length" class="col-sm-2 control-label"><?php echo l('min_length'); ?></label>	
+		<div class="col-sm-10">
+			<?php echo Form::text('min_length', array('value' => $field->min_length, 'class' => 'form-control', 'id' => 'min_length')); ?> 
+			<abbr title="<?php echo l('help.custom_fields.min_length'); ?>">?</abbr>
+		</div>
 	</div>
-	<div class="group text_field_property integer_field_property">
-		<?php echo Form::label(l('max_length'), 'max_length'); ?>
-		<?php echo Form::text('max_length', array('value' => $field->max_length)); ?> <abbr title="<?php echo l('help.custom_fields.max_length'); ?>">?</abbr>
+	<div class="form-group text_field_property integer_field_property">
+		<label for="max_length" class="col-sm-2 control-label"><?php echo l('max_length'); ?></label>	
+		<div class="col-sm-10">
+			<?php echo Form::text('max_length', array('value' => $field->max_length, 'class' => 'form-control', 'id' => 'max_length')); ?> 
+			<abbr title="<?php echo l('help.custom_fields.max_length'); ?>">?</abbr>
+		</div>	
 	</div>
-	<div class="group text_field_property integer_field_property">
-		<?php echo Form::label(l('regex'), 'regex'); ?>
-		<?php echo Form::text('regex', array('value' => $field->regex)); ?> <abbr title="<?php echo l('help.custom_fields.regex'); ?>">?</abbr>
+	<div class="form-group text_field_property integer_field_property">
+		<label for="regex" class="col-sm-2 control-label"><?php echo l('regex'); ?></label>	
+		<div class="col-sm-10">	
+			<?php echo Form::text('regex', array('value' => $field->regex, 'class' => 'form-control', 'id' => 'regex')); ?> 
+			<abbr title="<?php echo l('help.custom_fields.regex'); ?>">?</abbr>
+		</div>	
 	</div>
-	<div class="group text_field_property integer_field_property">
-		<?php echo Form::label(l('default_value'), 'default_value'); ?>
-		<?php echo Form::text('default_value', array('value' => $field->default_value)); ?>
+	<div class="form-group text_field_property integer_field_property">
+		<label for="default_value" class="col-sm-2 control-label"><?php echo l('default_value'); ?></label>	
+		<div class="col-sm-10">	
+			<?php echo Form::text('default_value', array('value' => $field->default_value, 'class' => 'form-control', 'id' => 'default_value')); ?>
+		</div>
 	</div>
-	<div class="group select_field_property">
-		<?php echo Form::label(l('values'), 'values'); ?>
-		<?php echo Form::textarea('values', array('value' => $field->values)); ?>
-		<div class="info"><?php echo l('help.custom_fields.values'); ?></div>
+	<div class="form-group select_field_property">
+		<label for="values" class="col-sm-2 control-label"><?php echo l('values'); ?></label>	
+		<div class="col-sm-10">	
+			<?php echo Form::textarea('values', array('value' => $field->values, 'class' => 'form-control', 'id' => 'values')); ?>
+			<div class="info"><?php echo l('help.custom_fields.values'); ?></div>
+		</div>
 	</div>
-	<div class="group select_field_property">
-		<?php echo Form::label(l('multiple'), 'multiple'); ?>
-		<?php echo Form::checkbox('multiple', 1, array('checked' => $field->multiple)); ?>  <abbr title="<?php echo l('help.custom_fields.multiple'); ?>">?</abbr>
+	<div class="form-group select_field_property">
+		<label for="multiple" class="col-sm-2 control-label"><?php echo l('multiple'); ?></label>	
+		<div class="col-sm-10">	
+			<?php echo Form::checkbox('multiple', 1, array('checked' => $field->multiple, 'class' => 'form-control', 'id' => 'multiple')); ?>  
+			<abbr title="<?php echo l('help.custom_fields.multiple'); ?>">?</abbr>
+		</div>
 	</div>
 </div>
 
-<div class="group">
+
+<!-- Todo -->
+<div class="form-group">
 	<?php echo Form::label(l('ticket_types'), 'ticket_type_ids[]'); ?>
 	<?php echo Form::multiselect(
 		'ticket_type_ids[]',
