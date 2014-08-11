@@ -42,11 +42,15 @@
 			<div class="tabular">
 				<div class="form-group">
 					<label for="watch_my_new_tickets" class="col-sm-2 control-label"><?php echo l('watch_my_new_tickets'); ?></label>
-					<?php echo Form::checkbox('watch_created_tickets', 1, array('checked' => $user->option('watch_created_tickets') ? true : false)); ?>
+					<div class="col-sm-10">
+						<?php echo Form::checkbox('watch_created_tickets', 1, array('checked' => $user->option('watch_created_tickets') ? true : false)); ?>
+					</div>
 				</div>
 				<div class="form-group">
-					<label for="language" class="col-sm-2 control-label"><?php echo l('language'); ?></label>		
-					<?php echo Form::select('locale', locale_select_options(), array('value' => ($user->locale != '') ? $user->locale : settings('locale'))); ?>
+					<label for="language" class="col-sm-2 control-label"><?php echo l('language'); ?></label>	
+					<div class="col-sm-10">
+						<?php echo Form::select('locale', locale_select_options(), array('value' => ($user->locale != '') ? $user->locale : settings('locale'), 'class' => "form-control", 'id' => "locale")); ?>
+					</div>
 				</div>
 			</div>
 		</fieldset>
