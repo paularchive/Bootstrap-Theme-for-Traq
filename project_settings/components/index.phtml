@@ -18,8 +18,8 @@
 			<tr>
 				<td><?php echo HTML::link($component->name, "{$project->slug}/settings/components/{$component->id}/edit", array('data-overlay' => true)); ?></td>
 				<td align="right">
-					<?php echo HTML::link(l('edit'), "{$project->slug}/settings/components/{$component->id}/edit", array('class' => 'label label-warning', 'data-overlay' => true)); ?>
-					<?php echo HTML::link(l('delete'), "{$project->slug}/settings/components/{$component->id}/delete", array('class' => 'label label-danger', 'data-confirm' => l('confirm.delete_x', $component->name))); ?>
+					<?php echo HTML::link(l('edit'), "{$project->slug}/settings/components/{$component->id}/edit", array('class' => 'btn btn-xs btn-warning', 'data-overlay' => true)); ?>
+					<?php echo HTML::link(l('delete'), "{$project->slug}/settings/components/{$component->id}/delete", array('class' => 'btn btn-xs btn-danger', 'data-confirm' => l('confirm.delete_x', $component->name))); ?>
 				</td>
 			</tr>
 		<?php } ?>

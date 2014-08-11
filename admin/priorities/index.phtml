@@ -12,8 +12,8 @@
 			<tr>
 				<td><?php echo HTML::link($priority->name, "/admin/priorities/{$priority->id}/edit", array('data-overlay' => true)); ?></td>
 				<td align="right">
-					<?php echo HTML::link(l('edit'), "/admin/priorities/{$priority->id}/edit", array('class' => 'label label-warning', 'data-overlay' => true)); ?>
-					<?php echo HTML::link(l('delete'), "/admin/priorities/{$priority->id}/delete", array('class' => 'label label-danger', 'data-confirm' => l('confirm.delete_x', $priority->name))); ?>
+					<?php echo HTML::link(l('edit'), "/admin/priorities/{$priority->id}/edit", array('class' => 'btn btn-xs btn-warning', 'data-overlay' => true)); ?>
+					<?php echo HTML::link(l('delete'), "/admin/priorities/{$priority->id}/delete", array('class' => 'btn btn-xs btn-danger', 'data-confirm' => l('confirm.delete_x', $priority->name))); ?>
 				</td>
 			</tr>
 		<?php } ?>

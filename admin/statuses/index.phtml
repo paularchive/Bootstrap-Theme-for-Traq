@@ -16,8 +16,8 @@
 				<td><?php if($status->status == 1){ echo l('open'); }else{ echo l('closed'); } ?></td>	
 				<td><?php echo $status->changelog ? '&#10003;' : '&times;' ?></td>				
 				<td align="right">
-					<?php echo HTML::link(l('edit'), "/admin/tickets/statuses/{$status->id}/edit", array('class' => 'label label-warning', 'data-overlay' => true)); ?>
-					<?php echo HTML::link(l('delete'), "/admin/tickets/statuses/{$status->id}/delete", array('class' => 'label label-danger', 'data-confirm' => l('confirm.delete_x', $status->name))); ?>
+					<?php echo HTML::link(l('edit'), "/admin/tickets/statuses/{$status->id}/edit", array('class' => 'btn btn-xs btn-warning', 'data-overlay' => true)); ?>
+					<?php echo HTML::link(l('delete'), "/admin/tickets/statuses/{$status->id}/delete", array('class' => 'btn btn-xs btn-danger', 'data-confirm' => l('confirm.delete_x', $status->name))); ?>
 				</td>
 			</tr>
 		<?php } ?>

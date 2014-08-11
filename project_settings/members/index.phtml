@@ -33,7 +33,7 @@
 				<tr>
 					<td><?php echo $rel->user->username; ?></td>
 					<td><?php echo Form::select("role[{$rel->id}]", traq\models\ProjectRole::select_options(), array('value' => $rel->project_role_id, 'class' => "form-control", 'id' => "group")); ?></td>
-					<td align="right"><?php echo HTML::link(l('delete'), $project->href("settings/members/{$rel->user_id}/delete"), array('class' => 'label label-danger', 'data-confirm' => l('confirm.remove_x', $rel->user->username))); ?></td>
+					<td align="right"><?php echo HTML::link(l('delete'), $project->href("settings/members/{$rel->user_id}/delete"), array('class' => 'btn btn-xs btn-danger', 'data-confirm' => l('confirm.remove_x', $rel->user->username))); ?></td>
 				</tr>
 			<?php } ?>
 			</tbody>

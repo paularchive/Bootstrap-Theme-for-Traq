@@ -10,8 +10,8 @@
 			<tr>
 				<td><?php echo HTML::link($severity->name, "/admin/severities/{$severity->id}/edit", array('data-overlay' => true)); ?></td>
 				<td align="right">
-					<?php echo HTML::link(l('edit'), "/admin/severities/{$severity->id}/edit", array('class' => 'label label-warning', 'data-overlay' => true)); ?>
-					<?php echo HTML::link(l('delete'), "/admin/severities/{$severity->id}/delete", array('class' => 'label label-danger', 'data-confirm' => l('confirm.delete_x', $severity->name))); ?>
+					<?php echo HTML::link(l('edit'), "/admin/severities/{$severity->id}/edit", array('class' => 'btn btn-xs btn-warning', 'data-overlay' => true)); ?>
+					<?php echo HTML::link(l('delete'), "/admin/severities/{$severity->id}/delete", array('class' => 'btn btn-xs btn-danger', 'data-confirm' => l('confirm.delete_x', $severity->name))); ?>
 				</td>
 			</tr>
 		<?php } ?>

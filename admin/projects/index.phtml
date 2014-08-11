@@ -14,8 +14,8 @@
 				<td><?php echo HTML::link($project->name, "/{$project->slug}/settings"); ?></td>
 				<td><?php echo $project->codename; ?></td>
 				<td align="right">
-					<?php echo HTML::link(l('edit'), "/{$project->slug}/settings", array('class' => 'label label-warning')); ?>
-					<?php echo HTML::link(l('delete'), "/admin/projects/{$project->id}/delete", array('class' => 'label label-danger', 'data-confirm' => l('confirm.delete_x', $project->name))); ?>
+					<?php echo HTML::link(l('edit'), "/{$project->slug}/settings", array('class' => 'btn btn-xs btn-warning')); ?>
+					<?php echo HTML::link(l('delete'), "/admin/projects/{$project->id}/delete", array('class' => 'btn btn-xs btn-danger', 'data-confirm' => l('confirm.delete_x', $project->name))); ?>
 				</td>
 			</tr>
 		<?php } ?>

@@ -13,14 +13,14 @@
 			<td><span class="badge"><?php echo $plugin['version']; ?></td>
 			<td align="right">
 				<?php if ($plugin['installed'] and $plugin['enabled']) {
-					echo HTML::link(l('disable'), "/admin/plugins/disable/{$plugin['file']}", array('class' => 'label label-warning'));
+					echo HTML::link(l('disable'), "/admin/plugins/disable/{$plugin['file']}", array('class' => 'btn btn-xs btn-warning'));
 				} elseif ($plugin['installed'] and !$plugin['enabled']) {
-					echo HTML::link(l('enable'), "/admin/plugins/enable/{$plugin['file']}", array('class' => 'label label-success'));
+					echo HTML::link(l('enable'), "/admin/plugins/enable/{$plugin['file']}", array('class' => 'btn btn-xs btn-success'));
 				} ?>
 				<?php if ($plugin['installed']) {
-					echo HTML::link(l('uninstall'), "/admin/plugins/uninstall/{$plugin['file']}", array('class' => 'label label-danger'));
+					echo HTML::link(l('uninstall'), "/admin/plugins/uninstall/{$plugin['file']}", array('class' => 'btn btn-xs btn-danger'));
 				} else {
-					echo HTML::link(l('install'), "/admin/plugins/install/{$plugin['file']}", array('class' => 'label label-success'));
+					echo HTML::link(l('install'), "/admin/plugins/install/{$plugin['file']}", array('class' => 'btn btn-xs btn-success'));
 				} ?>
 			</td>
 		</tr>

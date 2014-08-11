@@ -20,8 +20,8 @@
 				<td><?php echo HTML::link($field->name, "{$project->slug}/settings/custom_fields/{$field->id}/edit", array('data-overlay' => true)); ?></td>
 				<td><?php echo l($field->type); ?></td>
 				<td align="right">
-					<?php echo HTML::link(l('edit'), "{$project->slug}/settings/custom_fields/{$field->id}/edit", array('class' => 'label label-warning', 'data-overlay' => true)); ?>
-					<?php echo HTML::link(l('delete'), "{$project->slug}/settings/custom_fields/{$field->id}/delete", array('class' => 'label label-danger', 'data-confirm' => l('confirm.delete_x', $field->name))); ?>
+					<?php echo HTML::link(l('edit'), "{$project->slug}/settings/custom_fields/{$field->id}/edit", array('class' => 'btn btn-xs btn-warning', 'data-overlay' => true)); ?>
+					<?php echo HTML::link(l('delete'), "{$project->slug}/settings/custom_fields/{$field->id}/delete", array('class' => 'btn btn-xs btn-danger', 'data-confirm' => l('confirm.delete_x', $field->name))); ?>
 				</td>
 			</tr>
 		<?php } ?>
