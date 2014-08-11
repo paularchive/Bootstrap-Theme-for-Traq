@@ -25,24 +25,7 @@ body {
 	margin-top: 8px;
 	font-weight: bold;
 }
-/*#page_title {
-    font-size: 26px;
-    font-weight: bold;
-	color: #000000;
-	border-bottom: 1px solid #CCCCCC;
-	margin-top: 0px;	
-	margin-bottom: 15px;	
-}
-*/
-.list_title {
-    font-size: 24px;
-    font-weight: bold;
-	color: #000000;
-	border-bottom: 1px solid #CCCCCC;
-	margin-top: 0px;	
-	margin-bottom: 15px;
-	padding-bottom:9px;
-}
+
 .section_title {
     font-size: 20px;
     font-weight: bold;
