@@ -70,3 +70,23 @@ footer a:active {
 }
 
 #mass_actions{display:none}
+
+.btn {
+	-webkit-transition: .7s;
+	-moz-transition: .7s;
+	-ms-transition: .7s;
+	-o-transition: .7s;
+	transition: .7s;
+}
+
+a {
+	-webkit-transition: .7s;
+	-moz-transition: .7s;
+	-ms-transition: .7s;
+	-o-transition: .7s;
+	transition: .7s;
+}
+
+a:hover {
+	color: #3498db !important;
+}
