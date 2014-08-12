@@ -12,6 +12,7 @@
 </h2>	
 
 	<div class="row well">
+		<section class="properties">	
 		<div class="col-md-12">	
 			<div class="col-md-1">	
 				<?php echo Form::label(l('ticket_id')); ?>
@@ -102,7 +103,7 @@
 					} ?>
 				</span>
 			</div>	
-			<div class="col-md-2">
+			<div class="col-md-1">
 				<?php echo Form::label(l('related_tickets')); ?>
 				<ul class="value">
 				<?php foreach ($ticket->related_tickets() as $related_ticket) { ?>
@@ -126,19 +127,22 @@
 		</section>
 		</div>
 
-		
+	</div>		
 		<section id="description">
 			<h3 class="section_title">
-				<?php echo l('description'); ?>
+			<?php echo l('description'); ?>
+				<div class="pull-right">
+				
 				<?php if ($current_user->permission($project->id, 'edit_ticket_description')) {
-					echo HTML::link('', $ticket->href() . '/edit', array('title' => l('edit_ticket'), 'data-overlay' => true, 'class' => 'button_edit'));
+					echo HTML::link('', $ticket->href() . '/edit', array('title' => l('edit_ticket'), 'data-overlay' => true, 'class' => 'btn btn-warning'));
 				} ?>
+				</div>
 			</h3>
 			<div class="body">
 				<?php echo format_text($ticket->body, true); ?>
 			</div>
 		</section>
-	</div>
+
 	
 
 	<?php if (is_array($ticket->tasks) and count($ticket->tasks)) { ?>

@@ -4,15 +4,18 @@
 	<div class="update" id="ticket_update_<?php echo $update->id; ?>">
 		<div class="panel panel-default">
 		<div class="panel-heading">
-			<strong class="panel-title"><?php echo l('x_by_x', time_ago($update->created_at), HTML::link(strshorten($update->user->name, 20), $update->user->href())); ?></strong>
+			<strong class="panel-title"><?php echo l('x_by_x', time_ago($update->created_at), HTML::link(strshorten($update->user->name, 20), $update->user->href())); ?>
+			<div class="pull-right">
 			<?php
 			if ($current_user->permission($ticket->project_id, 'edit_ticket_history')) {
-				echo HTML::link('', $ticket->href("/history/{$update->id}/edit"), array('title' => l('edit'), 'class' => 'button_edit', 'data-overlay' => true));
+				echo HTML::link('', $ticket->href("/history/{$update->id}/edit"), array('title' => l('edit'), 'class' => 'btn btn-warning', 'data-overlay' => true));
 			}
 			if ($current_user->permission($ticket->project_id, 'delete_ticket_history')) {
-				echo HTML::link('', $ticket->href("/history/{$update->id}/delete"), array('title' => l('delete'), 'class' => 'button_delete', 'data-ajax-confirm' => l('confirm.delete')));
+				echo HTML::link('', $ticket->href("/history/{$update->id}/delete"), array('title' => l('delete'), 'class' => 'btn btn-danger', 'data-ajax-confirm' => l('confirm.delete')));
 			}
 			?>
+			</div>
+			</strong>
 		</div>
 		<div class="panel-body>
 		<?php if (is_array($update->changes)) { ?>
