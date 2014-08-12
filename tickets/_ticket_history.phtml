@@ -17,15 +17,17 @@
 			</div>
 			</strong>
 		</div>
-		<div class="panel-body>
-		<?php if (is_array($update->changes)) { ?>
-		<ul class="changes">
+		
+		<?php if (is_array($update->changes)) { ?>	
+		
+		<ul class="list-group">
 			<?php foreach ($update->changes as $change) { ?>
-			<li><?php echo View::render('tickets/_history_change_bit', array('change' => $change)); ?></li>
+			<li class="list-group-item"><?php echo View::render('tickets/_history_change_bit', array('change' => $change)); ?></li>
 			<?php } ?>
 		</ul>
+		
 		<?php } ?>
-		</div>
+		
 		<?php if ($update->comment != '') { ?>
 		<div class="comment">
 			<?php echo format_text($update->comment); ?>
