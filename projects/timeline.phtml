@@ -1,34 +1,87 @@
 <div class="timeline content">
 	<h2 class="page-header"><?php echo l('timeline'); ?></h2>
-	<div class="timeline_filters">
-		<form action="<?php echo Request::base($project->href('timeline'))?>" method="post">
-			<div class="panel-group" id="accordion">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<strong class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><?php echo l('filter_events'); ?></a></strong>
-					</div>
-					<div id="collapse1" class="panel-collapse collapse ">
-						<div class="panel-body">	
+	<form action="<?php echo Request::base($project->href('timeline'))?>" method="post">
+		<div class="panel-group" id="accordion">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<strong class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><?php echo l('filter_events'); ?></a></strong>
+				</div>
+				<div id="collapse1" class="panel-collapse collapse ">
+					<div class="panel-body">	
 
-							<?php foreach (timeline_filters() as $filter => $filter_events) { ?>
-								<?php echo Form::checkbox("filters[{$filter}]", 1, array('checked' => in_array($filter, $filters)))?>
-								<?php echo Form::label(l("timeline.filters.{$filter}"), "filters[{$filter}]")?>
-							<?php } ?>
-						</div>
-						<div class="panel-footer">
-							<div class="actions">
-								<?php echo Form::submit(l('update'), 'update_filter', array('class' => 'btn btn-primary'))?>
-							</div>						
-							
-						</div>
+						<?php foreach (timeline_filters() as $filter => $filter_events) { ?>
+							<?php echo Form::checkbox("filters[{$filter}]", 1, array('checked' => in_array($filter, $filters)))?>
+							<?php echo Form::label(l("timeline.filters.{$filter}"), "filters[{$filter}]")?>
+						<?php } ?>
 					</div>
-				</div>				
-			</div>			
-		</form>
+					<div class="panel-footer">
+						<div class="actions">
+							<?php echo Form::submit(l('update'), 'update_filter', array('class' => 'btn btn-primary'))?>
+						</div>						
+						
+					</div>
+				</div>
+			</div>				
+		</div>			
+	</form>
+
+	<?php foreach ($days as $day) { ?>
+	
+	<div class="panel panel-default">
+	<div class="panel-heading">
+		<strong><?php echo ldate(settings('timeline_day_format'), $day['created_at']); ?></strong>
 	</div>
-
-		<?php foreach ($days as $day) { ?>
-			<table class="table table-hover">
+	
+	<table class="table table-hover">
+		<tbody>
+			<tr>
+				<?php foreach ($day['activity'] as $row) { ?>
+					<td>
+						<span class="time"><?php echo ldate(settings('timeline_time_format'), $row->created_at); ?></span>
+					</td>
+					<td class="timeline_event_<?php echo $row->id?>">
+						<?php echo l(HTML::link(strshorten($row->user->name, 20), $row->user->href())); ?>
+					</td>					
+					<td>
+					<?php if (in_array($row->action, array('ticket_created','ticket_closed','ticket_reopened','ticket_updated'))) { ?>
+						<?php echo HTML::link(
+							l("timeline.{$row->action}",
+								array(
+									'ticket_summary'     => htmlspecialchars($row->ticket()->summary),
+									'ticket_id'          => $row->ticket()->ticket_id,
+									'ticket_type_name'   => $row->ticket()->type->name,
+									'ticket_status_name' => ($row->action == 'ticket_updated' ? null : $row->ticket_status()->name)
+								)
+							),
+							$row->ticket()->href()
+						); ?>
+						<?php } elseif (in_array($row->action, array('milestone_completed', 'milestone_cancelled'))) { ?>
+									<?php echo l("timeline.{$row->action}", array('milestone_name' => $row->milestone()->name)); ?>
+						<?php } elseif ($row->action == 'ticket_comment') { ?>
+									<?php echo l('timeline.ticket_comment', array('link' => HTML::link(htmlspecialchars($row->ticket()->summary), $row->ticket()->href()), 'ticket_id' => $row->ticket()->ticket_id)); ?>
+						<?php } elseif ($row->action == 'ticket_moved_from' or $row->action == 'ticket_moved_to') { ?>
+									<?php echo l("timeline.{$row->action}", array('ticket' => HTML::link(htmlspecialchars($row->ticket()->summary), $row->ticket()->href()), 'project' => HTML::link($row->other_project()->name, $row->other_project()->href())))?>
+						<?php } elseif ($row->action == 'wiki_page_created' or $row->action == 'wiki_page_edited') { ?>
+									<?php echo l("timeline.{$row->action}", array('title' => HTML::link($row->wiki_page()->title, $row->wiki_page()->href()), 'slug' => $row->wiki_page()->slug))?>
+						<?php } ?>
+					</td>
+					<td align="right" class="timeline_event_<?php echo $row->id?>">
+						<?php if (current_user()->permission($project->id, 'delete_timeline_events')) { ?>
+							<a class="btn btn-xs btn-danger" data-ajax-confirm="<?php echo l('confirm.delete')?>" href="<?php echo Request::base($project->href("timeline/{$row->id}/delete"))?>"><?php echo l('delete')?></a>
+						<?php } ?>
+					</td>					
+			</tr>
+		<?php } ?>
+		</tbody>
+			</table>
+	</div>
+	<?php } ?>
+	
+	<?php foreach ($days as $day) { ?>
+	
+	<div class="panel panel-default">
+	
+	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th colspan="4"><?php echo ldate(settings('timeline_day_format'), $day['created_at']); ?></th>
@@ -68,15 +121,14 @@
 					</td>
 					<td align="right" class="timeline_event_<?php echo $row->id?>">
 						<?php if (current_user()->permission($project->id, 'delete_timeline_events')) { ?>
-							<a class="button_delete icon_only" data-ajax-confirm="<?php echo l('confirm.delete')?>" href="<?php echo Request::base($project->href("timeline/{$row->id}/delete"))?>"><span class="label label-danger"><?php echo l('delete')?></span></a>
+							<a class="btn btn-xs btn-danger" data-ajax-confirm="<?php echo l('confirm.delete')?>" href="<?php echo Request::base($project->href("timeline/{$row->id}/delete"))?>"><?php echo l('delete')?></a>
 						<?php } ?>
 					</td>					
 			</tr>
 		<?php } ?>
 		</tbody>
 			</table>
+	</div>
 	<?php } ?>
-
-	<div class="clear"></div>
 </div>
 <?php echo View::render('layouts/_pagination'); ?>
