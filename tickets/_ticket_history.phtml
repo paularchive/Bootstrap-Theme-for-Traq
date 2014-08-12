@@ -29,9 +29,9 @@
 		<?php } ?>
 		
 		<?php if ($update->comment != '') { ?>
-		<div class="comment">
-			<?php echo format_text($update->comment); ?>
-		</div>
+		<ul class="list-group">
+			<li class="list-group-item"><?php echo format_text($update->comment); ?></li>
+		</ul>
 		<?php } ?>
 		</div> 
 	</div>
