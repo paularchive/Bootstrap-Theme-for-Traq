@@ -48,7 +48,7 @@ footer a {
 	text-decoration: none;
 }
 footer a:hover {
-	color: #cccccc;
+	color: #3498db;
 	text-decoration: none;
 }
 footer a:active {
@@ -80,13 +80,27 @@ footer a:active {
 }
 
 a {
-	-webkit-transition: .7s;
-	-moz-transition: .7s;
-	-ms-transition: .7s;
-	-o-transition: .7s;
-	transition: .7s;
+	-webkit-transition: .4s;
+	-moz-transition: .4s;
+	-ms-transition: .4s;
+	-o-transition: .4s;
+	transition: .4s;
 }
 
-a:hover {
-	color: #3498db !important;
+.navbar-brand {
+	font-weight: bold;
+}
+
+.navbar-brand:hover {
+	color: #555 !important;
+	background-color: #e6e6e6 !important;
+}
+
+.navbar-nav>li>a {
+	font-weight: bold;
+}
+
+.navbar-nav>li>a:hover {
+	color: #555 !important;
+	background-color: #e6e6e6 !important;
 }
