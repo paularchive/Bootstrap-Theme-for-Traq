@@ -134,7 +134,7 @@
 				<div class="pull-right">
 				
 				<?php if ($current_user->permission($project->id, 'edit_ticket_description')) {
-					echo HTML::link('', $ticket->href() . '/edit', array('title' => l('edit_ticket'), 'data-overlay' => true, 'class' => 'btn btn-warning'));
+					echo HTML::link(l('edit'), $ticket->href() . '/edit', array('title' => l('edit_ticket'), 'data-overlay' => true, 'class' => 'btn btn-xs btn-warning'));
 				} ?>
 				</div>
 			</h3>

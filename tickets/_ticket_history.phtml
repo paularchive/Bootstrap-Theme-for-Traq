@@ -8,10 +8,10 @@
 			<div class="pull-right">
 			<?php
 			if ($current_user->permission($ticket->project_id, 'edit_ticket_history')) {
-				echo HTML::link('', $ticket->href("/history/{$update->id}/edit"), array('title' => l('edit'), 'class' => 'btn btn-warning', 'data-overlay' => true));
+				echo HTML::link(l('edit'), $ticket->href("/history/{$update->id}/edit"), array('title' => l('edit'), 'class' => 'btn btn-xs btn-warning', 'data-overlay' => true));
 			}
 			if ($current_user->permission($ticket->project_id, 'delete_ticket_history')) {
-				echo HTML::link('', $ticket->href("/history/{$update->id}/delete"), array('title' => l('delete'), 'class' => 'btn btn-danger', 'data-ajax-confirm' => l('confirm.delete')));
+				echo HTML::link(l('delete'), $ticket->href("/history/{$update->id}/delete"), array('title' => l('delete'), 'class' => 'btn btn-xs btn-danger', 'data-ajax-confirm' => l('confirm.delete')));
 			}
 			?>
 			</div>
