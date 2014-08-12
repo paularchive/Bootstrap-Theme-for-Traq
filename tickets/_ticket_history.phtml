@@ -3,36 +3,34 @@
 <?php foreach ($ticket_history as $update) { ?>
 	<div class="update" id="ticket_update_<?php echo $update->id; ?>">
 		<div class="panel panel-default">
-		<div class="panel-heading">
-			<strong class="panel-title"><?php echo l('x_by_x', time_ago($update->created_at), HTML::link(strshorten($update->user->name, 20), $update->user->href())); ?>
-			<div class="pull-right">
-			<?php
-			if ($current_user->permission($ticket->project_id, 'edit_ticket_history')) {
-				echo HTML::link(l('edit'), $ticket->href("/history/{$update->id}/edit"), array('title' => l('edit'), 'class' => 'btn btn-xs btn-warning', 'data-overlay' => true));
-			}
-			if ($current_user->permission($ticket->project_id, 'delete_ticket_history')) {
-				echo HTML::link(l('delete'), $ticket->href("/history/{$update->id}/delete"), array('title' => l('delete'), 'class' => 'btn btn-xs btn-danger', 'data-ajax-confirm' => l('confirm.delete')));
-			}
-			?>
+			<div class="panel-heading">
+				<strong class="panel-title"><?php echo l('x_by_x', time_ago($update->created_at), HTML::link(strshorten($update->user->name, 20), $update->user->href())); ?>
+				<div class="pull-right">
+				<?php
+				if ($current_user->permission($ticket->project_id, 'edit_ticket_history')) {
+					echo HTML::link(l('edit'), $ticket->href("/history/{$update->id}/edit"), array('title' => l('edit'), 'class' => 'btn btn-xs btn-warning', 'data-overlay' => true));
+				}
+				if ($current_user->permission($ticket->project_id, 'delete_ticket_history')) {
+					echo HTML::link(l('delete'), $ticket->href("/history/{$update->id}/delete"), array('title' => l('delete'), 'class' => 'btn btn-xs btn-danger', 'data-ajax-confirm' => l('confirm.delete')));
+				}
+				?>
+				</div>
+				</strong>
 			</div>
-			</strong>
-		</div>
-		
-		<?php if (is_array($update->changes)) { ?>	
-		
-		<ul class="list-group">
-			<?php foreach ($update->changes as $change) { ?>
-			<li class="list-group-item"><?php echo View::render('tickets/_history_change_bit', array('change' => $change)); ?></li>
+			
+			<?php if (is_array($update->changes)) { ?>			
+			<ul class="list-group">
+				<?php foreach ($update->changes as $change) { ?>
+				<li class="list-group-item"><?php echo View::render('tickets/_history_change_bit', array('change' => $change)); ?></li>
+				<?php } ?>
+			</ul>		
 			<?php } ?>
-		</ul>
-		
-		<?php } ?>
-		
-		<?php if ($update->comment != '') { ?>
-		<ul class="list-group">
-			<li class="list-group-item list-group-item-info"><?php echo format_text($update->comment); ?></li>
-		</ul>
-		<?php } ?>
+			
+			<?php if ($update->comment != '') { ?>
+			<ul class="list-group">
+				<li class="list-group-item list-group-item-info"><?php echo format_text($update->comment); ?></li>
+			</ul>
+			<?php } ?>
 		</div> 
 	</div>
 <?php } ?>
