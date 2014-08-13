@@ -103,3 +103,9 @@ a {
 	color: #555 !important;
 	background-color: #e6e6e6 !important;
 }
+
+.box {
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+}
