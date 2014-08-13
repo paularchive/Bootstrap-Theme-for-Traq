@@ -1,14 +1,33 @@
-<h3><?php echo l('edit_ticket'); ?></h3>
-<form action="<?php echo Request::requestUri(); ?>" method="post">
-	<?php echo show_errors($ticket->errors); ?>
-	<div class="tabular">
-		<div class="group">
-			<?php echo Form::label(l('description'), 'body'); ?>
-			<textarea name="body"><?php echo $ticket->body; ?></textarea>
-		</div>
-	</div>
-	<div class="actions">
-		<input type="submit" value="<?php echo l('save'); ?>" />
-		<input type="button" value="<?php echo l('cancel'); ?>" onclick="close_overlay();" />
-	</div>
+<script>
+$(document).ready(function(){
+  $('#myModal').modal('show')
+});
+</script>
+
+<form class="form-horizontal" role="form" action="<?php echo Request::requestUri(); ?>" method="post">
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="edit_ticket" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="edit_ticket"><?php echo l('edit_ticket'); ?></h4>
+				</div>
+				<div class="modal-body">
+					<?php echo show_errors($ticket->errors); ?>
+					<div class="tabular">
+						<div class="form-group">
+							<label for="status" class="col-sm-2 control-label"><?php echo l('description'); ?></label>
+							<div class="col-sm-10">
+								<textarea name="body"><?php echo $ticket->body; ?></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal"><?php echo l('close'); ?></button>
+					<input type="submit" class="btn btn-primary" value="<?php echo l('save'); ?>" />
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 </form>
