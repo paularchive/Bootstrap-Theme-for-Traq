@@ -3,6 +3,11 @@
 	<head>
 		<?php echo View::render('layouts/_head'); ?>
 		<?php FishHook::run('template:layouts/default/head'); ?>
+		<script>
+			$(document).ready(function() {
+				$('.container').fadeIn();
+			});
+		</script>
 	</head>
 	<body>
 		<div id="overlay"></div>
@@ -79,7 +84,7 @@
 			
 		</nav>
 		
-		<div class="container">
+		<div class="container" style="display:none;">
 <?php echo $content; ?>
 		</div>
 		
