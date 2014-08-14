@@ -255,7 +255,7 @@ var likeABoss = {
 			}
 			
 			// Wrap the textarea in a container
-			$$.wrap('<div style="text-align:center;">');
+			$$.wrap('<div style="text-align:left;">');
 			$$.addClass('likeaboss_editor');
 			
 			// Create the toolbar and add the buttons.
