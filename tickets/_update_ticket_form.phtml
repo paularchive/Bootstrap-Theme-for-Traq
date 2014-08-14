@@ -1,9 +1,9 @@
 <?php if ($current_user->permission($project->id, 'update_tickets') or $current_user->permission($project->id, 'comment_on_tickets')) { ?>
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<strong class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><?php echo l('update_ticket'); ?></a></strong>
+		<strong class="panel-title"><?php echo l('update_ticket'); ?></strong>
 	</div>	
-	<div id="collapse2" class="panel-collapse collapse">
+	<div class="panel-body">
 	<?php echo show_errors($ticket->errors); ?>
 	<form class="form-horizontal" role="form" action="<?php echo Request::base($ticket->href('update')); ?>" method="post" id="update_tickets" enctype="multipart/form-data">
 		<div class="tabular box">
@@ -62,6 +62,7 @@
 					<div class="col-sm-10">	
 					<?php echo Form::select('component', array_merge(array(array('value' => 0, 'label' => l('none'))), traq\models\Component::select_options($project->id)), array('value' => $ticket->component_id, 'class' => 'form-control')); ?>
 					<abbr title="<?php echo l('help.component'); ?>" class="hint">?</abbr>
+					</div>
 				</div>
 				<?php } ?>
 				<?php if (current_user()->permission($project->id, 'ticket_properties_change_severity')) { ?>
@@ -130,12 +131,14 @@
 			<?php } ?>
 			<div class="clear"></div>
 		</div>
-		<div class="panel-footer">			
+	</div>
+	<div class="panel-footer">			
+		<div class="btn-group">
 			<input type="submit" class="btn btn-success" value="<?php echo l('submit'); ?>" />
 			<input type="button" class="btn btn-warning" data-preview="#comment" value="<?php echo l('preview'); ?>" />
 		</div>
-	</form>
 	</div>
+	</form>
 </div>
 <script type="text/javascript">
 	$(document).ready(function(){

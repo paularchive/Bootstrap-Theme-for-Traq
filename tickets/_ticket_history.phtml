@@ -1,15 +1,12 @@
 <div id="ticket_history">
-<div class="panel panel-default">
-	<div class="panel-heading">
-		<strong class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse"><?php echo l('ticket_history'); ?></a></strong>
-	</div>
-<div id="collapse" class="panel-collapse collapse">
+<h3 class="section_title"><?php echo l('ticket_history'); ?></h3>
+<div class="well">
 <?php foreach ($ticket_history as $update) { ?>
 	<div class="update" id="ticket_update_<?php echo $update->id; ?>">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<strong class="panel-title"><?php echo l('x_by_x', time_ago($update->created_at), HTML::link(strshorten($update->user->name, 20), $update->user->href())); ?>
-				<div class="pull-right">
+				<div class="pull-right btn-group">
 				<?php
 				if ($current_user->permission($ticket->project_id, 'edit_ticket_history')) {
 					echo HTML::link(l('edit'), $ticket->href("/history/{$update->id}/edit"), array('title' => l('edit'), 'class' => 'btn btn-xs btn-warning', 'data-overlay' => true));
@@ -38,6 +35,5 @@
 		</div> 
 	</div>
 <?php } ?>
-</div>
 </div>
 </div>

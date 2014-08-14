@@ -1,19 +1,23 @@
 <div id="ticket_info">
 	<h2 class="page-header"><?php echo htmlspecialchars($ticket->summary); ?>	
-	<div class="ticket_actions pull-right">
-		<?php if (LOGGEDIN) {
-			echo subscription_link_for($ticket);
-		} ?>
-		<?php if ($current_user->permission($ticket->project_id, 'delete_tickets')) {
-			echo HTML::link(l('delete'), $ticket->href('/delete'), array('class' => 'btn btn-danger', 'data-confirm' => l('confirm.delete_x', $ticket->summary)));
-		} ?>
-		<?php if ($current_user->permission($ticket->project_id, 'move_tickets')) {
-			echo HTML::link(l('move'), $ticket->href('move'), array('class' => 'btn btn-warning'));
-		} ?>
-	</div>
-</h2>	
-
-	<div class="row well">
+		<div class="ticket_actions pull-right">
+			<?php if (LOGGEDIN) { ?>
+				<div class="pull-right btn-group">
+					<?php
+					echo subscription_link_for($ticket);
+					if ($current_user->permission($ticket->project_id, 'delete_tickets')) {
+						echo HTML::link(l('delete'), $ticket->href('/delete'), array('class' => 'btn btn-danger', 'data-confirm' => l('confirm.delete_x', $ticket->summary)));
+					}
+					if ($current_user->permission($ticket->project_id, 'move_tickets')) {
+						echo HTML::link(l('move'), $ticket->href('move'), array('class' => 'btn btn-warning'));
+					} 
+					?>
+				</div>
+			<?php } ?>
+		</div>
+	</h2>	
+	<div class="well">
+	<div class="row">
 		<section class="properties">	
 		<div class="col-md-12">	
 			<div class="col-md-1">	
@@ -129,7 +133,8 @@
 		</section>
 		</div>
 
-	</div>		
+	</div>
+	</div>
 		<section id="description">
 			<h3 class="section_title">
 			<?php echo l('description'); ?>
@@ -140,7 +145,7 @@
 				} ?>
 				</div>
 			</h3>
-			<div class="body">
+			<div class="well">
 				<?php echo format_text($ticket->body, true); ?>
 			</div>
 		</section>
