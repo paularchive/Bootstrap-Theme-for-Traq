@@ -98,7 +98,7 @@
 				<div class="form-group">
 					<label for="tasks" class="col-sm-2 control-label"><?php echo l('tasks'); ?></label>
 					<div class="col-sm-10">						
-					<button type="button" id="manage_ticket_tasks" data-url="<?php echo Request::base($project->href("tickets/{$ticket->ticket_id}/tasks/manage"))?>"><?php echo l('manage')?></button>
+					<button type="button" class="btn btn-primary" id="manage_ticket_tasks" data-url="<?php echo Request::base($project->href("tickets/{$ticket->ticket_id}/tasks/manage"))?>"><?php echo l('manage')?></button>
 					<div id="ticket_tasks_data">
 						<input type="hidden" name="task_count" value="<?php echo count($ticket->tasks)?>">
 						<input type="hidden" name="tasks" value="<?php echo htmlentities(json_encode($ticket->tasks))?>">
@@ -110,7 +110,7 @@
 				<div class="form-group">
 					<label for="attachment" class="col-sm-2 control-label"><?php echo l('attachment'); ?></label>
 					<div class="col-sm-10">							
-					<input type="file" id="attachment" name="attachment" />
+						<input type="file" id="attachment" name="attachment" />
 					</div>
 				</div>
 				<?php } ?>
@@ -128,8 +128,9 @@
 			<div class="clear"></div>
 		</div>
 		<div class="actions">
-			<?php echo Form::submit(l('submit')); ?>
-			<input type="button" data-preview="#comment" value="<?php echo l('preview'); ?>" />
+			
+			<input type="submit" class="btn btn-success" value="<?php echo l('submit'); ?>" />
+			<input type="button" class="btn btn-warning" data-preview="#comment" value="<?php echo l('preview'); ?>" />
 		</div>
 	</form>
 </div>
