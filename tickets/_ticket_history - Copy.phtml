@@ -1,9 +1,5 @@
 <div id="ticket_history">
-<div class="panel panel-default">
-	<div class="panel-heading">
-		<strong class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse"><?php echo l('ticket_history'); ?></a></strong>
-	</div>
-<div id="collapse" class="panel-collapse collapse">
+	<h3 class="section_title"><?php echo l('ticket_history'); ?></h3>
 <?php foreach ($ticket_history as $update) { ?>
 	<div class="update" id="ticket_update_<?php echo $update->id; ?>">
 		<div class="panel panel-default">
@@ -38,6 +34,4 @@
 		</div> 
 	</div>
 <?php } ?>
-</div>
-</div>
 </div>
