@@ -1,7 +1,9 @@
 <div id="ticket_info">
 	<h2 class="page-header"><?php echo htmlspecialchars($ticket->summary); ?>	
 	<div class="ticket_actions pull-right">
-		<div class="btn btn-default"><?php echo subscription_link_for($ticket); ?></div>
+		<?php if (LOGGEDIN) {
+			echo subscription_link_for($ticket);
+		} ?>
 		<?php if ($current_user->permission($ticket->project_id, 'delete_tickets')) {
 			echo HTML::link(l('delete'), $ticket->href('/delete'), array('class' => 'btn btn-danger', 'data-confirm' => l('confirm.delete_x', $ticket->summary)));
 		} ?>
