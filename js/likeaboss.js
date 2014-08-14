@@ -171,9 +171,9 @@ var likeABoss = {
 			
 			function mkbtn(name, btncontent) {
 				if(btncontent){
-					button = $('<button type="button" class="btn btn-default" data-toggle="tooltip" data-container="body" title="' + likeABoss.locale(name) + '">'+ btncontent +'</button>');
+					button = $('<button type="button" class="btn btn-primary" data-toggle="tooltip" data-container="body" title="' + likeABoss.locale(name) + '">'+ btncontent +'</button>');
 				} else {
-					button = $('<button type="button" class="btn btn-default" data-toggle="tooltip" data-container="body" title="' + likeABoss.locale(name) + '">' + name + '</button>');		
+					button = $('<button type="button" class="btn btn-primary" data-toggle="tooltip" data-container="body" title="' + likeABoss.locale(name) + '">' + name + '</button>');		
 				}
 			//
 				button.click(function(){ markup(name); return false; });
