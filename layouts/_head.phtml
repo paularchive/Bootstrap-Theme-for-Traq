@@ -1,10 +1,12 @@
+<?php $config = parse_ini_file( APPPATH . '/views/' . settings('theme') . '/config/config.ini' ); ?>
 <title><?php echo implode(' - ', array_reverse($traq->title)); ?></title>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="<?php echo Request::base('vendor/traq/views/' . settings('theme') . '/css/bootstrap.min.css'); ?>" media="screen">
 		<?php echo HTML::css_link('//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'); ?>
-		<link rel="stylesheet" href="<?php echo Request::base('vendor/traq/views/' . settings('theme') . '/css/style.css'); ?>" media="screen">		
+		<link rel="stylesheet" href="<?php echo Request::base('vendor/traq/views/' . settings('theme') . '/css/style.css'); ?>" media="screen">
+		<link rel="stylesheet" href="<?php if ($config['navbar'] == "default") { echo Request::base('vendor/traq/views/' . settings('theme') . '/css/navbar-default.css'); } else { echo Request::base('vendor/traq/views/' . settings('theme') . '/css/navbar-inverse.css'); } ?>" media="screen">
 		<link rel="stylesheet" href="<?php echo Request::base('vendor/traq/views/' . settings('theme') . '/css/animated-progressbar.css'); ?>" media="screen">
 
 		<!--[if lt IE 8]>

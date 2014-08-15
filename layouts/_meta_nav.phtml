@@ -9,8 +9,8 @@
 				<?php if ($current_user->group->is_admin) { ?>
 				<li<?php echo iif(active_nav('/admin(.*)'), ' class="active"')?>><?php echo HTML::link(l('admincp'), '/admin'); ?></li>
 				<li class="divider"></li>
-				<li<?php if ($config['navbar'] == "default") { echo ' class="active"'; } ?>><a href="?nav=light">Light Navbar</a></li>
-				<li<?php if ($config['navbar'] == "inverse") { echo ' class="active"'; } ?>><a href="?nav=dark">Dark Navbar</a></li>
+				<li<?php if ($config['navbar'] == "default") { echo ' class="active"'; } ?>><a href="?nav=light">Light Theme</a></li>
+				<li<?php if ($config['navbar'] == "inverse") { echo ' class="active"'; } ?>><a href="?nav=dark">Dark Theme</a></li>
 				<?php } ?>
 				<li class="divider"></li>
 				<li><?php echo HTML::link(l('logout'), '/logout'); ?></li>

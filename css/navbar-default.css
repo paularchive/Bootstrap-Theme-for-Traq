@@ -1,0 +1,31 @@
+.navbar-brand:hover {
+	color: #555 !important;
+	background-color: #e6e6e6 !important;
+}
+
+.navbar-nav>li>a:hover {
+	color: #555 !important;
+	background-color: #e6e6e6 !important;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	color: #666;
+	background-color: #efefef;
+	padding: 17px 0 18px 0;
+	border-top: 1px solid #cccccc;
+}
+footer a {
+	color: #999;
+	text-decoration: none;
+}
+footer a:hover {
+	color: #3498db;
+	text-decoration: none;
+}
+footer a:active {
+	color: #cccccc;
+	text-decoration: none;
+}
