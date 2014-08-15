@@ -1,4 +1,4 @@
-<?php require APPPATH . '/views/' . settings('theme') . '/config/bootstrap.config.php'; ?>
+<?php $config = parse_ini_file( APPPATH . '/views/' . settings('theme') . '/config/config.ini' ); ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -13,7 +13,7 @@
 	<body>
 		<div id="overlay"></div>
 		<div id="popover" class="popover"></div>
-		<nav class="navbar navbar-<?php echo($navbar_inverted ? 'inverse' : 'default'); ?> navbar-static-top" role="navigation">
+		<nav class="navbar navbar-<?php echo $config['navbar']; ?> navbar-static-top" role="navigation">
 				
 			<div class="container-fluid">
 		
