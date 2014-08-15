@@ -1,4 +1,36 @@
 <?php $config = parse_ini_file( APPPATH . '/views/' . settings('theme') . '/config/config.ini' ); ?>
+<?php 
+if ($current_user->group->is_admin) {
+	if ($_GET['nav'] == "light") {
+		
+		$config[ 'navbar' ] = "default"; //Lets set the navbar to default
+		$f = fopen( APPPATH . '/views/' . settings('theme') . '/config/config.ini', "w" );
+		foreach ( $config as $name => $value )
+		{
+			fwrite( $f, "$name = \"$value\"\n" );
+		}
+		
+		fclose( $f );
+		
+		header("Location: /"); //Everything done? lets go back to the main site
+		
+	}
+	if ($_GET['nav'] == "dark") {
+		
+		$config[ 'navbar' ] = "inverse"; //Lets set the navbar to inverse
+		$f = fopen( APPPATH . '/views/' . settings('theme') . '/config/config.ini', "w" );
+		foreach ( $config as $name => $value )
+		{
+			fwrite( $f, "$name = \"$value\"\n" );
+		}
+		
+		fclose( $f );
+		
+		header("Location: /"); //Everything done? lets go back to the main site
+		
+	}
+}
+?>
 <!DOCTYPE html>
 <html>
 	<head>
