@@ -23,37 +23,33 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="milestone" class="col-sm-2 control-label"><?php echo l('milestone'); ?></label>
+				<label for="milestone" class="col-sm-2 control-label"><?php echo l('milestone'); ?> <a href="#" data-toggle="tooltip" title="<?php echo l('help.milestone'); ?>">?</a></label>
 				<div class="col-sm-10">	
 					<?php echo Form::select('milestone', $project->milestone_select_options('open'), array('value' => $ticket->milestone_id, 'class' => 'form-control')); ?>
-					<abbr title="<?php echo l('help.milestone'); ?>" class="hint">?</abbr>
 				</div>
 			</div>
 			
 				<?php if (current_user()->permission($project->id, 'ticket_properties_set_version')) { ?>
 			<div class="form-group">
-				<label for="version" class="col-sm-2 control-label"><?php echo l('version'); ?></label>
+				<label for="version" class="col-sm-2 control-label"><?php echo l('version'); ?>  <a href="#" data-toggle="tooltip" title="<?php echo l('help.version'); ?>">?</a></label>
 				<div class="col-sm-10">	
 					<?php echo Form::select('version', array_merge(array(array('value' => 0, 'label' => l('none'))), $project->milestone_select_options('all', 'DESC')), array('value' => $ticket->version_id, 'class' => 'form-control')); ?>
-					<abbr title="<?php echo l('help.version'); ?>" class="hint">?</abbr>
 				</div>
 			</div>
 				<?php } ?>
 				<?php if (current_user()->permission($project->id, 'ticket_properties_set_component')) { ?>
 			<div class="form-group">
-				<label for="component" class="col-sm-2 control-label"><?php echo l('component'); ?></label>
+				<label for="component" class="col-sm-2 control-label"><?php echo l('component'); ?>  <a href="#" data-toggle="tooltip" title="<?php echo l('help.component'); ?>">?</a></label>
 				<div class="col-sm-10">	
 					<?php echo Form::select('component', array_merge(array(array('value' => 0, 'label' => l('none'))), traq\models\Component::select_options($project->id)), array('value' => $ticket->component_id, 'class' => 'form-control')); ?>
-					<abbr title="<?php echo l('help.component'); ?>" class="hint">?</abbr>
 				</div>
 			</div>
 				<?php } ?>
 				<?php if (current_user()->permission($project->id, 'ticket_properties_set_severity')) { ?>
 			<div class="form-group">
-				<label for="severity" class="col-sm-2 control-label"><?php echo l('severity'); ?></label>
+				<label for="severity" class="col-sm-2 control-label"><?php echo l('severity'); ?>  <a href="#" data-toggle="tooltip" title="<?php echo l('help.severity'); ?>">?</a></label>
 				<div class="col-sm-10">	
 					<?php echo Form::select('severity', traq\models\Severity::select_options(), array('value' => $ticket->severity_id, 'class' => 'form-control')); ?>
-					<abbr title="<?php echo l('help.severity'); ?>" class="hint">?</abbr>
 				</div>
 			</div>
 				<?php } ?>
