@@ -6,22 +6,22 @@
 		<div class="panel-heading">		
 			<strong class="panel-title"><?php echo HTML::link($project->name, $project->slug); ?><?php echo ($project->codename ? " <em>\"{$project->codename}\"</em>" : ''); ?></strong>
 		</div>
-		<div class="panel-body">		
-			
-				<nav>
-					<ul>
-						<li><?php echo HTML::link(l('roadmap'), "{$project->slug}/roadmap"); ?></li>
-						<li><?php echo HTML::link(l('tickets'), "{$project->slug}/tickets"); ?></li>
-						<li><?php echo HTML::link(l('timeline'), "{$project->slug}/timeline"); ?></li>
-						<?php FishHook::run('template:projects/index/project/nav', array($project)); ?>
-					</ul>
-				</nav>
-					
-			<div class="description">
-				<?php echo format_text($project->info); ?>
-			</div>
-			<?php FishHook::run('template:projects/index/project', array($project)); ?>
-		</div>
+		<ul class="list-group">
+			<?php echo HTML::link(l('roadmap'), "{$project->slug}/roadmap", array('class' => 'list-group-item')); ?>
+			<?php echo HTML::link(l('tickets'), "{$project->slug}/tickets", array('class' => 'list-group-item')); ?>
+			<?php echo HTML::link(l('timeline'), "{$project->slug}/timeline", array('class' => 'list-group-item')); ?>
+			<?php echo HTML::link(l('changelog'), "{$project->slug}/changelog", array('class' => 'list-group-item')); ?>
+			<?php if ($project->enable_wiki) { ?>
+				<?php echo HTML::link(l('wiki'), "{$project->slug}/wiki", array('class' => 'list-group-item')); ?>
+			<?php } ?>
+			<?php FishHook::run('template:projects/index/project/nav', array($project)); ?>
+			<li class="list-group-item list-group-item-info">				
+				<div class="description">
+					<?php echo format_text($project->info); ?>
+				</div>
+				<?php FishHook::run('template:projects/index/project', array($project)); ?>
+			</li>
+		</ul>
 	</div>	
 		<?php } ?>
 
