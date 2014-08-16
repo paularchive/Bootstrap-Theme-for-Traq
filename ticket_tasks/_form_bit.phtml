@@ -1,7 +1,9 @@
 <div id="ticket_task_bit_<?php echo $id?>" class="task">
 <div class="form-group">
 	<div class="col-sm-1">
+		<div class="checkbox">
 		<?php echo Form::checkbox("tasks[{$id}][completed]", '1', array('checked' => $completed, 'data-task-id' => $id))?>
+		</div>
 	</div>
 	<div class="col-sm-9">
 		<?php echo Form::text("tasks[{$id}][task]", array('value' => $task, 'data-task-id' => $id,'class' => 'form-control'))?>
