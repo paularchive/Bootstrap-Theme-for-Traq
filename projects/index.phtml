@@ -4,7 +4,7 @@
 		<?php foreach($projects as $project) { ?>
 	<div class="panel panel-default">
 		<div class="panel-heading">		
-			<strong><?php echo HTML::link($project->name, $project->slug); ?><?php echo ($project->codename ? " <em>\"{$project->codename}\"</em>" : ''); ?></strong>
+			<strong class="panel-title"><?php echo HTML::link($project->name, $project->slug); ?><?php echo ($project->codename ? " <em>\"{$project->codename}\"</em>" : ''); ?></strong>
 		</div>
 		<div class="panel-body">		
 			
