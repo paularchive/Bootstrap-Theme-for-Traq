@@ -1,9 +1,9 @@
 <?php $config = parse_ini_file( APPPATH . '/views/' . settings('theme') . '/config/config.ini' ); ?>
 <?php 
 if ($current_user->group->is_admin) {
-	if ($_GET['nav'] == "light") {
+	if ($_GET['theme'] == "light") {
 		
-		$config[ 'navbar' ] = "default"; //Lets set the navbar to default
+		$config[ 'theme' ] = "default"; //Lets set the theme to default
 		$f = fopen( APPPATH . '/views/' . settings('theme') . '/config/config.ini', "w" );
 		foreach ( $config as $name => $value )
 		{
@@ -12,12 +12,12 @@ if ($current_user->group->is_admin) {
 		
 		fclose( $f );
 		
-		header("Location: /"); //Everything done? lets go back to the main site
+		header("Location: ".Request::base()); //Everything done? lets go back to the main site
 		
 	}
-	if ($_GET['nav'] == "dark") {
+	if ($_GET['theme'] == "dark") {
 		
-		$config[ 'navbar' ] = "inverse"; //Lets set the navbar to inverse
+		$config[ 'theme' ] = "inverse"; //Lets set the theme to inverse
 		$f = fopen( APPPATH . '/views/' . settings('theme') . '/config/config.ini', "w" );
 		foreach ( $config as $name => $value )
 		{
@@ -26,7 +26,7 @@ if ($current_user->group->is_admin) {
 		
 		fclose( $f );
 		
-		header("Location: /"); //Everything done? lets go back to the main site
+		header("Location: ".Request::base()); //Everything done? lets go back to the main site
 		
 	}
 }
@@ -45,7 +45,7 @@ if ($current_user->group->is_admin) {
 	<body>
 		<div id="overlay"></div>
 		<div id="popover" class="popover"></div>
-		<nav class="navbar navbar-<?php echo $config['navbar']; ?> navbar-static-top" role="navigation">
+		<nav class="navbar navbar-<?php echo $config['theme']; ?> navbar-static-top" role="navigation">
 				
 			<div class="container-fluid">
 		

@@ -1,6 +1,6 @@
 <?php $config = parse_ini_file( APPPATH . '/views/' . settings('theme') . '/config/config.ini' ); ?>
 	<li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-lg"></i> <?php if (LOGGEDIN) { echo ($current_user->name); } else { echo ('Not logged in'); } ?> <span class="caret"></span></a>
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-lg"></i> <?php echo (LOGGEDIN ? $current_user->name : 'Not logged in'); ?> <span class="caret"></span></a>
 		<ul class="dropdown-menu" role="menu">
 			<?php FishHook::run('template:layouts/_meta_nav/user_nav'); ?>
 			<?php if (LOGGEDIN) { ?>
@@ -9,8 +9,8 @@
 				<?php if ($current_user->group->is_admin) { ?>
 				<li<?php echo iif(active_nav('/admin(.*)'), ' class="active"')?>><?php echo HTML::link(l('admincp'), '/admin'); ?></li>
 				<li class="divider"></li>
-				<li<?php if ($config['navbar'] == "default") { echo ' class="active"'; } ?>><a href="?nav=light">Light Theme</a></li>
-				<li<?php if ($config['navbar'] == "inverse") { echo ' class="active"'; } ?>><a href="?nav=dark">Dark Theme</a></li>
+				<li<?php echo ($config['theme'] == "default" ? ' class="active"' : ''); ?>><a href="?theme=light">Light Theme</a></li>
+				<li<?php echo ($config['theme'] == "inverse" ? ' class="active"' : ''); ?>><a href="?theme=dark">Dark Theme</a></li>
 				<?php } ?>
 				<li class="divider"></li>
 				<li><?php echo HTML::link(l('logout'), '/logout'); ?></li>
