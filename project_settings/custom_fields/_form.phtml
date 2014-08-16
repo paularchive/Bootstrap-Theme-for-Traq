@@ -54,7 +54,7 @@
 	<div class="form-group select_field_property">
 		<label for="values" class="col-sm-2 control-label"><?php echo l('values'); ?></label>	
 		<div class="col-sm-10">	
-			<?php echo Form::textarea('values', array('value' => $field->values, 'class' => 'form-control', 'id' => 'values')); ?>
+			<?php echo Form::textarea('values', array('value' => $field->values, 'class' => 'form-control', 'id' => 'values', 'rows' => '6')); ?>
 			<div class="info"><?php echo l('help.custom_fields.values'); ?></div>
 		</div>
 	</div>

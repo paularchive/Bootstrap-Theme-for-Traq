@@ -7,7 +7,7 @@
 			<?php if ($current_user->permission($project->id, 'comment_on_tickets')) { ?>
 			<div class="group">
 				<?php echo Form::label(l('comment'), 'comment'); ?>
-				<?php echo Form::textarea('comment', array('class' => 'editor')); ?>
+				<?php echo Form::textarea('comment', array('class' => 'form-control editor', 'rows' => '6')); ?>
 			</div>
 			<?php } ?>
 			<div class="properties group">

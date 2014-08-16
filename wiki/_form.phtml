@@ -14,6 +14,6 @@
 <div class="form-group">
 	<label for="page_content" class="col-sm-2 control-label"><?php echo l('page_content'); ?></label>
 	<div class="col-sm-10">
-		<?php echo Form::textarea('body', array('value' => htmlspecialchars($page->revision->content), 'class' => 'editor form-control')); ?>
+		<?php echo Form::textarea('body', array('value' => htmlspecialchars($page->revision->content), 'class' => 'editor form-control', 'rows' => '6')); ?>
 	</div>
 </div>
