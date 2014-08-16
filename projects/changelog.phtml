@@ -9,15 +9,15 @@
 	<?php } ?>
 	</style>
 	<?php foreach ($milestones as $milestone) { ?>
-		<div id="changeset">
-			<h3><?php echo $milestone->name; ?></h3>
-			<ul>
+		<div class="panel panel-default">
+			<div class="panel-heading"><strong><?php echo $milestone->name; ?></strong></div>
+			<ul class="list-group">
 			<?php foreach ($milestone->tickets->exec()->fetch_all() as $ticket) {
 				if (!$types[$ticket->type_id]->changelog or !$ticket->status->changelog) {
 					continue;
 				}
 			?>
-				<li class="type_<?php echo $ticket->type_id; ?>"><?php echo HTML::link($ticket->summary, $ticket->href()); ?></li>
+				<?php echo HTML::link($ticket->summary, $ticket->href(), array('class' => 'list-group-item type_'.$ticket->type_id)); ?>
 			<?php } ?>
 			</ul>
 		</div>
