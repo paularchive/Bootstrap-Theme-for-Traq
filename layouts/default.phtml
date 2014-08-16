@@ -142,12 +142,12 @@ if ($current_user->group->is_admin) {
 		<script>
 			// ADD FADEIN ANIMATION TO DROPDOWN //
 			$('.dropdown').on('show.bs.dropdown', function(e){
-				$(this).find('.dropdown-menu').first().stop(true, true).fadeIn();
+				$(this).find('.dropdown-menu').fadeIn();
 			});
 
 			// ADD FADEOUT ANIMATION TO DROPDOWN //
 			$('.dropdown').on('hide.bs.dropdown', function(e){
-				$(this).find('.dropdown-menu').first().stop(true, true).fadeOut();
+				$(this).find('.dropdown-menu').hide(); //Had to change this because slideDown and fadeOut was kinda bugy on phone's
 			});
 		</script>
 		<script>
