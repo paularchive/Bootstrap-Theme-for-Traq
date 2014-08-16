@@ -1,11 +1,11 @@
-<div class="panel panel-default">
+<div class="panel panel-default" id="ticket_filters">
 	<div class="panel-heading">
 		<strong class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><?php echo l('filters'); ?></a></strong>
 	</div>
 	<div id="collapse1" class="panel-collapse collapse in">
 		<form action="<?php echo Request::base($project->href('tickets/update_filters')); ?>" method="post">
-			<div class="panel-body">
-				<table>
+			<div class="table-responsive">
+				<table style="margin-bottom:0;" class="table table-hover">
 					<tbody>
 					<?php foreach ($filters as $filter => $info) { ?>
 						<?php if (in_array($filter, array('milestone', 'status', 'version', 'type', 'component', 'priority', 'severity', 'search'))) { ?>
@@ -39,7 +39,7 @@
 						<?php } else { ?>
 							<?php foreach ($info['values'] as $k => $value) { ?>
 							<tr id="filter-<?php echo $filter; ?>-<?php echo $k; ?>">
-								<td class="label">
+								<td>
 									<?php if (isset($info['label'])) { ?>
 										<?php echo $info['label']; ?>
 									<?php } else { ?>
@@ -87,17 +87,15 @@
 							<?php } ?>
 						<?php } ?>
 					<?php } ?>
-						<tr>
-							<td colspan="3" id="ticket_filter_actions">
-								<?php echo Form::select('new_filter', ticket_filters_select_options($project)); ?>
-								<button type="submit" class="button_new" name="add_filter">+</button>
-							</td>
-						</tr>
 					</tbody>
 				</table>
 			</div>
 			<div class="panel-footer">
-				<?php echo Form::submit(l('update'), 'update', array('class' => 'btn btn-primary')); ?>						
+				<?php echo Form::submit(l('update'), 'update', array('class' => 'btn btn-primary')); ?>
+				<div class="pull-right">
+					<?php echo Form::select('new_filter', ticket_filters_select_options($project)); ?>
+					<button type="submit" class="button_new" name="add_filter">+</button>
+				</div>
 			</div>
 		</form>
 	</div>
