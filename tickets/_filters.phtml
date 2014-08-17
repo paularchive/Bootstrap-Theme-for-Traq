@@ -93,8 +93,10 @@
 			<div class="panel-footer">
 				
 				<div class="pull-right">
-					<?php echo Form::select('new_filter', ticket_filters_select_options($project),array('class' => 'form-control')); ?>
 					<button type="submit" class="btn btn-success" name="add_filter">+</button>
+				</div>	
+				<div class="pull-right">						
+					<?php echo Form::select('new_filter', ticket_filters_select_options($project),array('class' => 'form-control')); ?>
 				</div>
 				<?php echo Form::submit(l('update'), 'update', array('class' => 'btn btn-primary')); ?>
 			</div>
