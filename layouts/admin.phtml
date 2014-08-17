@@ -1,7 +1,7 @@
 <?php $config = parse_ini_file( APPPATH . '/views/' . settings('theme') . '/config/config.ini' ); ?>
 <?php 
 if ($current_user->group->is_admin) {
-	if (isset($_GET['theme']) == "light") {
+	if (isset($_GET['theme']) && $_GET['theme'] == "light") {
 		
 		$config[ 'theme' ] = "default"; //Lets set the theme to default
 		$f = fopen( APPPATH . '/views/' . settings('theme') . '/config/config.ini', "w" );
@@ -15,7 +15,7 @@ if ($current_user->group->is_admin) {
 		header("Location: ".Request::base()); //Everything done? lets go back to the main site
 		
 	}
-	if (isset($_GET['theme']) == "dark") {
+	if if (isset($_GET['theme']) && $_GET['theme'] == "dark") {
 		
 		$config[ 'theme' ] = "inverse"; //Lets set the theme to inverse
 		$f = fopen( APPPATH . '/views/' . settings('theme') . '/config/config.ini', "w" );
