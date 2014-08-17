@@ -1,7 +1,9 @@
+
+
+<?php foreach ($ticket_history as $update) { ?>
 <div id="ticket_history">
 <h3 class="section_title"><?php echo l('ticket_history'); ?></h3>
 <div class="well">
-<?php foreach ($ticket_history as $update) { ?>
 	<div class="update" id="ticket_update_<?php echo $update->id; ?>">
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -34,6 +36,6 @@
 			<?php } ?>
 		</div> 
 	</div>
+</div>	
+</div>
 <?php } ?>
-</div>
-</div>
