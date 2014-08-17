@@ -5,25 +5,27 @@
 			<?php echo HTML::link(l('new_status'), '/admin/tickets/statuses/new', array('class' => 'btn btn-default', 'data-overlay' => true)); ?>
 		</div>
 	</h2>
-	<table class="table table-hover">
-		<thead>
-			<th><?php echo l('name'); ?></th>
-			<th><?php echo l('status'); ?></th>
-			<th><?php echo l('changelog'); ?></th>			
-			<th><!--?php echo l('actions'); ?--></th>
-		</thead>
-		<tbody>
-		<?php foreach ($statuses as $status) { ?>
-			<tr>
-				<td><?php echo HTML::link($status->name, "/admin/tickets/statuses/{$status->id}/edit", array('data-overlay' => true)); ?></td>
-				<td><?php if($status->status == 1){ echo l('open'); }else{ echo l('closed'); } ?></td>	
-				<td><?php echo $status->changelog ? '&#10003;' : '&times;' ?></td>				
-				<td align="right">
-					<?php echo HTML::link(l('edit'), "/admin/tickets/statuses/{$status->id}/edit", array('class' => 'btn btn-xs btn-warning', 'data-overlay' => true)); ?>
-					<?php echo HTML::link(l('delete'), "/admin/tickets/statuses/{$status->id}/delete", array('class' => 'btn btn-xs btn-danger', 'data-confirm' => l('confirm.delete_x', $status->name))); ?>
-				</td>
-			</tr>
-		<?php } ?>
-		</tbody>
-	</table>
+	<div class="table-responsive">
+		<table class="table table-hover">
+			<thead>
+				<th><?php echo l('name'); ?></th>
+				<th><?php echo l('status'); ?></th>
+				<th><?php echo l('changelog'); ?></th>			
+				<th><!--?php echo l('actions'); ?--></th>
+			</thead>
+			<tbody>
+			<?php foreach ($statuses as $status) { ?>
+				<tr>
+					<td><?php echo HTML::link($status->name, "/admin/tickets/statuses/{$status->id}/edit", array('data-overlay' => true)); ?></td>
+					<td><?php if($status->status == 1){ echo l('open'); }else{ echo l('closed'); } ?></td>	
+					<td><?php echo $status->changelog ? '&#10003;' : '&times;' ?></td>				
+					<td align="right">
+						<?php echo HTML::link(l('edit'), "/admin/tickets/statuses/{$status->id}/edit", array('class' => 'btn btn-xs btn-warning', 'data-overlay' => true)); ?>
+						<?php echo HTML::link(l('delete'), "/admin/tickets/statuses/{$status->id}/delete", array('class' => 'btn btn-xs btn-danger', 'data-confirm' => l('confirm.delete_x', $status->name))); ?>
+					</td>
+				</tr>
+			<?php } ?>
+			</tbody>
+		</table>
+	</div>
 </div>

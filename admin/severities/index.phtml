@@ -5,21 +5,23 @@
 			<?php echo HTML::link(l('new_severity'), '/admin/severities/new', array('class' => 'btn btn-default', 'data-overlay' => true)); ?>
 		</div>
 	</h2>
-	<table class="table table-hover">
-		<thead>
-			<th><?php echo l('name'); ?></th>
-			<th><!--?php echo l('actions'); ?--></th>
-		</thead>
-		<tbody>
-		<?php foreach ($severities as $severity) { ?>
-			<tr>
-				<td><?php echo HTML::link($severity->name, "/admin/severities/{$severity->id}/edit", array('data-overlay' => true)); ?></td>
-				<td align="right">
-					<?php echo HTML::link(l('edit'), "/admin/severities/{$severity->id}/edit", array('class' => 'btn btn-xs btn-warning', 'data-overlay' => true)); ?>
-					<?php echo HTML::link(l('delete'), "/admin/severities/{$severity->id}/delete", array('class' => 'btn btn-xs btn-danger', 'data-confirm' => l('confirm.delete_x', $severity->name))); ?>
-				</td>
-			</tr>
-		<?php } ?>
-		</tbody>
-	</table>
+	<div class="table-responsive">
+		<table class="table table-hover">
+			<thead>
+				<th><?php echo l('name'); ?></th>
+				<th><!--?php echo l('actions'); ?--></th>
+			</thead>
+			<tbody>
+			<?php foreach ($severities as $severity) { ?>
+				<tr>
+					<td><?php echo HTML::link($severity->name, "/admin/severities/{$severity->id}/edit", array('data-overlay' => true)); ?></td>
+					<td align="right">
+						<?php echo HTML::link(l('edit'), "/admin/severities/{$severity->id}/edit", array('class' => 'btn btn-xs btn-warning', 'data-overlay' => true)); ?>
+						<?php echo HTML::link(l('delete'), "/admin/severities/{$severity->id}/delete", array('class' => 'btn btn-xs btn-danger', 'data-confirm' => l('confirm.delete_x', $severity->name))); ?>
+					</td>
+				</tr>
+			<?php } ?>
+			</tbody>
+		</table>
+	</div>
 </div>

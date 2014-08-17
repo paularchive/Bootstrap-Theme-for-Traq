@@ -5,25 +5,27 @@
 			<?php echo HTML::link(l('new_project'), '/admin/projects/new', array('class' => 'btn btn-default', 'data-overlay' => true)); ?>
 		</div>
 	</h2>
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th><?php echo l('name'); ?></th>
-				<th><?php echo l('codename'); ?></th>
-				<th><!--?php echo l('actions'); ?--></th>
-			</tr>
-		</thead>
-		<tbody>
-		<?php foreach ($projects as $project) { ?>
-			<tr>
-				<td><?php echo HTML::link($project->name, "/{$project->slug}/settings"); ?></td>
-				<td><?php echo $project->codename; ?></td>
-				<td align="right">
-					<?php echo HTML::link(l('edit'), "/{$project->slug}/settings", array('class' => 'btn btn-xs btn-warning')); ?>
-					<?php echo HTML::link(l('delete'), "/admin/projects/{$project->id}/delete", array('class' => 'btn btn-xs btn-danger', 'data-confirm' => l('confirm.delete_x', $project->name))); ?>
-				</td>
-			</tr>
-		<?php } ?>
-		</tbody>
-	</table>
+	<div class="table-responsive">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th><?php echo l('name'); ?></th>
+					<th><?php echo l('codename'); ?></th>
+					<th><!--?php echo l('actions'); ?--></th>
+				</tr>
+			</thead>
+			<tbody>
+			<?php foreach ($projects as $project) { ?>
+				<tr>
+					<td><?php echo HTML::link($project->name, "/{$project->slug}/settings"); ?></td>
+					<td><?php echo $project->codename; ?></td>
+					<td align="right">
+						<?php echo HTML::link(l('edit'), "/{$project->slug}/settings", array('class' => 'btn btn-xs btn-warning')); ?>
+						<?php echo HTML::link(l('delete'), "/admin/projects/{$project->id}/delete", array('class' => 'btn btn-xs btn-danger', 'data-confirm' => l('confirm.delete_x', $project->name))); ?>
+					</td>
+				</tr>
+			<?php } ?>
+			</tbody>
+		</table>
+	</div>
 </div>

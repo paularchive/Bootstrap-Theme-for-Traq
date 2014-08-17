@@ -5,25 +5,27 @@
 			<?php echo HTML::link(l('new_user'), '/admin/users/new', array('class' => 'btn btn-default', 'data-overlay' => true)) ; ?>
 		</div>
 	</h2>
-	<table class="table table-hover">
-		<thead>
-			<th><?php echo l('username'); ?></th>
-			<th><?php echo l('name'); ?></th>			
-			<th><?php echo l('group'); ?></th>
-			<th><!--?php echo l('actions'); ?--></th>
-		</thead>
-		<tbody>
-		<?php foreach ($users as $user) { ?>
-			<tr>
-				<td><?php echo HTML::link($user->username, "/admin/users/{$user->id}/edit", array('data-overlay' => true)); ?></td>
-				<td><?php echo $user->name; ?></td>
-				<td><?php echo $user->group->name; ?></td>
-				<td align="right">
-					<?php echo HTML::link(l('edit'), "/admin/users/{$user->id}/edit", array('class' => 'btn btn-xs btn-warning', 'data-overlay' => true)); ?>
-					<?php echo HTML::link(l('delete'), "/admin/users/{$user->id}/delete", array('class' => 'btn btn-xs btn-danger', 'data-confirm' => l('confirm.delete_x', $user->username))); ?>
-				</td>
-			</tr>
-		<?php } ?>
-		</tbody>
-	</table>
+	<div class="table-responsive">
+		<table class="table table-hover">
+			<thead>
+				<th><?php echo l('username'); ?></th>
+				<th><?php echo l('name'); ?></th>			
+				<th><?php echo l('group'); ?></th>
+				<th><!--?php echo l('actions'); ?--></th>
+			</thead>
+			<tbody>
+			<?php foreach ($users as $user) { ?>
+				<tr>
+					<td><?php echo HTML::link($user->username, "/admin/users/{$user->id}/edit", array('data-overlay' => true)); ?></td>
+					<td><?php echo $user->name; ?></td>
+					<td><?php echo $user->group->name; ?></td>
+					<td align="right">
+						<?php echo HTML::link(l('edit'), "/admin/users/{$user->id}/edit", array('class' => 'btn btn-xs btn-warning', 'data-overlay' => true)); ?>
+						<?php echo HTML::link(l('delete'), "/admin/users/{$user->id}/delete", array('class' => 'btn btn-xs btn-danger', 'data-confirm' => l('confirm.delete_x', $user->username))); ?>
+					</td>
+				</tr>
+			<?php } ?>
+			</tbody>
+		</table>
+	</div>
 </div>

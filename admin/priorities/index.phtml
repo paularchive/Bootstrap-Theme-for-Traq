@@ -5,23 +5,25 @@
 			<?php echo HTML::link(l('new_priority'), '/admin/priorities/new', array('class' => 'btn btn-default', 'data-overlay' => true)); ?>
 		</div>
 	</h2>
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th><?php echo l('name'); ?></th>
-				<th><!--?php echo l('actions'); ?--></th>
-			</tr>
-		</thead>
-		<tbody>
-		<?php foreach ($priorities as $priority) { ?>
-			<tr>
-				<td><?php echo HTML::link($priority->name, "/admin/priorities/{$priority->id}/edit", array('data-overlay' => true)); ?></td>
-				<td align="right">
-					<?php echo HTML::link(l('edit'), "/admin/priorities/{$priority->id}/edit", array('class' => 'btn btn-xs btn-warning', 'data-overlay' => true)); ?>
-					<?php echo HTML::link(l('delete'), "/admin/priorities/{$priority->id}/delete", array('class' => 'btn btn-xs btn-danger', 'data-confirm' => l('confirm.delete_x', $priority->name))); ?>
-				</td>
-			</tr>
-		<?php } ?>
-		</tbody>
-	</table>
+	<div class="table-responsive">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th><?php echo l('name'); ?></th>
+					<th><!--?php echo l('actions'); ?--></th>
+				</tr>
+			</thead>
+			<tbody>
+			<?php foreach ($priorities as $priority) { ?>
+				<tr>
+					<td><?php echo HTML::link($priority->name, "/admin/priorities/{$priority->id}/edit", array('data-overlay' => true)); ?></td>
+					<td align="right">
+						<?php echo HTML::link(l('edit'), "/admin/priorities/{$priority->id}/edit", array('class' => 'btn btn-xs btn-warning', 'data-overlay' => true)); ?>
+						<?php echo HTML::link(l('delete'), "/admin/priorities/{$priority->id}/delete", array('class' => 'btn btn-xs btn-danger', 'data-confirm' => l('confirm.delete_x', $priority->name))); ?>
+					</td>
+				</tr>
+			<?php } ?>
+			</tbody>
+		</table>
+	</div>
 </div>

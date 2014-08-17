@@ -5,25 +5,27 @@
 			<?php echo HTML::link(l('new_group'), '/admin/groups/new', array('class' => 'btn btn-default', 'data-overlay' => true)); ?>
 		</div>
 	</h2>
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th><?php echo l('name'); ?></th>
-				<th><?php echo l('users'); ?></th>
-				<th><!--?php echo l('actions'); ?--></th>
-			</tr>
-		</thead>
-		<tbody>
-		<?php foreach ($groups as $group) { ?>
-			<tr>
-				<td><?php echo HTML::link($group->name, "/admin/groups/{$group->id}/edit", array('data-overlay' => true)); ?></td>
-				<td><span class="badge"><?php echo $group->users->exec()->row_count(); ?></span></td>
-				<td align="right">
-					<?php echo HTML::link(l('edit'), "/admin/groups/{$group->id}/edit", array('class' => 'btn btn-xs btn-warning', 'data-overlay' => true)); ?>
-					<?php echo HTML::link(l('delete'), "/admin/groups/{$group->id}/delete", array('class' => 'btn btn-xs btn-danger', 'data-confirm' => l('confirm.delete_x', $group->name))); ?>
-				</td>
-			</tr>
-		<?php } ?>
-		</tbody>
-	</table>
+	<div class="table-responsive">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th><?php echo l('name'); ?></th>
+					<th><?php echo l('users'); ?></th>
+					<th><!--?php echo l('actions'); ?--></th>
+				</tr>
+			</thead>
+			<tbody>
+			<?php foreach ($groups as $group) { ?>
+				<tr>
+					<td><?php echo HTML::link($group->name, "/admin/groups/{$group->id}/edit", array('data-overlay' => true)); ?></td>
+					<td><span class="badge"><?php echo $group->users->exec()->row_count(); ?></span></td>
+					<td align="right">
+						<?php echo HTML::link(l('edit'), "/admin/groups/{$group->id}/edit", array('class' => 'btn btn-xs btn-warning', 'data-overlay' => true)); ?>
+						<?php echo HTML::link(l('delete'), "/admin/groups/{$group->id}/delete", array('class' => 'btn btn-xs btn-danger', 'data-confirm' => l('confirm.delete_x', $group->name))); ?>
+					</td>
+				</tr>
+			<?php } ?>
+			</tbody>
+		</table>
+	</div>
 </div>
