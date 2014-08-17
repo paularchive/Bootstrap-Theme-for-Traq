@@ -10,11 +10,11 @@
 					<?php foreach ($filters as $filter => $info) { ?>
 						<?php if (in_array($filter, array('milestone', 'status', 'version', 'type', 'component', 'priority', 'severity', 'search'))) { ?>
 						<tr id="filter-<?php echo $filter; ?>">
-							<td class="label"><?php echo l($filter); ?></td>
+							<td><?php echo l($filter); ?></td>
 							<?php if ($filter == 'search') { ?>
 							<td class="condition">is</td>
 							<td class="value">
-								<?php echo Form::text("filters[{$filter}][values][]", array('value' => implode(',', $info['values']), 'id' => false)); ?>
+								<?php echo Form::text("filters[{$filter}][values][]", array('value' => implode(',', $info['values']), 'id' => false, 'class' => 'form-control')); ?>
 							</td>
 							<?php } else { ?>
 							<td class="condition">
@@ -24,16 +24,16 @@
 											array('label' => l('is'), 'value' => ''),
 											array('label' => l('is_not'), 'value' => '!')
 										),
-										array('value' => $info['prefix'], 'id' => false)
+										array('value' => $info['prefix'], 'id' => false, 'class' => 'form-control')
 									);
 								?>
 							</td>
 							<td class="value">
-								<?php echo Form::multiselect("filters[{$filter}][values][]", ticket_filter_options_for($filter, $project->id), $info['values']); ?>
+								<?php echo Form::multiselect("filters[{$filter}][values][]", ticket_filter_options_for($filter, $project->id), $info['values'], array('class' => 'form-control')); ?>
 							</td>
 							<?php } ?>
 							<td class="ticket_filter_action">
-								<button type="button" class="button_delete" name="remove_filter[<?php echo $filter; ?>:<?php echo $k; ?>]" data-filter="<?php echo $filter; ?>">-</button>
+								<button type="button" class="button_delete btn btn-danger" name="remove_filter[<?php echo $filter; ?>:<?php echo $k; ?>]" data-filter="<?php echo $filter; ?>">-</button>
 							</td>
 						</tr>
 						<?php } else { ?>
@@ -55,7 +55,7 @@
 													array('label' => l('contains'), 'value' => ''),
 													array('label' => l('does_not_contain'), 'value' => '!')
 												),
-												array('value' => $info['prefix'], 'id' => false)
+												array('value' => $info['prefix'], 'id' => false, 'class' => 'form-control')
 											);
 										} else {
 											echo Form::select("filters[{$filter}][prefix]",
@@ -63,7 +63,7 @@
 													array('label' => l('is'), 'value' => ''),
 													array('label' => l('is_not'), 'value' => '!')
 												),
-												array('value' => $info['prefix'], 'id' => false)
+												array('value' => $info['prefix'], 'id' => false, 'class' => 'form-control')
 											);
 										}
 									} else {
@@ -74,14 +74,14 @@
 								<td class="value">
 								<?php
 									if (in_array($filter, array_merge(array('summary', 'description'), array_keys(ticket_filters_for($project))))) {
-										echo Form::text("filters[{$filter}][values][]", array('value' => $value, 'id' => false));
+										echo Form::text("filters[{$filter}][values][]", array('value' => $value, 'id' => false, 'class' => 'form-control'));
 									} elseif (in_array($filter, array('owner', 'assigned_to'))) {
-										echo Form::text("filters[{$filter}][values][]", array('value' => $value, 'data-autocomplete' => Request::base('/_ajax/autocomplete/username'), 'id' => false));
+										echo Form::text("filters[{$filter}][values][]", array('value' => $value, 'data-autocomplete' => Request::base('/_ajax/autocomplete/username'), 'id' => false, 'class' => 'form-control'));
 									}
 								?>
 								</td>
 								<td class="ticket_filter_action">
-									<button type="button" class="button_delete" name="remove_filter[<?php echo $filter; ?>:<?php echo $k; ?>]" data-filter="<?php echo $filter; ?>-<?php echo $k; ?>">-</button>
+									<button type="button" class="button_delete btn btn-danger" name="remove_filter[<?php echo $filter; ?>:<?php echo $k; ?>]" data-filter="<?php echo $filter; ?>-<?php echo $k; ?>">-</button>
 								</td>
 							</tr>
 							<?php } ?>
@@ -91,11 +91,12 @@
 				</table>
 			</div>
 			<div class="panel-footer">
-				<?php echo Form::submit(l('update'), 'update', array('class' => 'btn btn-primary')); ?>
+				
 				<div class="pull-right">
-					<?php echo Form::select('new_filter', ticket_filters_select_options($project)); ?>
-					<button type="submit" class="button_new" name="add_filter">+</button>
+					<?php echo Form::select('new_filter', ticket_filters_select_options($project),array('class' => 'form-control')); ?>
+					<button type="submit" class="btn btn-success" name="add_filter">+</button>
 				</div>
+				<?php echo Form::submit(l('update'), 'update', array('class' => 'btn btn-primary')); ?>
 			</div>
 		</form>
 	</div>
