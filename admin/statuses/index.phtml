@@ -1,9 +1,10 @@
 <div class="content">
-<h2 class="page-header"><?php echo l('statuses'); ?></h2>
-
-	<?php echo HTML::link(l('new_status'), '/admin/tickets/statuses/new', array('class' => 'btn btn-primary', 'data-overlay' => true)); ?>
-</div>
-<div>
+	<h2 class="page-header">
+		<?php echo l('statuses'); ?>
+		<div class="pull-right">
+			<?php echo HTML::link(l('new_status'), '/admin/tickets/statuses/new', array('class' => 'btn btn-default', 'data-overlay' => true)); ?>
+		</div>
+	</h2>
 	<table class="table table-hover">
 		<thead>
 			<th><?php echo l('name'); ?></th>
