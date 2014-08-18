@@ -20,8 +20,8 @@
 				<td><?php echo HTML::link($repo->slug, $project->href("settings/repositories/{$repo->slug}/edit"), array('data-overlay' => true)); ?></td>
 				<td><?php echo $scm_types[$repo->type]; ?></td>
 				<td align="right">
-					<?php echo HTML::link(l('edit'), $project->href("settings/repositories/{$repo->slug}/edit"), array('title' => l('edit'), 'class' => 'button_edit', 'data-overlay' => true)); ?>
-					<?php echo HTML::link(l('delete'), $project->href("settings/repositories/{$repo->slug}/delete"), array('title' => l('delete'), 'class' => 'button_delete', 'data-confirm' => l('confirm.delete_x', $repo->slug))); ?>
+					<?php echo HTML::link(l('edit'), $project->href("settings/repositories/{$repo->slug}/edit"), array('title' => l('edit'), 'class' => 'btn btn-warning', 'data-overlay' => true)); ?>
+					<?php echo HTML::link(l('delete'), $project->href("settings/repositories/{$repo->slug}/delete"), array('title' => l('delete'), 'class' => 'btn btn-danger', 'data-confirm' => l('confirm.delete_x', $repo->slug))); ?>
 				</td>
 			</tr>
 		<?php } ?>
