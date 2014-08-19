@@ -13,6 +13,11 @@
 		<?php //echo HTML::css_link(Request::base() . 'css.php?css=ie'); ?>
 		<![endif]-->
 		<?php echo HTML::js_inc('//code.jquery.com/jquery-1.11.0.min.js'); ?>
+		<script>
+			$(document).ready(function() {
+				$('#content').fadeIn();
+			});
+		</script>
 		<?php FishHook::run('template:layouts/global/head'); ?>
 <?php foreach ($app->feeds as $feed) { ?><link type="application/atom+xml" rel ="alternate" href="<?php echo $feed[0]; ?>">
 <?php } ?>

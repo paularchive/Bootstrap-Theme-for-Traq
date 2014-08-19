@@ -36,11 +36,6 @@ if ($current_user->group->is_admin) {
 	<head>
 		<?php echo View::render('layouts/_head'); ?>
 		<?php FishHook::run('template:layouts/admin/head'); ?>
-		<script>
-			$(document).ready(function() {
-				$('.container').fadeIn();
-			});
-		</script>
 	</head>
 	<body>
 		<div id="overlay"></div>
@@ -106,12 +101,8 @@ if ($current_user->group->is_admin) {
 			
 		</nav>
 		
-		<div class="container" >
-			<div class="row">	
-				<div class="col-md-12">
-					<?php echo $content; ?>
-				</div>
-			</div>
+		<div class="container" id="content">
+<?php echo $content; ?>
 		</div>
 		
 		<footer>			

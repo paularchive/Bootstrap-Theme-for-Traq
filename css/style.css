@@ -56,7 +56,6 @@ footer a:active {
 }
 .footer-right {
 	float: right!important;
-	/*margin-right: -15px;*/
 }
 
 .permissions_header{
@@ -68,7 +67,7 @@ footer a:active {
 	margin-bottom: 15px;		
 }
 
-#mass_actions{display:none}
+#mass_actions{ display:none; }
 
 .btn {
 	-webkit-transition: .7s;
@@ -86,13 +85,9 @@ a {
 	transition: .4s;
 }
 
-.navbar-brand {
-	font-weight: bold;
-}
+.navbar-brand { font-weight: bold; }
 
-.navbar-nav>li>a {
-	font-weight: bold;
-}
+.navbar-nav>li>a { font-weight: bold; }
 
 .box {
 	position: relative;
@@ -100,12 +95,8 @@ a {
 	padding: 10px 15px;
 }
 
-textarea {
-	resize: vertical;
-}
+textarea { resize: vertical; }
 
+.well p:last-child { margin: 0 0 0; }
 
-
-.well p:last-child {
-	margin: 0 0 0;
-}
+#content { display:none; }
