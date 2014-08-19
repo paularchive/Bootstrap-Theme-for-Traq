@@ -70,19 +70,19 @@ footer a:active {
 #mass_actions{ display:none; }
 
 .btn {
-	-webkit-transition: all .7s ease-in-out;
-	-moz-transition: all .7s ease-in-out;
-	-ms-transition: all .7s ease-in-out;
-	-o-transition: all .7s ease-in-out;
-	transition: all .7s ease-in-out;
+	-webkit-transition: all .5s ease-in-out;
+	-moz-transition: all .5s ease-in-out;
+	-ms-transition: all .5s ease-in-out;
+	-o-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
 }
 
 a:link {
-	-webkit-transition: all .7s ease-in-out;
-	-moz-transition: all .7s ease-in-out;
-	-ms-transition: all .7s ease-in-out;
-	-o-transition: all .7s ease-in-out;
-	transition: all .7s ease-in-out;
+	-webkit-transition: all .5s ease-in-out;
+	-moz-transition: all .5s ease-in-out;
+	-ms-transition: all .5s ease-in-out;
+	-o-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
 }
 
 .navbar-brand { font-weight: bold; }
