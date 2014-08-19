@@ -70,19 +70,19 @@ footer a:active {
 #mass_actions{ display:none; }
 
 .btn {
-	-webkit-transition: .7s;
-	-moz-transition: .7s;
-	-ms-transition: .7s;
-	-o-transition: .7s;
-	transition: .7s;
+	-webkit-transition: all .7s ease-in-out;
+	-moz-transition: all .7s ease-in-out;
+	-ms-transition: all .7s ease-in-out;
+	-o-transition: all .7s ease-in-out;
+	transition: all .7s ease-in-out;
 }
 
-a {
-	-webkit-transition: .4s;
-	-moz-transition: .4s;
-	-ms-transition: .4s;
-	-o-transition: .4s;
-	transition: .4s;
+a:link {
+	-webkit-transition: all .7s ease-in-out;
+	-moz-transition: all .7s ease-in-out;
+	-ms-transition: all .7s ease-in-out;
+	-o-transition: all .7s ease-in-out;
+	transition: all .7s ease-in-out;
 }
 
 .navbar-brand { font-weight: bold; }
