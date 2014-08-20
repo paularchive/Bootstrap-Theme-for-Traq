@@ -100,3 +100,9 @@ textarea { resize: vertical; }
 .well p:last-child { margin: 0 0 0; }
 
 #content { display:none; }
+
+.priority_1 td{background-color:#fdc}
+.priority_2 td{background-color:#ffb}
+/*.priority_3 td{background-color:#d9f9f9}*/
+.priority_4 td{background-color:#e7eeff}
+.priority_5 td{background-color:#fbfbfb}
