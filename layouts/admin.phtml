@@ -114,6 +114,7 @@ if ($current_user->group->is_admin) {
 		
 		<!-- Start all javascript for a faster page load -->
 		<?php echo HTML::js_inc('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'); ?>
+		<script src="<?php echo Request::base('vendor/traq/views/' . settings('theme') . '/js/inputs.js'); ?>" type="text/javascript"></script>
 		<script src="<?php echo Request::base('vendor/traq/views/' . settings('theme') . '/js/animated-progressbar.js'); ?>" type="text/javascript"></script>
 		<?php //echo HTML::js_inc(Request::base() . 'js.php?js=all'); ?>
 		<?php echo HTML::js_inc(Request::base() . 'js.php?js=jquery.cookie'); ?>
