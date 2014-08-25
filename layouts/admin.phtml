@@ -40,7 +40,7 @@ if ($current_user->group->is_admin) {
 	<body>
 		<div onclick="window.open('https://github.com/paulhobbel/Bootstrap-Theme-for-Traq')" class="versionbutton">
 			<i class="fa fa-info-circle fa-lg" style="margin-right: .6em;"></i>
-			<span style="display:none;" class="text">Version 0.4.225</span>
+			<span class="text">Version 0.4.226</span>
 		</div>
 		<div id="overlay"></div>
 		<div id="popover" class="popover"></div>
@@ -149,13 +149,13 @@ if ($current_user->group->is_admin) {
 			$(document).ready( function() {
 				$('.versionbutton').mouseenter(function() {
 					$(this).stop().animate({ width: '185px' }, 300, function() {
-						$(this).find('.text').show();
+						$(this).find('.text').fadeIn(100);
 					});
 				});
 
 
 				$('.versionbutton').mouseleave(function() {
-					$(this).find('.text').hide();
+					$(this).find('.text').fadeOut(100);
 					$(this).stop().animate({width: '60px'}, 300);
 				});
 			});

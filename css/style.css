@@ -145,6 +145,12 @@ textarea { resize: vertical; }
 	transition: opacity .25s ease,background-color .25s ease,color .25s ease,background .25s ease,box-shadow .25s ease;
 }
 .versionbutton:hover {
-background-color: #4C4C4C;
-color: #FFF;
+	background-color: #4C4C4C;
+	color: #FFF;
+}
+
+.text {
+	display: inline-block;
+	display: none;
+	position: absolute;
 }
