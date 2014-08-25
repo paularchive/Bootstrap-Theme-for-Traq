@@ -104,3 +104,47 @@ textarea { resize: vertical; }
 /*.priority_3 td{background-color:#d9f9f9}*/
 .priority_4 td{background-color:#d9edf7}
 .priority_5 td{background-color:#ffb}
+
+.versionbutton {
+	position: fixed;
+	top: 96px;
+	z-index: 3000;
+	width: 60px;
+	display: inline-block;
+	padding-left: .75em;
+	text-align: left;
+	border-radius: 0 .25em .25em 0;
+	background-color: #5C6166;
+	color: #FFF;
+	-webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+	box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+	font-size: 1.375rem;
+	cursor: pointer;
+	vertical-align: middle;
+	min-height: 1em;
+	outline: 0;
+	border: none;
+	margin: 0;
+	padding: .8em 1.5em;
+	text-transform: uppercase;
+	line-height: 1;
+	font-weight: 700;
+	font-style: normal;
+	text-decoration: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-transition: opacity .25s ease,background-color .25s ease,color .25s ease,background .25s ease,-webkit-box-shadow .25s ease;
+	-moz-transition: opacity .25s ease,background-color .25s ease,color .25s ease,background .25s ease,box-shadow .25s ease;
+	transition: opacity .25s ease,background-color .25s ease,color .25s ease,background .25s ease,box-shadow .25s ease;
+}
+.versionbutton:hover {
+background-color: #4C4C4C;
+color: #FFF;
+}

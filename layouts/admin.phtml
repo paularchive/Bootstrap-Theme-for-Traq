@@ -38,6 +38,10 @@ if ($current_user->group->is_admin) {
 		<?php FishHook::run('template:layouts/admin/head'); ?>
 	</head>
 	<body>
+		<div onclick="window.open('https://github.com/paulhobbel/Bootstrap-Theme-for-Traq')" class="versionbutton">
+			<i class="fa fa-info-circle fa-lg" style="margin-right: .6em;"></i>
+			<span style="display:none;" class="text">Version 0.4.225</span>
+		</div>
 		<div id="overlay"></div>
 		<div id="popover" class="popover"></div>
 		<nav class="navbar navbar-<?php echo $config['theme']; ?> navbar-static-top" role="navigation">
@@ -139,6 +143,21 @@ if ($current_user->group->is_admin) {
 		<script>
 			$( document ).ready(function() {
 				$('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
+			});
+		</script>
+		<script>
+			$(document).ready( function() {
+				$('.versionbutton').mouseenter(function() {
+					$(this).stop().animate({ width: '185px' }, 300, function() {
+						$(this).find('.text').show();
+					});
+				});
+
+
+				$('.versionbutton').mouseleave(function() {
+					$(this).find('.text').hide();
+					$(this).stop().animate({width: '60px'}, 300);
+				});
 			});
 		</script>
 		<!-- End of javascript start -->
