@@ -164,3 +164,10 @@ textarea { resize: vertical; }
 .ui-datepicker .ui-datepicker-calendar td{text-align:center;padding:16px}
 .ui-datepicker .ui-datepicker-current-day{background:#3478aa}
 .ui-datepicker .ui-datepicker-current-day a{color:#fff}
+
+.timeline_time{
+	width: 150px;
+}
+.timeline_event{
+	width: 200px;
+}

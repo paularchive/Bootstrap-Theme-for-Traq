@@ -36,13 +36,13 @@
 			<tbody>
 				<tr>
 					<?php foreach ($day['activity'] as $row) { ?>
-						<td>
+						<td class="timeline_time">
 							<span class="time"><?php echo ldate(settings('timeline_time_format'), $row->created_at); ?></span>
 						</td>
-						<td class="timeline_event_<?php echo $row->id?>">
+						<td class="timeline_event">
 							<?php echo l(HTML::link(strshorten($row->user->name, 20), $row->user->href())); ?>
 						</td>					
-						<td>
+						<td class="timeline_summ">
 						<?php if (in_array($row->action, array('ticket_created','ticket_closed','ticket_reopened','ticket_updated'))) { ?>
 							<?php echo HTML::link(
 								l("timeline.{$row->action}",
